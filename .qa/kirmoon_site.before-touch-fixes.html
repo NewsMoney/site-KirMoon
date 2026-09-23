@@ -2648,20 +2648,6 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   }, 0), {once: true});
 })();
 </script>
-
-<style id="kirmoon-touch-fixes">
-/* Assessoria técnica no celular: a área de toque de cada ponto fica no próprio
-   ponto (4px de folga, metade do espaço entre eles, sem sobreposição). */
-@media (max-width:640px){
-  #ti .infra-node{position:relative;left:auto;top:auto}
-  #ti .infra-node::before{inset:-4px}
-}
-/* Carrossel: sem o contorno de hover que gruda depois de um toque. */
-@media (max-width:960px),(hover:none){
-  #compromissos .diagnostic-panel.cmt-carousel,
-  #compromissos .diagnostic-panel.cmt-carousel:hover{box-shadow:none!important;border-color:transparent!important}
-}
-</style>
 </head>
 <body>
 
