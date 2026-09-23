@@ -3465,8 +3465,8 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
 <h2>Vamos tirar seu projeto do chão</h2>
         <p class="lede">Conte onde você está, o que precisa mudar e qual resultado procura. A primeira resposta organiza o próximo passo.</p>
         <div class="channels" aria-label="Canais de contato">
-          <a href="#" id="wa-link" target="_blank" rel="noopener"><span class="channel-body"><small>WhatsApp</small><strong>(81) 98938-9297</strong></span><span class="channel-arrow" aria-hidden="true">↗</span></a>
-          <a href="mailto:contato@kirmoon.com"><span class="channel-body"><small>E-mail</small><strong>contato@kirmoon.com</strong></span><span class="channel-arrow" aria-hidden="true">↗</span></a>
+          <a href="#" id="wa-link" target="_blank" rel="noopener"><span class="channel-body"><small>WhatsApp</small><strong>(00) 00000-0000</strong></span><span class="channel-arrow" aria-hidden="true">↗</span></a>
+          <a href="mailto:contato@kirmoon.com.br"><span class="channel-body"><small>E-mail</small><strong>contato@kirmoon.com.br</strong></span><span class="channel-arrow" aria-hidden="true">↗</span></a>
           <a href="#" target="_blank" rel="noopener"><span class="channel-body"><small>Instagram</small><strong>@kirmoon.dev</strong></span><span class="channel-arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -3512,7 +3512,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     <svg class="brand-arc" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 42 C 100 26 200 12 300 6"/></svg>
     <span class="wm" aria-hidden="true"><span class="wm-text">KIRMO</span><svg class="cres" viewBox="-10 -10 20 20"><circle r="9.2" fill="none" stroke="currentColor" stroke-opacity=".38" stroke-width=".7"/><path d="M0 -9.2 A9.2 9.2 0 0 1 0 9.2 A4.6 9.2 0 0 0 0 -9.2Z" fill="currentColor"/></svg><span class="wm-n">N</span></span>
   </a>
-  <span>© <span id="yr">2026</span> Kirmoon Dev Solutions LTDA</span>
+  <span>© <span id="yr">2026</span> Kirmoon Dev Solutions LTDA · CNPJ 00.000.000/0001-00</span>
   <nav aria-label="Rodapé"><a href="#servicos">Serviços</a><a href="#processo">Processo</a><a href="#contato">Contato</a><a href="#">Política de privacidade</a></nav>
   </div>
 </footer>
@@ -3520,7 +3520,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (() => {
-  const WHATSAPP = "5581989389297"; // Kirmoon: (81) 98938-9297
+  const WHATSAPP = "5500000000000"; // troque pelo número da Kirmoon (55 + DDD + número)
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
   let reduce = motion.matches;
   motion.addEventListener("change", e => { reduce = e.matches; });
@@ -5598,7 +5598,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     const submitLabel = form.querySelector(".briefing-submit-label");
     if (submitLabel) submitLabel.textContent = "Abrindo e-mail…";
     note.textContent = "Preparando o briefing para envio no seu aplicativo de e-mail.";
-    window.location.href = `mailto:contato@kirmoon.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:contato@kirmoon.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setTimeout(() => {
       if (submitLabel) submitLabel.textContent = "Iniciar conversa";
       note.textContent = "O briefing ficou pronto para envio no seu aplicativo de e-mail.";
