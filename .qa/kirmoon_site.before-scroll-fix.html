@@ -3546,50 +3546,9 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   }
   function queueScroll() { if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScroll); }
   addEventListener("scroll", queueScroll, {passive:true});
-  // Resize/layout changes: the in-flight scene transition re-resolves its
-  // destination, armed boundaries follow the new edge, and a settled Process
-  // stays centred instead of keeping a stale scroll offset.
-  let sceneGeometryDirty = false;
-  let resizeRealignFrame = 0;
-  function realignAfterResize() {
-    resizeRealignFrame = 0;
-    if (serviceBoundaryMode) animateServiceBoundary();
-    if (serviceReturnBoundaryMode) animateServiceReturnBoundary();
-    if (finalBoundaryMode) animateFinalBoundary();
-    if (!desktop.matches || sceneAnimating || processEntryPending || active !== 2 || !processEl) return;
-    const processTarget = sceneTargetTop(processEl);
-    if (Math.abs(scrollY - processTarget) > 1) scrollTo({top:processTarget, behavior:'instant'});
-  }
-  function onGeometryChange() {
-    sceneGeometryDirty = true;
-    queueScroll();
-    if (!resizeRealignFrame) resizeRealignFrame = requestAnimationFrame(realignAfterResize);
-  }
-  addEventListener("resize", () => { onGeometryChange(); updateProcessShade(); });
+  addEventListener("resize", () => { queueScroll(); updateProcessShade(); });
   motion.addEventListener("change", queueScroll);
-  new ResizeObserver(onGeometryChange).observe(document.querySelector("main"));
-  // Crossing the 960/961 breakpoint switches navigation models. Drop any bounded
-  // wheel state from the old model and re-derive the chapter from position.
-  desktop.addEventListener("change", () => {
-    if (serviceBoundaryMode) stopServiceBoundaryMode();
-    if (serviceReturnBoundaryMode) stopServiceReturnBoundaryMode();
-    if (finalBoundaryMode) stopFinalBoundaryMode();
-    resetServiceBoundaryIntent();
-    setIntent(0);
-    flow.resetGesture();
-    if (desktop.matches && !sceneAnimating && !processEntryPending) {
-      const line = innerHeight * .5, hit = el => { const r = el?.getBoundingClientRect(); return r && r.top <= line && r.bottom > line; };
-      const finalRect = finalStart && finalEnd ? {top:finalStart.getBoundingClientRect().top,bottom:finalEnd.getBoundingClientRect().bottom} : null;
-      const index = scrollY < 8 || hit(heroEl) ? 0 : hit(serviceStart) ? 1 : hit(processEl) ? 2
-        : finalRect && finalRect.top <= line && finalRect.bottom > line ? 3 : -1;
-      if (index >= 0 && !flow.transitioning) {
-        active = index;
-        flow.commitChapter(index,{position:scrollY,hash:'#'+chapters[index].id});
-        selectChapter(index);
-      }
-    }
-    onGeometryChange();
-  });
+  new ResizeObserver(queueScroll).observe(document.querySelector("main"));
   let sceneAnimating = false;
   let wheelIntent = 0;
   let intentResetTimer = 0;
@@ -3776,7 +3735,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
       if (!serviceBoundaryMode || sceneAnimating || active !== 1) return;
       const endRect = serviceEnd.getBoundingClientRect();
       const boundaryTop = Math.max(0, scrollY + endRect.bottom - innerHeight);
-      serviceBoundaryTarget = serviceBoundaryEntryReady ? boundaryTop : Math.min(serviceBoundaryTarget, boundaryTop);
+      serviceBoundaryTarget = Math.min(serviceBoundaryTarget, boundaryTop);
       const dt = serviceBoundaryLastFrame ? Math.min(50, now - serviceBoundaryLastFrame) : 16;
       serviceBoundaryLastFrame = now;
       const remaining = serviceBoundaryTarget - scrollY;
@@ -3812,7 +3771,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
       if(!serviceReturnBoundaryMode||sceneAnimating||active!==1)return;
       const startRect=serviceStart.getBoundingClientRect();
       const boundaryTop=Math.max(0,scrollY+startRect.top-top.offsetHeight);
-      serviceReturnBoundaryTarget=serviceReturnBoundaryEntryReady?boundaryTop:Math.max(serviceReturnBoundaryTarget,boundaryTop);
+      serviceReturnBoundaryTarget=Math.max(serviceReturnBoundaryTarget,boundaryTop);
       const dt=serviceReturnBoundaryLastFrame?Math.min(50,now-serviceReturnBoundaryLastFrame):16;
       serviceReturnBoundaryLastFrame=now;
       const remaining=serviceReturnBoundaryTarget-scrollY;
@@ -3843,7 +3802,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
       if (!finalBoundaryMode || sceneAnimating || active !== 3) return;
       const r = finalStart.getBoundingClientRect();
       const boundaryTop = Math.max(0, scrollY + r.top - top.offsetHeight);
-      finalBoundaryTarget = finalBoundaryEntryReady ? boundaryTop : Math.max(finalBoundaryTarget, boundaryTop);
+      finalBoundaryTarget = Math.max(finalBoundaryTarget, boundaryTop);
       const dt = finalBoundaryLastFrame ? Math.min(50, now - finalBoundaryLastFrame) : 16;
       finalBoundaryLastFrame = now;
       const remaining = finalBoundaryTarget - scrollY;
@@ -3868,13 +3827,12 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     const r = target.getBoundingClientRect();
     return scrollY + r.top - Math.max(0, (innerHeight - r.height) / 2);
   }
-  function animateSceneTo(targetTop, onDone, profile = DEFAULT_SCENE_PROFILE, resolveTarget = null) {
+  function animateSceneTo(targetTop, onDone, profile = DEFAULT_SCENE_PROFILE) {
     cancelAnimationFrame(sceneRaf);
     const root = document.documentElement;
     const previousScrollBehavior = root.style.scrollBehavior;
     const start = scrollY;
-    let distance = targetTop - start;
-    sceneGeometryDirty = false;
+    const distance = targetTop - start;
     const absDistance = Math.abs(distance);
     scrollTrace.log('animation-start',{start:Math.round(start),targetTop:Math.round(targetTop),distance:Math.round(distance)});
 
@@ -3898,11 +3856,6 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     root.style.scrollBehavior = "auto";
     const interpolate = t => t * t * t * (t * (t * 6 - 15) + 10);
     const frame = now => {
-      if (sceneGeometryDirty && resolveTarget) {
-        sceneGeometryDirty = false;
-        const resolved = resolveTarget();
-        if (Number.isFinite(resolved)) { targetTop = resolved; distance = targetTop - start; }
-      }
       const t = Math.min(1, (now - started) / duration);
       const p = interpolate(t);
       scrollTo({top:start + distance * p, behavior:'instant'});
@@ -3944,10 +3897,9 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     if (target === finalStart) ensureFinalPlanetReady('saturn');
 
     // Capítulos longos entram pelo começo; capítulos cinematográficos permanecem centralizados.
-    const resolveChapterTop = () => (target === finalStart || target === serviceStart)
+    const targetTop = (target === finalStart || target === serviceStart)
       ? Math.max(0, scrollY + target.getBoundingClientRect().top - top.offsetHeight)
       : sceneTargetTop(target);
-    const targetTop = resolveChapterTop();
 
     const direction = requestedDirection || Math.sign(index - sourceChapter);
     if (keyboardKey) heldNavigationKey = keyboardKey;
@@ -3968,7 +3920,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
         scrollTo({top:targetTop, behavior:'instant'});
         commitChapter();
       } else {
-        animateSceneTo(targetTop, commitChapter, enteringProcess ? PROCESS_SCENE_PROFILE : DEFAULT_SCENE_PROFILE, resolveChapterTop);
+        animateSceneTo(targetTop, commitChapter, enteringProcess ? PROCESS_SCENE_PROFILE : DEFAULT_SCENE_PROFILE);
       }
     } else {
       target.scrollIntoView({behavior:reduce ? "instant" : "smooth",block:"start"});
@@ -4043,16 +3995,13 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
           scrollTo({top:scrollY, behavior:'instant'});
           scrollTrace.log('bounded-start',{boundaryTop:Math.round(serviceBoundaryTop),from:Math.round(scrollY)});
         }
-        // Target already on the edge before this step: the user is pushing past
-        // the end of Services, so arm the entry regardless of step size or pause.
-        const targetAtEdge = serviceBoundaryTop - serviceBoundaryTarget <= 1;
         const desired = serviceBoundaryTarget + magnitude;
         serviceBoundaryTarget = Math.min(serviceBoundaryTop, desired);
         const overflow = Math.max(0, desired - serviceBoundaryTop);
         if (overflow > 0) {
           const intent = addServiceBoundaryIntent(overflow);
           rail.style.setProperty('--intent', Math.min(1, intent / SERVICE_ENTRY_THRESHOLD).toFixed(3));
-          if (targetAtEdge || intent >= SERVICE_ENTRY_THRESHOLD) serviceBoundaryEntryReady = true;
+          if (intent >= SERVICE_ENTRY_THRESHOLD) serviceBoundaryEntryReady = true;
         }
         scrollTrace.log('bounded-wheel',{delta:Math.round(delta),target:Math.round(serviceBoundaryTarget),boundaryTop:Math.round(serviceBoundaryTop),overflow:Math.round(overflow),entryReady:serviceBoundaryEntryReady});
         animateServiceBoundary();
@@ -4171,8 +4120,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
             const serviceEndRect = serviceEnd.getBoundingClientRect();
             const serviceReturnTop = Math.max(0, scrollY + serviceEndRect.bottom - innerHeight);
             const pending=flow.beginTransition(1,{direction:-1,targetTop:serviceReturnTop,hash:'#servicos',navHash:'#servicos'});
-            const resolveServiceReturnTop=()=>Math.max(0,scrollY+serviceEnd.getBoundingClientRect().bottom-innerHeight);
-            if(pending) animateSceneTo(serviceReturnTop,()=>{flow.completeTransition(performance.now());commitProcessReturnToServices();},PROCESS_SCENE_PROFILE,resolveServiceReturnTop);
+            if(pending) animateSceneTo(serviceReturnTop,()=>{flow.completeTransition(performance.now());commitProcessReturnToServices();},PROCESS_SCENE_PROFILE);
           }
         }
       }
