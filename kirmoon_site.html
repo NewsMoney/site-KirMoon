@@ -7341,6 +7341,11 @@ main > #contato.section{
   let serviceBoundaryRaf = 0;
   let serviceBoundaryLastFrame = 0;
   let serviceBoundaryEntryReady = false;
+  let serviceReturnBoundaryMode = false;
+  let serviceReturnBoundaryTarget = 0;
+  let serviceReturnBoundaryRaf = 0;
+  let serviceReturnBoundaryLastFrame = 0;
+  let serviceReturnBoundaryEntryReady = false;
   let finalBoundaryMode = false;
   let finalBoundaryTarget = 0;
   let finalBoundaryRaf = 0;
@@ -7397,6 +7402,14 @@ main > #contato.section{
       if (el.closest('#compromissos,#faq,#contato')) return 'final';
       return 'other';
     };
+    const describeElement = el => el instanceof Element ? {
+      tag:el.tagName.toLowerCase(),id:el.id||null,classes:typeof el.className==='string'?el.className.trim().split(/\s+/).filter(Boolean):[],role:el.getAttribute('role')
+    } : null;
+    const layout = el => {
+      if (!el) return null;
+      const r=el.getBoundingClientRect();
+      return {rect:{top:rounded(r.top),right:rounded(r.right),bottom:rounded(r.bottom),left:rounded(r.left),width:rounded(r.width),height:rounded(r.height)},offsetTop:el.offsetTop,offsetLeft:el.offsetLeft,offsetWidth:el.offsetWidth,offsetHeight:el.offsetHeight,scrollHeight:el.scrollHeight,clientHeight:el.clientHeight};
+    };
     const snapshot = () => {
       const sr = rect(serviceStart), pr = rect(processEl);
       return {
@@ -7404,6 +7417,7 @@ main > #contato.section{
         hash:location.hash,flow:flow.snapshot(),sceneAnimating,processEntryPending,
         processPhaseTransitioning,processFlowState,serviceBoundaryIntent,
         serviceBoundaryMode,serviceBoundaryTarget:rounded(serviceBoundaryTarget),serviceBoundaryEntryReady,
+        serviceReturnBoundaryMode,serviceReturnBoundaryTarget:rounded(serviceReturnBoundaryTarget),serviceReturnBoundaryEntryReady,
         finalBoundaryMode,finalBoundaryTarget:rounded(finalBoundaryTarget),finalBoundaryEntryReady,
         serviceBoundaryRemaining:sr ? rounded(Math.max(0,scrollY+sr.bottom-innerHeight-scrollY)) : null,
         processTarget:processEl ? rounded(sceneTargetTop(processEl)) : null,
@@ -7416,8 +7430,8 @@ main > #contato.section{
       if (rows.length > maxRows) rows.shift();
       status.textContent = `Gravando · ${rows.length} eventos${sequence > maxRows ? ' (limite atingido)' : ''}`;
     };
-    const exportText = () => JSON.stringify({format:'kirmoon-scroll-trace-v1',recordedAt:new Date().toISOString(),rows},null,2);
-    addButton('Iniciar', () => { rows.length=0; sequence=0; recording=true; log('start',{desktop:desktop.matches,reducedMotion:reduce,width:innerWidth}); });
+    const exportText = () => JSON.stringify({format:'kirmoon-scroll-trace-v1',buildId:'kirmoon_site_v13',recordedAt:new Date().toISOString(),rows},null,2);
+    addButton('Iniciar', () => { rows.length=0; sequence=0; recording=true; log('start',{buildId:'kirmoon_site_v13',desktop:desktop.matches,reducedMotion:reduce,width:innerWidth}); });
     addButton('Parar', () => { log('stop'); recording=false; status.textContent=`Parado · ${rows.length} eventos`; });
     addButton('Copiar', async () => {
       try { await navigator.clipboard.writeText(exportText()); status.textContent=`Copiado · ${rows.length} eventos`; }
@@ -7429,6 +7443,23 @@ main > #contato.section{
       setTimeout(()=>URL.revokeObjectURL(url),1000);
     });
     document.body.append(panel);
+    const sitesCard=document.getElementById('sites');
+    const logSitesHover=(kind,e,afterFrame=false)=>{
+      if(!recording)return;
+      const target=document.elementFromPoint(e.clientX,e.clientY);
+      const cmp=sitesCard?.querySelector('.cmp');
+      const visual=sitesCard?.querySelector('.service-visual');
+      log(kind,{pointer:{type:e.pointerType,x:rounded(e.clientX),y:rounded(e.clientY)},target:describeElement(target),relatedTarget:describeElement(e.relatedTarget),layout:{card:layout(sitesCard),visual:layout(visual),comparison:layout(cmp)}});
+      if(!afterFrame)requestAnimationFrame(()=>logSitesHover('service-card-2-hover-frame',e,true));
+    };
+    sitesCard?.addEventListener('pointerenter',e=>logSitesHover('service-card-2-hover-enter',e),{passive:true});
+    sitesCard?.addEventListener('pointerleave',e=>logSitesHover('service-card-2-hover-leave',e),{passive:true});
+    sitesCard?.addEventListener('transitionrun',e=>{
+      if(recording)log('service-card-2-hover-transition',{property:e.propertyName,target:describeElement(e.target),layout:{card:layout(sitesCard),target:layout(e.target)}});
+    },true);
+    sitesCard?.addEventListener('transitionend',e=>{
+      if(recording)log('service-card-2-hover-transition-end',{property:e.propertyName,target:describeElement(e.target),layout:{card:layout(sitesCard),target:layout(e.target)}});
+    },true);
     addEventListener('wheel', e => {
       if (!recording) return;
       const id=++sequence;wheelIds.set(e,id);
@@ -7442,7 +7473,7 @@ main > #contato.section{
     addEventListener('keydown', e => {
       if (['ArrowDown','ArrowUp','PageDown','PageUp'].includes(e.key)) log('key',{key:e.key,repeat:e.repeat,target:targetKind(e.target)});
     },{capture:true});
-    return {log, afterWheel:e => {
+    return {log,afterWheel:e => {
       if (recording) log('wheel-out',{eventId:wheelIds.get(e),defaultPrevented:e.defaultPrevented,target:targetKind(e.target)});
     }};
   })();
@@ -7493,7 +7524,6 @@ main > #contato.section{
         ? serviceBoundaryTarget
         : scrollY + remaining * (1 - Math.exp(-dt / 50));
       scrollTo({top:Math.min(next, boundaryTop), behavior:'instant'});
-      // Subpixel rounding can leave scrollY just short of the requested target.
       if (serviceBoundaryEntryReady && boundaryTop - scrollY <= 2) {
         scrollTrace.log('bounded-entry',{boundaryTop:Math.round(boundaryTop)});
         stopServiceBoundaryMode();
@@ -7506,6 +7536,37 @@ main > #contato.section{
       }
     };
     serviceBoundaryRaf = requestAnimationFrame(frame);
+  }
+  function stopServiceReturnBoundaryMode() {
+    scrollTrace.log('service-return-bounded-stop',{target:Math.round(serviceReturnBoundaryTarget),entryReady:serviceReturnBoundaryEntryReady});
+    cancelAnimationFrame(serviceReturnBoundaryRaf);
+    serviceReturnBoundaryRaf=0;
+    serviceReturnBoundaryLastFrame=0;
+    serviceReturnBoundaryMode=false;
+    serviceReturnBoundaryEntryReady=false;
+  }
+  function animateServiceReturnBoundary() {
+    if(serviceReturnBoundaryRaf)return;
+    const frame=now=>{
+      serviceReturnBoundaryRaf=0;
+      if(!serviceReturnBoundaryMode||sceneAnimating||active!==1)return;
+      const startRect=serviceStart.getBoundingClientRect();
+      const boundaryTop=Math.max(0,scrollY+startRect.top-top.offsetHeight);
+      serviceReturnBoundaryTarget=Math.max(serviceReturnBoundaryTarget,boundaryTop);
+      const dt=serviceReturnBoundaryLastFrame?Math.min(50,now-serviceReturnBoundaryLastFrame):16;
+      serviceReturnBoundaryLastFrame=now;
+      const remaining=serviceReturnBoundaryTarget-scrollY;
+      const next=Math.abs(remaining)<.7?serviceReturnBoundaryTarget:scrollY+remaining*(1-Math.exp(-dt/50));
+      scrollTo({top:Math.max(next,boundaryTop),behavior:'instant'});
+      if(serviceReturnBoundaryEntryReady&&scrollY-boundaryTop<=2){
+        scrollTrace.log('service-return-bounded-entry',{boundaryTop:Math.round(boundaryTop)});
+        stopServiceReturnBoundaryMode();
+        goToChapter(0,{direction:-1});
+        return;
+      }
+      if(Math.abs(serviceReturnBoundaryTarget-scrollY)>=.7)serviceReturnBoundaryRaf=requestAnimationFrame(frame);
+    };
+    serviceReturnBoundaryRaf=requestAnimationFrame(frame);
   }
   function stopFinalBoundaryMode() {
     scrollTrace.log('final-bounded-stop',{target:Math.round(finalBoundaryTarget),entryReady:finalBoundaryEntryReady});
@@ -7602,6 +7663,7 @@ main > #contato.section{
     scrollTrace.log('chapter-request',{requested:index,source:active,blocked:!target||sceneAnimating});
     if (!target || sceneAnimating) return;
     if (active === 1 && index !== 1 && serviceBoundaryMode) stopServiceBoundaryMode();
+    if (active === 1 && index !== 1 && serviceReturnBoundaryMode) stopServiceReturnBoundaryMode();
     if (active === 3 && index !== 3 && finalBoundaryMode) stopFinalBoundaryMode();
     setMenu(false);
     target.focus({preventScroll:true});
@@ -7656,8 +7718,6 @@ main > #contato.section{
   addEventListener("wheel", e => {
     if (!desktop.matches || reduce || nav.classList.contains("open") || e.ctrlKey) return;
     const interactiveTarget = e.target.closest('input,textarea,select,[contenteditable]:not([contenteditable="false"]),[role="slider"],[role="combobox"],[role="listbox"],[role="menu"]');
-    // The comparison range is inside Services and must not bypass its wheel
-    // controller. Text fields elsewhere retain their native behavior.
     if (interactiveTarget && !(active === 1 && interactiveTarget.matches('input[type="range"]'))) return;
 
     const delta = e.deltaY * (e.deltaMode === 1 ? 18 : e.deltaMode === 2 ? innerHeight : 1);
@@ -7687,6 +7747,12 @@ main > #contato.section{
       const distanceToBottomBoundary = Math.max(0, serviceBoundaryTop - scrollY);
       const distanceToTopBoundary = Math.max(0, scrollY - serviceEntryTop);
       const magnitude = Math.abs(delta);
+
+      if (delta > 0 && serviceReturnBoundaryMode) {
+        // A reversed gesture releases the bounded return to native Services scrolling.
+        stopServiceReturnBoundaryMode();
+        scrollTo({top:scrollY,behavior:'instant'});
+      }
 
       if (delta < 0 && serviceBoundaryMode) {
         // A reversal returns control to native Services scrolling.
@@ -7730,49 +7796,66 @@ main > #contato.section{
       }
 
       resetServiceBoundaryIntent();
-      const crossesUp = delta < 0 && distanceToTopBoundary <= magnitude + 2;
-      if (!crossesUp) {
+      // Chrome can make the tail of a wheel gesture non-cancelable. Take the
+      // first upward wheel while there is still a viewport of room to stop it.
+      const takeServiceReturnControl = delta < 0 &&
+        (serviceReturnBoundaryMode || distanceToTopBoundary <= Math.max(innerHeight,magnitude*2));
+      if (!takeServiceReturnControl) {
         setIntent(0);
         return;
       }
       e.preventDefault();
       setIntent(0);
-      goToChapter(0);
+      if(!serviceReturnBoundaryMode){
+        serviceReturnBoundaryMode=true;
+        serviceReturnBoundaryTarget=Math.max(scrollY,serviceEntryTop);
+        serviceReturnBoundaryLastFrame=0;
+        serviceReturnBoundaryEntryReady=false;
+        scrollTo({top:scrollY,behavior:'instant'});
+        scrollTrace.log('service-return-bounded-start',{boundaryTop:Math.round(serviceEntryTop),from:Math.round(scrollY)});
+      }
+      const desired=serviceReturnBoundaryTarget+delta;
+      serviceReturnBoundaryTarget=Math.max(serviceEntryTop,desired);
+      const overflow=Math.max(0,serviceEntryTop-desired);
+      if(overflow>0)serviceReturnBoundaryEntryReady=true;
+      scrollTrace.log('service-return-bounded-wheel',{delta:Math.round(delta),target:Math.round(serviceReturnBoundaryTarget),boundaryTop:Math.round(serviceEntryTop),overflow:Math.round(overflow),entryReady:serviceReturnBoundaryEntryReady});
+      animateServiceReturnBoundary();
       return;
     }
 
     const r = current.getBoundingClientRect();
 
-    // The final chapter stays native until its first viewport; the upward
-    // approach then owns wheel motion before browser momentum crosses Process.
+    // Final remains native for down-scrolling. On the return journey, own
+    // every upward wheel event so browser momentum cannot cross Process.
     if (current === finalStart) {
       const startRect = finalStart.getBoundingClientRect();
       const finalEntryTop = Math.max(0, scrollY + startRect.top - top.offsetHeight);
-      const distanceToBoundary = Math.max(0, scrollY - finalEntryTop);
       if (delta > 0 && finalBoundaryMode) {
         stopFinalBoundaryMode();
         scrollTo({top:scrollY, behavior:'instant'});
       }
-      if (delta < 0 && (finalBoundaryMode || distanceToBoundary <= Math.max(innerHeight, Math.abs(delta) * 2))) {
-        e.preventDefault();
+      if (delta >= 0) {
         setIntent(0);
-        if (!finalBoundaryMode) {
-          finalBoundaryMode = true;
-          finalBoundaryTarget = Math.max(scrollY, finalEntryTop);
-          finalBoundaryLastFrame = 0;
-          finalBoundaryEntryReady = false;
-          scrollTo({top:scrollY, behavior:'instant'});
-          scrollTrace.log('final-bounded-start',{boundaryTop:Math.round(finalEntryTop),from:Math.round(scrollY)});
-        }
-        const desired = finalBoundaryTarget + delta;
-        finalBoundaryTarget = Math.max(finalEntryTop, desired);
-        const overflow = Math.max(0, finalEntryTop - desired);
-        if (desired <= finalEntryTop) finalBoundaryEntryReady = true;
-        scrollTrace.log('final-bounded-wheel',{delta:Math.round(delta),target:Math.round(finalBoundaryTarget),boundaryTop:Math.round(finalEntryTop),overflow:Math.round(overflow),entryReady:finalBoundaryEntryReady});
-        animateFinalBoundary();
         return;
       }
+      e.preventDefault();
       setIntent(0);
+      if (!finalBoundaryMode) {
+        finalBoundaryMode = true;
+        finalBoundaryTarget = Math.max(scrollY, finalEntryTop);
+        finalBoundaryLastFrame = 0;
+        finalBoundaryEntryReady = false;
+        scrollTo({top:scrollY, behavior:'instant'});
+        scrollTrace.log('final-bounded-start',{boundaryTop:Math.round(finalEntryTop),from:Math.round(scrollY)});
+      }
+      const desired = finalBoundaryTarget + delta;
+      finalBoundaryTarget = Math.max(finalEntryTop, desired);
+      const overflow = Math.max(0, finalEntryTop - desired);
+      // Begin the chapter transition when this wheel step reaches the edge;
+      // the bounded glide first lands exactly there.
+      if (finalBoundaryTarget - finalEntryTop <= Math.abs(delta) + 2) finalBoundaryEntryReady = true;
+      scrollTrace.log('final-bounded-wheel',{delta:Math.round(delta),target:Math.round(finalBoundaryTarget),boundaryTop:Math.round(finalEntryTop),overflow:Math.round(overflow),entryReady:finalBoundaryEntryReady});
+      animateFinalBoundary();
       return;
     }
 
