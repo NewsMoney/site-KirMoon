@@ -2506,23 +2506,6 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   #compromissos.section::before,#compromissos.section::after{transition:none!important}
 }
 </style>
-
-<style id="kirmoon-scroll-rocket">
-/* Indicador de rolagem: nave minimalista que sobe e desce devagar; a
-   seta abaixo pulsa um pouco atrasada, como no ícone de mouse. */
-.hero .scroll-rocket{position:absolute;z-index:3;left:50%;bottom:58px;translate:-50% 0;display:grid;place-items:center;width:48px;height:72px;color:var(--lunar);opacity:.78;text-decoration:none;border-radius:24px;transition:opacity .25s ease}
-.hero .scroll-rocket:hover{opacity:1}
-.hero .scroll-rocket:focus-visible{outline:2px solid var(--glow);outline-offset:2px;opacity:1}
-.hero .scroll-rocket svg{width:28px;height:46px;overflow:visible}
-.hero .scroll-rocket path,.hero .scroll-rocket circle{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-.hero .scroll-rocket-ship{animation:kmRocketBob 1.9s cubic-bezier(.45,0,.55,1) infinite}
-.hero .scroll-rocket-chevron{animation:kmRocketChevron 1.9s cubic-bezier(.45,0,.55,1) infinite;opacity:.7}
-@keyframes kmRocketBob{0%,100%{transform:translateY(-3px)}50%{transform:translateY(5px)}}
-@keyframes kmRocketChevron{0%,100%{transform:translateY(-1px);opacity:.35}55%{transform:translateY(4px);opacity:.85}}
-@media (max-width:960px){.hero .scroll-rocket{bottom:18px}}
-@media (min-width:961px) and (max-height:700px){.hero .scroll-rocket{bottom:36px;height:60px}.hero .scroll-rocket svg{height:40px}}
-@media (prefers-reduced-motion:reduce){.hero .scroll-rocket-ship,.hero .scroll-rocket-chevron{animation:none}}
-</style>
 </head>
 <body>
 
@@ -2573,17 +2556,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
       <span class="skel-label"><span id="load-pct">10</span>% · carregando</span>
     </div>
     <canvas id="moon-canvas" aria-hidden="true"></canvas>
-    <a class="scroll-rocket" href="#servicos" aria-label="Rolar para Serviços">
-      <svg viewBox="0 2 32 52" aria-hidden="true" focusable="false">
-        <g class="scroll-rocket-ship"><g transform="rotate(180 16 18.7)">
-          <path d="M16 5c1.9 2.8 3.2 6.6 3.6 11.2l.4 10.8-4 3-4-3 .4-10.8C12.8 11.6 14.1 7.8 16 5z"/>
-          <path d="M12.5 17.5 5 28.5l7.2-1.8M19.5 17.5 27 28.5l-7.2-1.8"/>
-          <path d="M16 11.2c.8 1.1 1.2 2.3 1.2 3.6h-2.4c0-1.3.4-2.5 1.2-3.6z"/>
-          <path d="M14.2 30.6v1.8M17.8 30.6v1.8"/>
-        </g></g>
-        <path class="scroll-rocket-chevron" d="M11.5 44 16 48.5l4.5-4.5"/>
-      </svg>
-    </a>
+    <p class="hint">Role para conhecer a Kirmoon</p>
   </section>
   <script>
     /* posição da lua (compartilhada entre o esqueleto e a lua 3D) */
@@ -6167,14 +6140,14 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   const trailGroup = root.querySelector('.cmt-trail');
   const sat = root.querySelector('.cmt-sat');
   const reduceQ = matchMedia('(prefers-reduced-motion: reduce)');
-  const LAP_MS = 7000, TEXT_MS = 560, BOOST_MS = 820, EASE_TEXT = 'cubic-bezier(.65,0,.35,1)';
+  const LAP_MS = 7000, TEXT_MS = 560, BOOST_MS = 620, EASE_TEXT = 'cubic-bezier(.65,0,.35,1)';
   const TRAIL_SEGMENTS = 26, TRAIL_SPAN = Math.PI * .62;
   const NS = 'http://www.w3.org/2000/svg';
   let index = Math.max(0, slides.findIndex(s => s.classList.contains('is-active')));
-  // A volta segue mesmo com o mouse sobre o card. Ela só para com o foco do
-  // teclado dentro do carrossel (navegação por Tab), fora da tela ou em aba
-  // oculta; com "reduzir movimento" o satélite fica parado e a troca é manual.
-  let autoplay = !reduceQ.matches, keyboardFocus = false, offscreen = true;
+  // Sem botão de pausa: a volta para com o mouse sobre o card, com o foco do
+  // teclado dentro dele, fora da tela ou em aba oculta; com "reduzir
+  // movimento" o satélite fica parado e a troca é só manual.
+  let autoplay = !reduceQ.matches, hovering = false, focused = false, offscreen = true;
   let running = [];
 
   root.classList.add('is-ready');
@@ -6182,8 +6155,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   // ---------- órbita ----------
   // Parâmetro da volta: 0 = ponto de partida à esquerda; no sentido horário,
   // passa por cima (atrás), pela direita e volta por baixo (frente).
-  // lap = posição na órbita (em voltas); origin = onde começou a volta do card atual.
-  let lap = 0, origin = 0, heading = 1, lastTime = 0, frame = 0, boost = null;
+  let lap = 0, lastTime = 0, frame = 0, boost = null;
   let geo = { cx: 0, cy: 0, rx: 60, ry: 16 };
   const trail = Array.from({ length: TRAIL_SEGMENTS }, () => trailGroup.appendChild(document.createElementNS(NS, 'path')));
   function measure() {
@@ -6210,8 +6182,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     const showTrail = autoplay && !reduceQ.matches;
     trail.forEach((seg, i) => {
       if (!showTrail) { seg.setAttribute('d', ''); return; }
-      // O rastro fica sempre atrás do satélite, no sentido em que ele anda.
-      const a1 = t - heading * ((i / TRAIL_SEGMENTS) * TRAIL_SPAN + .16), a0 = a1 - heading * (TRAIL_SPAN / TRAIL_SEGMENTS + .01);
+      const a1 = t - (i / TRAIL_SEGMENTS) * TRAIL_SPAN - .16, a0 = a1 - TRAIL_SPAN / TRAIL_SEGMENTS - .01;
       const [x0, y0] = point(a0), [x1, y1] = point(a1), k = 1 - i / TRAIL_SEGMENTS;
       seg.setAttribute('d', `M${x0.toFixed(2)} ${y0.toFixed(2)}L${x1.toFixed(2)} ${y1.toFixed(2)}`);
       seg.setAttribute('stroke-opacity', (k * k * .6).toFixed(3));
@@ -6219,22 +6190,19 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     });
   }
   const easeInOut = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
-  const paused = () => keyboardFocus || offscreen || document.hidden;
+  const paused = () => hovering || focused || offscreen || document.hidden;
   function tick(now) {
     frame = 0;
     const dt = lastTime ? Math.min(250, now - lastTime) : 0;
     lastTime = now;
     if (boost) {
-      // Seta: o satélite gira depressa até o ponto de partida (à esquerda) —
-      // para a frente na seta de avançar, para trás na de voltar — e o novo
-      // card ganha uma volta completa a partir dali.
-      const k = Math.min(1, (now - boost.start) / boost.ms);
-      lap = boost.from + (boost.to - boost.from) * easeInOut(k);
-      heading = boost.to >= boost.from ? 1 : -1;
-      if (k >= 1) { lap = boost.to; origin = lap; heading = 1; boost = null; }
+      // Troca manual: o satélite completa a volta depressa até o ponto de partida.
+      const k = Math.min(1, (now - boost.start) / BOOST_MS);
+      lap = boost.from + (1 - boost.from) * easeInOut(k);
+      if (k >= 1) { boost = null; lap = 0; }
     } else if (autoplay && !paused()) {
       lap += dt / LAP_MS;
-      if (lap - origin >= 1) { origin += 1; go(index + 1, 1, false, false); }   // uma volta = um card
+      if (lap >= 1) { lap -= 1; go(index + 1, 1, false, false); }   // uma volta = um card
     }
     draw();
     schedule();
@@ -6304,13 +6272,8 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     index = nextIndex;
     show(prev, dir, announce);
     moveSpace(dir);
-    if (fromUser && autoplay && !reduceQ.matches) {
-      // Ponto de partida seguinte (ou anterior). Se ele estiver quase lá, o
-      // giro vai até o ponto de partida da volta seguinte, para ser sempre visível.
-      let to = dir < 0 ? Math.floor(lap) : Math.ceil(lap);
-      if (Math.abs(to - lap) < .15) to += dir < 0 ? -1 : 1;
-      const dist = Math.abs(to - lap);
-      boost = { from: lap, to, ms: Math.round(360 + BOOST_MS * dist), start: performance.now() };
+    if (fromUser && autoplay && !reduceQ.matches && lap > 0) {
+      boost = { from: lap, start: performance.now() };
       schedule();
     }
   }
@@ -6318,7 +6281,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   function updatePaused() {
     root.classList.toggle('is-autoplay', autoplay);
     root.classList.toggle('is-paused', paused());
-    if (live) live.setAttribute('aria-live', autoplay && !keyboardFocus ? 'off' : 'polite');
+    if (live) live.setAttribute('aria-live', autoplay && !focused ? 'off' : 'polite');
     schedule();
   }
 
@@ -6332,16 +6295,16 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     else if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1, 1, true); }
   });
 
-  // Clique com o mouse não pausa; só o foco visível do teclado (Tab).
-  const checkFocus = () => { keyboardFocus = !!root.querySelector(':focus-visible'); updatePaused(); };
-  root.addEventListener('focusin', checkFocus);
-  root.addEventListener('focusout', () => setTimeout(checkFocus, 0));
+  root.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { hovering = true; updatePaused(); } });
+  root.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') { hovering = false; updatePaused(); } });
+  root.addEventListener('focusin', () => { focused = true; updatePaused(); });
+  root.addEventListener('focusout', e => { if (!root.contains(e.relatedTarget)) { focused = false; updatePaused(); } });
   document.addEventListener('visibilitychange', updatePaused);
   new IntersectionObserver(entries => {
     offscreen = !entries[0]?.isIntersecting;
     updatePaused();
   }, { threshold: .35 }).observe(root);
-  reduceQ.addEventListener?.('change', e => { autoplay = !e.matches; if (!autoplay) { lap = 0; origin = 0; heading = 1; boost = null; } updatePaused(); draw(); });
+  reduceQ.addEventListener?.('change', e => { autoplay = !e.matches; if (!autoplay) { lap = 0; boost = null; } updatePaused(); draw(); });
 
   // Deslizar no celular troca o card; a rolagem vertical continua nativa.
   let touchX = 0, touchY = 0, touching = false;
@@ -6364,7 +6327,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   }));
 
   // Estado para os testes e para depuração: volta atual e card ativo.
-  root.cmtState = () => ({ index, pos: lap, lap: lap - origin, autoplay, paused: paused(), boosting: !!boost });
+  root.cmtState = () => ({ index, lap, autoplay, paused: paused(), boosting: !!boost });
 
   slides.forEach((s, i) => { const a = i === index; s.classList.toggle('is-active', a); s.toggleAttribute('inert', !a); s.setAttribute('aria-hidden', a ? 'false' : 'true'); });
   updatePaused();

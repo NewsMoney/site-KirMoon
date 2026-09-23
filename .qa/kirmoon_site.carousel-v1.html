@@ -2408,120 +2408,112 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
 
 
 <style id="kirmoon-service-carousel">
-/* Compromissos + carrossel de serviços. Saturno fica fixo junto à linha
-   divisória; a cada troca o texto desliza recortado, sem esmaecer, e um
-   satélite percorre a linha de progresso até o próximo card. */
+/* Compromissos + carrossel de serviços. Cada card é um destino da jornada:
+   Marte (aplicativos: um mundo novo a construir), Saturno (refatoração:
+   estrutura e ciclos) e Netuno (assessoria: direção em águas profundas). */
+#compromissos .commitment-kicker{margin:0 0 18px}
 #compromissos .commitment-about{max-width:34em;margin:clamp(22px,3vh,30px) 0 0;color:#a3acb7;font:400 clamp(15px,1.15vw,17px)/1.62 var(--body)}
 #compromissos .stats{margin-top:clamp(44px,6vh,64px)}
-#compromissos .tech-stack{margin-top:clamp(40px,5.5vh,58px)}
-#compromissos .tech-title{margin:0 0 14px;font:500 13px/1.3 var(--body);letter-spacing:0;text-transform:none;color:#b6bec7}
-/* Tecnologias: grade 2×2 alinhada — rótulo numa coluna fixa, itens ao lado,
-   todos na mesma fonte e na mesma linha de base. */
-#compromissos .tech-stack .tech-groups{display:grid!important;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:12px 32px}
-#compromissos .tech-stack .tech-group{display:grid!important;grid-template-columns:76px minmax(0,1fr);align-items:baseline;column-gap:12px;padding:0!important;margin:0;border:0;background:none;flex:none}
-#compromissos .tech-stack .tech-label{min-width:0;margin:0;font:500 10.5px/1.5 var(--mono)!important;letter-spacing:.16em!important;text-transform:uppercase;color:#6f7a87!important}
-#compromissos .tech-stack .tech-items{display:flex;flex-wrap:wrap;gap:4px 14px;margin:0;font:400 13.5px/1.5 var(--body)!important;letter-spacing:0!important;color:#aab3be!important}
-#compromissos .tech-stack .tech-items>span{margin:0;padding:0;border:0;background:none;font:inherit!important;letter-spacing:0!important;color:inherit!important;white-space:nowrap}
-@media (max-width:620px){#compromissos .tech-stack .tech-groups{grid-template-columns:1fr;gap:10px}}
+#compromissos .commitment-principles{margin-top:clamp(40px,5.5vh,58px);padding-top:16px;border-top:1px solid rgba(236,238,241,.11)}
+#compromissos .principles-title,#compromissos .tech-title{margin:0 0 14px;font:500 13px/1.3 var(--body);letter-spacing:0;text-transform:none;color:#b6bec7}
+#compromissos .principles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,34px)}
+#compromissos .principles li{display:grid;grid-template-columns:auto;align-content:start;gap:6px;min-width:0}
+#compromissos .principle-num{font:10px/1 var(--mono);letter-spacing:.18em;color:#6f7a87}
+#compromissos .principles strong{font:600 15px/1.2 var(--body);color:#e1e5ea}
+#compromissos .principles li>span:last-child{font:13px/1.5 var(--body);color:#8d97a3}
+#compromissos .tech-stack{margin-top:clamp(28px,4vh,40px)}
 
-/* Conteúdo sobe: colunas alinhadas ao topo, sem o centro vertical antigo. */
-@media (min-width:961px){
-  #compromissos.section{padding-top:clamp(24px,2.8vw,44px)!important}
-  #compromissos .commitment-diagnostic{align-items:start;min-height:0}
-  #compromissos .commitment-main{align-self:start}
-}
+/* Painel do carrossel: o planeta agora vive dentro de cada card. */
+#compromissos .svc-carousel{align-self:center;padding-top:0;min-width:0;overflow:visible}
+#compromissos .svc-track{position:relative}
+#compromissos .svc-slide{position:relative;display:flex;flex-direction:column;min-width:0}
+#compromissos .svc-slide + .svc-slide{margin-top:48px}
+#compromissos .svc-carousel.is-ready .svc-track{display:grid}
+#compromissos .svc-carousel.is-ready .svc-slide{grid-area:1/1;margin:0}
+#compromissos .svc-planet-slot{position:relative;height:clamp(108px,14vh,146px);margin:0 0 6px;pointer-events:none}
+#compromissos .svc-planet{position:absolute;top:50%;right:clamp(4px,3vw,34px);aspect-ratio:1;border-radius:50%;pointer-events:none;translate:0 -50%}
+#compromissos .svc-planet .planet-canvas{position:absolute;inset:-20%;width:140%;height:140%}
+#compromissos .svc-planet--saturn{right:clamp(24px,4.2vw,60px);width:clamp(138px,11.5vw,166px);rotate:-6deg}
+#compromissos .svc-planet--saturn .planet-canvas{inset:-40%;width:180%;height:180%}
+#compromissos .svc-planet--mars{width:clamp(84px,7vw,104px)}
+#compromissos .svc-planet--neptune{width:clamp(90px,7.6vw,112px)}
+#compromissos .svc-planet.is-3d .planet-canvas{pointer-events:auto}
+#compromissos .svc-planet.is-parked{display:none}
+#compromissos .svc-slide .diagnostic-kicker{display:flex;align-items:center;gap:0;margin:0 0 16px}
+#compromissos .svc-index{margin-right:10px;color:#a9b3be}
+#compromissos .svc-slide h2{min-height:1.82em}
+#compromissos .svc-slide .diagnostic-points strong{white-space:nowrap}
+#compromissos .svc-cta{align-self:flex-start;display:inline-flex;align-items:center;gap:12px;min-height:44px;margin-top:22px;padding:0 18px;border:1px solid rgba(236,238,241,.28);border-radius:999px;color:var(--lunar);font:600 13px/1 var(--body);letter-spacing:.02em;text-decoration:none;transition:border-color .3s ease,background-color .3s ease,color .3s ease}
+#compromissos .svc-cta:hover{border-color:rgba(236,238,241,.7);background:rgba(236,238,241,.06)}
+#compromissos .svc-cta:focus-visible,#compromissos .svc-btn:focus-visible,#compromissos .svc-dot:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+#compromissos .svc-cta-arrow{font-family:var(--mono);transition:transform .3s cubic-bezier(.2,.72,.2,1)}
+#compromissos .svc-cta:hover .svc-cta-arrow{transform:translateX(4px)}
 
-/* Painel: card centralizado entre a linha divisória e a margem. */
-#compromissos .cmt-carousel{position:relative;align-self:start;min-width:0;overflow:visible;padding:0 clamp(20px,2.6vw,44px)}
-#compromissos .cmt-stage,#compromissos .cmt-controls{width:100%;max-width:380px;margin-inline:auto}
-#compromissos .cmt-stage{position:relative;overflow:hidden;box-sizing:border-box;width:calc(100% + 12px);max-width:392px;padding:6px;margin:-6px 0 -6px max(-6px,calc((100% - 392px) / 2))}
-#compromissos .cmt-track{position:relative}
-#compromissos .cmt-slide{position:relative;display:flex;flex-direction:column;min-width:0}
-#compromissos .cmt-slide + .cmt-slide{margin-top:48px}
-#compromissos .cmt-carousel.is-ready .cmt-track{display:grid}
-#compromissos .cmt-carousel.is-ready .cmt-slide{grid-area:1/1;margin:0;visibility:hidden;pointer-events:none}
-#compromissos .cmt-carousel.is-ready .cmt-slide.is-active,#compromissos .cmt-carousel.is-ready .cmt-slide.is-leaving{visibility:visible}
-#compromissos .cmt-carousel.is-ready .cmt-slide.is-active{pointer-events:auto}
-#compromissos .cmt-slide .diagnostic-kicker{display:block;margin:0 0 16px}
-#compromissos .cmt-slide h2{min-height:1.82em}
-@media (min-width:561px){#compromissos .cmt-slide .diagnostic-points li{grid-template-columns:7px 106px minmax(0,1fr)}}
-#compromissos .cmt-slide .diagnostic-points strong{white-space:nowrap}
-#compromissos .cmt-cta{align-self:flex-start;display:inline-flex;align-items:center;gap:12px;min-height:44px;margin-top:22px;padding:0 18px;border:1px solid rgba(236,238,241,.28);border-radius:999px;color:var(--lunar);font:600 13px/1 var(--body);letter-spacing:.02em;text-decoration:none;transition:border-color .2s ease,background-color .2s ease}
-#compromissos .cmt-cta:hover{border-color:rgba(236,238,241,.7);background:rgba(236,238,241,.06)}
-#compromissos .cmt-cta:focus-visible,#compromissos .cmt-btn:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
-#compromissos .cmt-cta-arrow{font-family:var(--mono);transition:transform .25s cubic-bezier(.2,.72,.2,1)}
-#compromissos .cmt-cta:hover .cmt-cta-arrow{transform:translateX(4px)}
+/* Controles */
+#compromissos .svc-controls{display:none;align-items:center;gap:18px;margin-top:28px;padding-top:18px;border-top:1px solid rgba(236,238,241,.1)}
+#compromissos .svc-carousel.is-ready .svc-controls{display:flex}
+#compromissos .svc-count{margin:0;display:flex;gap:6px;font:11px/1 var(--mono);letter-spacing:.14em;color:#6f7a87;font-variant-numeric:tabular-nums}
+#compromissos .svc-count-current{color:#e1e5ea}
+#compromissos .svc-dots{display:flex;align-items:center;gap:2px;flex:1;min-width:0}
+#compromissos .svc-dot{position:relative;width:34px;height:32px;padding:0;border:0;background:none;cursor:pointer;transition:width .45s cubic-bezier(.16,1,.3,1)}
+#compromissos .svc-dot::before,#compromissos .svc-dot-fill{content:"";position:absolute;left:4px;right:4px;top:50%;height:2px;margin-top:-1px;border-radius:2px}
+#compromissos .svc-dot::before{background:rgba(236,238,241,.18);transition:background-color .3s ease}
+#compromissos .svc-dot:hover::before{background:rgba(236,238,241,.38)}
+#compromissos .svc-dot-fill{background:#e6eaef;transform:scaleX(0);transform-origin:left}
+#compromissos .svc-dot.is-active{width:56px}
+#compromissos .svc-dot.is-active .svc-dot-fill{transform:scaleX(1)}
+#compromissos .svc-carousel.is-autoplay .svc-dot.is-active .svc-dot-fill{animation:svcProgress var(--svc-autoplay,7000ms) linear forwards}
+#compromissos .svc-carousel.is-autoplay.is-paused .svc-dot.is-active .svc-dot-fill{animation-play-state:paused}
+@keyframes svcProgress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+#compromissos .svc-nav{display:flex;gap:8px}
+#compromissos .svc-btn{display:grid;place-items:center;width:40px;height:40px;padding:0;border:1px solid rgba(236,238,241,.2);border-radius:50%;background:rgba(5,7,11,.4);color:#e1e5ea;cursor:pointer;transition:border-color .3s ease,background-color .3s ease}
+#compromissos .svc-btn:hover{border-color:rgba(236,238,241,.6);background:rgba(236,238,241,.06)}
+#compromissos .svc-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+#compromissos .svc-icon-play{display:none}
+#compromissos .svc-toggle[aria-pressed="true"] .svc-icon-pause{display:none}
+#compromissos .svc-toggle[aria-pressed="true"] .svc-icon-play{display:block;fill:currentColor;stroke-width:1}
+#compromissos .svc-live{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
-/* Saturno fixo à esquerda da linha divisória, na altura do título do card:
-   gira no próprio eixo e não muda entre os cards. */
-#compromissos .cmt-orbit{position:absolute;z-index:3;top:clamp(-6px,-.4vw,0px);left:clamp(-150px,-8.4vw,-96px);width:clamp(120px,9.6vw,172px);aspect-ratio:1;translate:-50% 0;pointer-events:none}
-#compromissos .cmt-planet{position:absolute;left:50%;top:50%;aspect-ratio:1;border-radius:50%;translate:-50% -50%;pointer-events:none}
-#compromissos .cmt-planet--saturn{width:clamp(118px,9.8vw,160px);rotate:-6deg}
-#compromissos .cmt-planet--saturn .planet-canvas{position:absolute;inset:-40%;width:180%;height:180%}
-#compromissos .cmt-planet.is-3d .planet-canvas{pointer-events:auto}
-
-/* Controles: só setas, pausa e o tempo do card atual — sem revelar quantos são. */
-#compromissos .cmt-controls{display:none;align-items:center;gap:20px;margin-top:18px;padding-top:8px;border-top:1px solid rgba(236,238,241,.1)}
-#compromissos .cmt-carousel.is-ready .cmt-controls{display:flex}
-/* Satélite em órbita elíptica: cada volta completa é o tempo de um card.
-   Visto de cima e levemente inclinado: menor atrás (em cima), maior na
-   frente (embaixo), deixando um rastro fino pelo caminho. */
-#compromissos .cmt-progress{position:relative;flex:1;height:64px;min-width:0}
-#compromissos .cmt-orbit-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-#compromissos .cmt-orbit-path{fill:none;stroke:rgba(215,226,239,.12);stroke-width:1}
-#compromissos .cmt-trail path{fill:none;stroke:#dfe6ee;stroke-linecap:round}
-#compromissos .cmt-sat-art rect,#compromissos .cmt-sat-art path{fill:#0a0e14;stroke:#d9e1ea;stroke-width:1.1;stroke-linejoin:round}
-#compromissos .cmt-sat-art .cmt-sat-line{fill:none;stroke:#b9c4d0;stroke-width:.9;stroke-linecap:round}
-#compromissos .cmt-sat-tip{fill:#d9e1ea}
-#compromissos .cmt-nav{display:flex;gap:8px}
-#compromissos .cmt-btn{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid rgba(236,238,241,.2);border-radius:50%;background:rgba(5,7,11,.4);color:#e1e5ea;cursor:pointer;transition:border-color .2s ease,background-color .2s ease}
-#compromissos .cmt-btn:hover{border-color:rgba(236,238,241,.6);background:rgba(236,238,241,.06)}
-#compromissos .cmt-btn:active{scale:.96}
-#compromissos .cmt-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-#compromissos .cmt-live{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-
-/* O espaço acompanha o giro: as duas camadas de estrelas deslizam em
-   velocidades diferentes (paralaxe). */
-#compromissos.section::before,#compromissos.section::after{left:-340px;right:-340px;transition:translate .9s cubic-bezier(.65,0,.35,1)}
-#compromissos.section::before{translate:var(--space-near,0px) 0}
-#compromissos.section::after{translate:var(--space-far,0px) 0}
-#compromissos.section.space-snap::before,#compromissos.section.space-snap::after{transition:none}
+/* Troca de card: o conteúdo desliza em camadas e o planeta atravessa a
+   cena mais depressa, como um corpo mais próximo em uma órbita. */
+#compromissos .svc-carousel.is-ready .svc-slide{--shift:36px;--dir:1;visibility:hidden;pointer-events:none;transition:visibility 0s linear .8s}
+#compromissos .svc-carousel.is-ready .svc-slide.is-active{visibility:visible;pointer-events:auto;transition:visibility 0s}
+#compromissos .svc-carousel.is-ready .svc-slide>*{opacity:0;transform:translate3d(var(--shift),0,0);transition:opacity .38s ease,transform .7s cubic-bezier(.16,1,.3,1)}
+#compromissos .svc-carousel.is-ready .svc-slide.is-active>*{opacity:1;transform:none;transition:opacity .6s ease,transform .95s cubic-bezier(.16,1,.3,1)}
+#compromissos .svc-carousel.is-ready .svc-slide>.svc-planet-slot{transform:translate3d(calc(var(--shift) * 3.2),0,0) rotate(calc(var(--dir) * 9deg)) scale(.82)}
+#compromissos .svc-carousel.is-ready .svc-slide.is-active>.svc-planet-slot{transform:none;transition:opacity .8s ease,transform 1.25s cubic-bezier(.16,1,.3,1)}
+#compromissos .svc-slide.is-active>.diagnostic-kicker{transition-delay:.08s}
+#compromissos .svc-slide.is-active>h2{transition-delay:.13s}
+#compromissos .svc-slide.is-active>.diagnostic-intro{transition-delay:.18s}
+#compromissos .svc-slide.is-active>.diagnostic-list-label,#compromissos .svc-slide.is-active>.diagnostic-points{transition-delay:.23s}
+#compromissos .svc-slide.is-active>.svc-cta{transition-delay:.28s}
+#compromissos .svc-carousel.is-ready .svc-slide.is-active>.svc-cta:hover{transition-delay:0s}
 
 @media (min-width:961px) and (max-height:760px){
-  #compromissos .cmt-cta{margin-top:14px;min-height:40px}
-  #compromissos .cmt-controls{margin-top:18px;padding-top:12px}
+  #compromissos .svc-planet-slot{height:96px}
+  #compromissos .svc-cta{margin-top:14px;min-height:40px}
+  #compromissos .svc-controls{margin-top:18px;padding-top:12px}
 }
-/* Celular e tablet: a órbita fica centralizada acima do card. */
 @media (max-width:960px){
-  #compromissos .cmt-carousel{padding:clamp(150px,36vw,176px) 0 0}
-  #compromissos .cmt-stage{max-width:472px;margin-left:max(-6px,calc((100% - 472px) / 2))}
-  #compromissos .cmt-controls{max-width:460px}
-  #compromissos .cmt-orbit{left:50%;top:clamp(20px,5vw,34px)}
-  #compromissos .cmt-planet.is-3d{opacity:.94}
+  #compromissos .svc-carousel{padding-top:28px}
+  #compromissos .svc-planet-slot{height:118px}
+  #compromissos .svc-planet{right:6%}
+  #compromissos .svc-planet.is-3d{opacity:.92}
+  #compromissos .principles{grid-template-columns:1fr;gap:18px}
+  #compromissos .principles li{grid-template-columns:34px minmax(0,1fr);column-gap:10px;row-gap:4px}
+  #compromissos .principle-num{grid-row:1 / 3;padding-top:4px}
 }
 @media (max-width:620px){
-  #compromissos .cmt-slide h2{min-height:0}
+  #compromissos .svc-controls{gap:10px}
+  #compromissos .svc-count{display:none}
+  #compromissos .svc-dot{width:26px}
+  #compromissos .svc-dot.is-active{width:44px}
+  #compromissos .svc-slide h2{min-height:0}
 }
 @media (prefers-reduced-motion:reduce){
-  #compromissos.section::before,#compromissos.section::after{transition:none!important}
+  #compromissos .svc-carousel.is-ready .svc-slide,#compromissos .svc-carousel.is-ready .svc-slide>*{transition:none!important}
+  #compromissos .svc-dot{transition:none}
 }
-</style>
-
-<style id="kirmoon-scroll-rocket">
-/* Indicador de rolagem: nave minimalista que sobe e desce devagar; a
-   seta abaixo pulsa um pouco atrasada, como no ícone de mouse. */
-.hero .scroll-rocket{position:absolute;z-index:3;left:50%;bottom:58px;translate:-50% 0;display:grid;place-items:center;width:48px;height:72px;color:var(--lunar);opacity:.78;text-decoration:none;border-radius:24px;transition:opacity .25s ease}
-.hero .scroll-rocket:hover{opacity:1}
-.hero .scroll-rocket:focus-visible{outline:2px solid var(--glow);outline-offset:2px;opacity:1}
-.hero .scroll-rocket svg{width:28px;height:46px;overflow:visible}
-.hero .scroll-rocket path,.hero .scroll-rocket circle{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-.hero .scroll-rocket-ship{animation:kmRocketBob 1.9s cubic-bezier(.45,0,.55,1) infinite}
-.hero .scroll-rocket-chevron{animation:kmRocketChevron 1.9s cubic-bezier(.45,0,.55,1) infinite;opacity:.7}
-@keyframes kmRocketBob{0%,100%{transform:translateY(-3px)}50%{transform:translateY(5px)}}
-@keyframes kmRocketChevron{0%,100%{transform:translateY(-1px);opacity:.35}55%{transform:translateY(4px);opacity:.85}}
-@media (max-width:960px){.hero .scroll-rocket{bottom:18px}}
-@media (min-width:961px) and (max-height:700px){.hero .scroll-rocket{bottom:36px;height:60px}.hero .scroll-rocket svg{height:40px}}
-@media (prefers-reduced-motion:reduce){.hero .scroll-rocket-ship,.hero .scroll-rocket-chevron{animation:none}}
 </style>
 </head>
 <body>
@@ -2573,17 +2565,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
       <span class="skel-label"><span id="load-pct">10</span>% · carregando</span>
     </div>
     <canvas id="moon-canvas" aria-hidden="true"></canvas>
-    <a class="scroll-rocket" href="#servicos" aria-label="Rolar para Serviços">
-      <svg viewBox="0 2 32 52" aria-hidden="true" focusable="false">
-        <g class="scroll-rocket-ship"><g transform="rotate(180 16 18.7)">
-          <path d="M16 5c1.9 2.8 3.2 6.6 3.6 11.2l.4 10.8-4 3-4-3 .4-10.8C12.8 11.6 14.1 7.8 16 5z"/>
-          <path d="M12.5 17.5 5 28.5l7.2-1.8M19.5 17.5 27 28.5l-7.2-1.8"/>
-          <path d="M16 11.2c.8 1.1 1.2 2.3 1.2 3.6h-2.4c0-1.3.4-2.5 1.2-3.6z"/>
-          <path d="M14.2 30.6v1.8M17.8 30.6v1.8"/>
-        </g></g>
-        <path class="scroll-rocket-chevron" d="M11.5 44 16 48.5l4.5-4.5"/>
-      </svg>
-    </a>
+    <p class="hint">Role para conhecer a Kirmoon</p>
   </section>
   <script>
     /* posição da lua (compartilhada entre o esqueleto e a lua 3D) */
@@ -3150,6 +3132,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
       <span class="commit-orbit-line" aria-hidden="true"></span>
       <div class="commitment-main">
         <div class="commitment-heading">
+          <p class="commitment-kicker">Sobre a Kirmoon</p>
           <h2 class="commitment-title">Nossos compromissos</h2>
           <p class="commitment-about">A Kirmoon desenvolve aplicativos, refatora sites e assume a frente técnica de empresas que precisam de tecnologia confiável. Todo projeto segue a mesma rota: contexto claro, execução responsável e uma entrega que sua empresa consegue operar.</p>
         </div>
@@ -3167,6 +3150,14 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
             <span>De suporte após a entrega</span>
           </div>
         </div>
+        <div class="commitment-principles">
+          <h3 class="principles-title">Como trabalhamos</h3>
+          <ol class="principles">
+            <li><span class="principle-num" aria-hidden="true">01</span><strong>Contexto antes do código</strong><span>Escopo, riscos e critérios de decisão definidos antes do desenvolvimento.</span></li>
+            <li><span class="principle-num" aria-hidden="true">02</span><strong>Entregas por partes</strong><span>Interface e código validados em ciclos curtos.</span></li>
+            <li><span class="principle-num" aria-hidden="true">03</span><strong>Tudo fica com você</strong><span>Código-fonte, acessos e orientações organizados na entrega.</span></li>
+          </ol>
+        </div>
         <div class="tech-stack" aria-label="Tecnologias utilizadas">
           <h3 class="tech-title">Tecnologias</h3>
           <div class="tech-groups">
@@ -3177,15 +3168,12 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
           </div>
         </div>
       </div>
-      <aside class="diagnostic-panel cmt-carousel" id="diagnostic-card" data-cmt-carousel aria-roledescription="carrossel" aria-label="Como a Kirmoon pode ajudar">
-        <div class="cmt-orbit" aria-hidden="true">
-          <span class="cmt-planet cmt-planet--saturn"><canvas class="planet-canvas" data-planet="saturn"></canvas></span>
-        </div>
-        <div class="cmt-stage">
-          <div class="cmt-track">
-        <article class="cmt-slide is-active" id="cmt-slide-1" role="group" aria-roledescription="card" aria-labelledby="cmt-title-1">
-          <p class="diagnostic-kicker">Desenvolvimento de aplicativos</p>
-          <h2 id="cmt-title-1">Sua equipe vive em planilhas?</h2>
+      <aside class="diagnostic-panel svc-carousel" id="diagnostic-card" data-svc-carousel aria-roledescription="carrossel" aria-label="Como a Kirmoon pode ajudar">
+        <div class="svc-track">
+        <article class="svc-slide is-active" id="svc-slide-1" data-planet-type="mars" role="group" aria-roledescription="card" aria-labelledby="svc-title-1">
+          <div class="svc-planet-slot" aria-hidden="true"><span class="svc-planet svc-planet--mars"><canvas class="planet-canvas" data-planet="mars"></canvas></span></div>
+          <p class="diagnostic-kicker"><span class="svc-index">01</span> Desenvolvimento de aplicativos</p>
+          <h2 id="svc-title-1">Sua equipe vive em planilhas?</h2>
           <p class="diagnostic-intro">Transformamos o fluxo que sua equipe já usa em um aplicativo ou sistema web, do desenho das telas à publicação nas lojas.</p>
           <h3 class="diagnostic-list-label">O que entregamos</h3>
           <ul class="diagnostic-points">
@@ -3205,10 +3193,11 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
               <span>Login, pagamentos e APIs do seu negócio.</span>
             </li>
           </ul>
-          <a class="cmt-cta" href="#contato" data-servico="Desenvolvimento de app"><span>Quero um aplicativo sob medida</span><span class="cmt-cta-arrow" aria-hidden="true">→</span></a>
+          <a class="svc-cta" href="#contato" data-servico="Desenvolvimento de app"><span>Quero um aplicativo sob medida</span><span class="svc-cta-arrow" aria-hidden="true">→</span></a>
         </article>
-        <article class="cmt-slide" id="cmt-slide-2" role="group" aria-roledescription="card" aria-labelledby="diagnostico-titulo">
-          <p class="diagnostic-kicker">Refatoração de sites</p>
+        <article class="svc-slide" id="svc-slide-2" data-planet-type="saturn" role="group" aria-roledescription="card" aria-labelledby="diagnostico-titulo">
+          <div class="svc-planet-slot" aria-hidden="true"><span class="svc-planet svc-planet--saturn"><canvas class="planet-canvas" data-planet="saturn"></canvas></span></div>
+          <p class="diagnostic-kicker"><span class="svc-index">02</span> Refatoração de sites</p>
           <h2 id="diagnostico-titulo">Seu site está lento?</h2>
           <p class="diagnostic-intro">Em uma revisão técnica, começamos pelo que mais afeta uso, descoberta e segurança do site.</p>
           <h3 class="diagnostic-list-label">Pontos principais</h3>
@@ -3229,11 +3218,12 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
               <span>Atualizações e principais pontos de atenção.</span>
             </li>
           </ul>
-          <a class="cmt-cta" href="#contato" data-servico="Refatoração de site"><span>Quero um site mais rápido</span><span class="cmt-cta-arrow" aria-hidden="true">→</span></a>
+          <a class="svc-cta" href="#contato" data-servico="Refatoração de site"><span>Quero um site mais rápido</span><span class="svc-cta-arrow" aria-hidden="true">→</span></a>
         </article>
-        <article class="cmt-slide" id="cmt-slide-3" role="group" aria-roledescription="card" aria-labelledby="cmt-title-3">
-          <p class="diagnostic-kicker">Assessoria técnica</p>
-          <h2 id="cmt-title-3">Sua TI está sem direção?</h2>
+        <article class="svc-slide" id="svc-slide-3" data-planet-type="neptune" role="group" aria-roledescription="card" aria-labelledby="svc-title-3">
+          <div class="svc-planet-slot" aria-hidden="true"><span class="svc-planet svc-planet--neptune"><canvas class="planet-canvas" data-planet="neptune"></canvas></span></div>
+          <p class="diagnostic-kicker"><span class="svc-index">03</span> Assessoria técnica</p>
+          <h2 id="svc-title-3">Sua TI está sem direção?</h2>
           <p class="diagnostic-intro">Assumimos a frente técnica quando sistemas, infraestrutura e fornecedores precisam de uma direção comum.</p>
           <h3 class="diagnostic-list-label">Por onde começamos</h3>
           <ul class="diagnostic-points">
@@ -3253,104 +3243,26 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
               <span>Manutenção, prioridades e documentação.</span>
             </li>
           </ul>
-          <a class="cmt-cta" href="#contato" data-servico="Assessoria técnica"><span>Quero uma direção técnica</span><span class="cmt-cta-arrow" aria-hidden="true">→</span></a>
+          <a class="svc-cta" href="#contato" data-servico="Assessoria técnica"><span>Quero uma direção técnica</span><span class="svc-cta-arrow" aria-hidden="true">→</span></a>
         </article>
-        <article class="cmt-slide" id="cmt-slide-4" role="group" aria-roledescription="card" aria-labelledby="cmt-title-4">
-          <p class="diagnostic-kicker">Desenvolvimento de aplicativos</p>
-          <h2 id="cmt-title-4">Seus pedidos chegam por WhatsApp?</h2>
-          <p class="diagnostic-intro">Organizamos pedidos, agendamentos e atendimento em um sistema próprio, conectado às ferramentas que o negócio já usa.</p>
-          <h3 class="diagnostic-list-label">O que muda</h3>
-          <ul class="diagnostic-points">
-            <li>
-              <span class="diagnostic-point-mark" aria-hidden="true"></span>
-              <strong>Fila única</strong>
-              <span>Pedidos e chamados em um só lugar.</span>
-            </li>
-            <li>
-              <span class="diagnostic-point-mark" aria-hidden="true"></span>
-              <strong>Em campo</strong>
-              <span>Rotas, status e registros pelo celular.</span>
-            </li>
-            <li>
-              <span class="diagnostic-point-mark" aria-hidden="true"></span>
-              <strong>Painel</strong>
-              <span>Números da operação em tempo real.</span>
-            </li>
-          </ul>
-          <a class="cmt-cta" href="#contato" data-servico="Desenvolvimento de app"><span>Quero organizar meus pedidos</span><span class="cmt-cta-arrow" aria-hidden="true">→</span></a>
-        </article>
-        <article class="cmt-slide" id="cmt-slide-5" role="group" aria-roledescription="card" aria-labelledby="cmt-title-5">
-          <p class="diagnostic-kicker">Refatoração de sites</p>
-          <h2 id="cmt-title-5">Atualizar seu site dá trabalho?</h2>
-          <p class="diagnostic-intro">Reorganizamos código e conteúdo para que o site possa mudar sem quebrar, preservando o que ainda funciona.</p>
-          <h3 class="diagnostic-list-label">O que revisamos</h3>
-          <ul class="diagnostic-points">
-            <li>
-              <span class="diagnostic-point-mark" aria-hidden="true"></span>
-              <strong>Estrutura</strong>
-              <span>Código organizado para mudanças seguras.</span>
-            </li>
-            <li>
-              <span class="diagnostic-point-mark" aria-hidden="true"></span>
-              <strong>Responsividade</strong>
-              <span>Layout consistente em qualquer tela.</span>
-            </li>
-            <li>
-              <span class="diagnostic-point-mark" aria-hidden="true"></span>
-              <strong>Migração</strong>
-              <span>Troca de tecnologia sem perder domínio.</span>
-            </li>
-          </ul>
-          <a class="cmt-cta" href="#contato" data-servico="Refatoração de site"><span>Quero um site fácil de manter</span><span class="cmt-cta-arrow" aria-hidden="true">→</span></a>
-        </article>
-        <article class="cmt-slide" id="cmt-slide-6" role="group" aria-roledescription="card" aria-labelledby="cmt-title-6">
-          <p class="diagnostic-kicker">Assessoria técnica</p>
-          <h2 id="cmt-title-6">Só um fornecedor sabe onde tudo está?</h2>
-          <p class="diagnostic-intro">Levantamos onde cada sistema roda, quanto custa e quem tem acesso, e deixamos tudo registrado para a sua empresa.</p>
-          <h3 class="diagnostic-list-label">O que você recupera</h3>
-          <ul class="diagnostic-points">
-            <li>
-              <span class="diagnostic-point-mark" aria-hidden="true"></span>
-              <strong>Acessos</strong>
-              <span>Domínios, contas e senhas sob controle.</span>
-            </li>
-            <li>
-              <span class="diagnostic-point-mark" aria-hidden="true"></span>
-              <strong>Documentação</strong>
-              <span>Onde e como cada sistema funciona.</span>
-            </li>
-            <li>
-              <span class="diagnostic-point-mark" aria-hidden="true"></span>
-              <strong>Backup</strong>
-              <span>Rotina de cópias e monitoramento.</span>
-            </li>
-          </ul>
-          <a class="cmt-cta" href="#contato" data-servico="Assessoria técnica"><span>Quero o controle de volta</span><span class="cmt-cta-arrow" aria-hidden="true">→</span></a>
-        </article>
+        </div>
+        <div class="svc-controls">
+          <p class="svc-count" aria-hidden="true"><span class="svc-count-current">01</span><span class="svc-count-sep">/</span><span>03</span></p>
+          <div class="svc-dots" role="group" aria-label="Escolher card">
+          <button class="svc-dot is-active" type="button" aria-controls="svc-slide-1" aria-current="true" aria-label="Card 1 de 3: Desenvolvimento de aplicativos"><span class="svc-dot-fill"></span></button>
+          <button class="svc-dot" type="button" aria-controls="svc-slide-2" aria-current="false" aria-label="Card 2 de 3: Refatoração de sites"><span class="svc-dot-fill"></span></button>
+          <button class="svc-dot" type="button" aria-controls="svc-slide-3" aria-current="false" aria-label="Card 3 de 3: Assessoria técnica"><span class="svc-dot-fill"></span></button>
+          </div>
+          <div class="svc-nav">
+            <button class="svc-btn svc-toggle" type="button" aria-pressed="false" aria-label="Pausar troca automática dos cards">
+              <svg class="svc-icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9M11 3.5v9"/></svg>
+              <svg class="svc-icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.2 12.3 8l-6.8 4.8z"/></svg>
+            </button>
+            <button class="svc-btn carousel-prev" type="button" aria-label="Card anterior"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg></button>
+            <button class="svc-btn carousel-next" type="button" aria-label="Próximo card"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
           </div>
         </div>
-        <div class="cmt-controls">
-          <span class="cmt-progress" aria-hidden="true">
-            <svg class="cmt-orbit-svg" focusable="false">
-              <ellipse class="cmt-orbit-path"/>
-              <g class="cmt-trail"></g>
-              <g class="cmt-sat"><g class="cmt-sat-art">
-                <path class="cmt-sat-line" d="M-8.5 0h3.5M5 0h3.5M0 -5v-3.2M0 5v1.6"/>
-                <rect x="-21" y="-4.6" width="12.5" height="9.2" rx="1"/>
-                <rect x="8.5" y="-4.6" width="12.5" height="9.2" rx="1"/>
-                <path class="cmt-sat-line" d="M-16.8 -4.6v9.2M-12.7 -4.6v9.2M12.7 -4.6v9.2M16.8 -4.6v9.2"/>
-                <rect x="-5" y="-5" width="10" height="10" rx="2.2"/>
-                <path d="M-3.4 6.6a3.4 2.6 0 0 0 6.8 0z"/>
-                <circle class="cmt-sat-tip" cx="0" cy="-8.8" r="1"/>
-              </g></g>
-            </svg>
-          </span>
-          <div class="cmt-nav">
-            <button class="cmt-btn carousel-prev" type="button" aria-label="Card anterior"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg></button>
-            <button class="cmt-btn carousel-next" type="button" aria-label="Próximo card"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
-          </div>
-        </div>
-        <p class="cmt-live" aria-live="polite" aria-atomic="true"></p>
+        <p class="svc-live" aria-live="polite" aria-atomic="true"></p>
       </aside>
     </div>
   </section>
@@ -4219,7 +4131,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
       const entryDirection = source === serviceStart ? 1 : source === finalStart ? -1 : 0;
       beginProcessEntry(entryDirection);
     }
-    if (target === finalStart) ensureFinalPlanetReady('saturn');
+    if (target === finalStart) ensureFinalPlanetReady(['saturn','mars','neptune']);
 
     // Capítulos longos entram pelo começo; capítulos cinematográficos permanecem centralizados.
     const resolveChapterTop = () => (target === finalStart || target === serviceStart)
@@ -4914,7 +4826,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
       ctx.beginPath();ctx.ellipse(cx,cy,rx,ry,rotation,start,end);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();
     };
     const draw=(state,time=0)=>{
-      const {canvas,type}=state,box={width:canvas.clientWidth||canvas.getBoundingClientRect().width,height:canvas.clientHeight||canvas.getBoundingClientRect().height},dpr=Math.min(devicePixelRatio||1,1.6);
+      const {canvas,type}=state,box=canvas.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,1.6);
       const width=Math.max(2,Math.round(box.width*dpr)),height=Math.max(2,Math.round(box.height*dpr));
       if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;state.width=box.width;state.height=box.height}
       const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,box.width,box.height);
@@ -4934,13 +4846,17 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
         base.addColorStop(0,'#77818c');base.addColorStop(.28,'#3e4853');base.addColorStop(.58,'#66717d');base.addColorStop(1,'#1b232d');
       }else if(type==='jupiter'){
         base.addColorStop(0,'#5f6b77');base.addColorStop(.24,'#27313b');base.addColorStop(.5,'#77838f');base.addColorStop(.72,'#202832');base.addColorStop(1,'#4a5662');
+      }else if(type==='mars'){
+        base.addColorStop(0,'#b0795a');base.addColorStop(.45,'#7a4a36');base.addColorStop(1,'#2a1812');
+      }else if(type==='neptune'){
+        base.addColorStop(0,'#6f93c4');base.addColorStop(.4,'#34598f');base.addColorStop(.7,'#4c74ad');base.addColorStop(1,'#101d33');
       }else{
         base.addColorStop(0,'#36586a');base.addColorStop(.5,'#173241');base.addColorStop(1,'#071620');
       }
       ctx.fillStyle=base;ctx.fillRect(cx-r,cy-r,r*2,r*2);
 
-      if(type==='saturn'||type==='jupiter'){
-        const count=type==='jupiter'?12:8;
+      if(type==='saturn'||type==='jupiter'||type==='neptune'){
+        const count=type==='jupiter'?12:type==='neptune'?7:8;
         for(let i=0;i<count;i++){
           const y=cy-r+i*(r*2/count),bh=r*(type==='jupiter'?.11:.075)*(1+(i%3)*.22);
           ctx.fillStyle=i%2?'rgba(5,9,14,.2)':'rgba(230,236,243,.105)';
@@ -5040,6 +4956,73 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
       return t;
     };
 
+    // Marte e Netuno usam mapas equiretangulares gerados aqui: ruído fractal
+    // periódico na longitude, sem imagens extras embutidas no arquivo.
+    const texturaProcedural = tipo => {
+      const W = 512, H = 256, c = document.createElement('canvas');
+      c.width = W; c.height = H;
+      const g = c.getContext('2d'), img = g.createImageData(W, H), d = img.data;
+      const seed = tipo === 'mars' ? 7 : 19;
+      const hash = (x, y) => {
+        let h = Math.imul(x, 374761393) + Math.imul(y, 668265263) + Math.imul(seed, 982451653) | 0;
+        h = Math.imul(h ^ (h >>> 13), 1274126177);
+        return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+      };
+      const ruido = (x, y, periodo) => {
+        const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi;
+        const u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+        const w = i => ((i % periodo) + periodo) % periodo;
+        const a = hash(w(xi), yi), b = hash(w(xi + 1), yi), c2 = hash(w(xi), yi + 1), e = hash(w(xi + 1), yi + 1);
+        return a + (b - a) * u + (c2 - a) * v + (a - b - c2 + e) * u * v;
+      };
+      const fbm = (x, y, oitavas, base) => {
+        let s = 0, amp = .5, f = 1, norm = 0;
+        for (let o = 0; o < oitavas; o++) { s += amp * ruido(x * f, y * f, base * f); norm += amp; amp *= .5; f *= 2; }
+        return s / norm;
+      };
+      const mix = (a, b, t) => a + (b - a) * t;
+      const clamp01 = t => Math.max(0, Math.min(1, t));
+      for (let y = 0; y < H; y++) {
+        const lat = y / (H - 1);                      // 0 = polo norte, 1 = polo sul
+        for (let x = 0; x < W; x++) {
+          const u = x / W, i = (y * W + x) * 4;
+          let r, gg, bb;
+          if (tipo === 'mars') {
+            const base = fbm(u * 8, lat * 4, 5, 8);
+            const mares = clamp01((fbm(u * 4 + 11, lat * 2 + 4, 5, 4) - .46) * 5.5);
+            const poeira = fbm(u * 32, lat * 16, 3, 32);
+            const vale = Math.exp(-(((lat - .52 - Math.sin(u * Math.PI * 2) * .02) / .012) ** 2)) * clamp01(1 - Math.abs(u - .35) * 6);
+            let t = clamp01((base - .5) * 1.9 + .5 + (poeira - .5) * .55);
+            r = mix(128, 214, t); gg = mix(64, 132, t); bb = mix(42, 90, t);
+            const m = Math.max(mares * .7, vale * .55);
+            r = mix(r, 74, m); gg = mix(gg, 42, m); bb = mix(bb, 34, m);
+            const polo = Math.min(lat, 1 - lat);
+            const calota = clamp01((.085 + fbm(u * 10, lat * 6 + 3, 3, 10) * .05 - polo) * 22);
+            r = mix(r, 236, calota); gg = mix(gg, 232, calota); bb = mix(bb, 228, calota);
+          } else {
+            const torcao = fbm(u * 5, lat * 4, 4, 5) - .5;
+            const faixa = Math.sin((lat + torcao * .07) * Math.PI * 9) * .5 + .5;
+            const fino = fbm(u * 16, lat * 30, 3, 16);
+            let t = clamp01(faixa * .55 + fino * .45);
+            r = mix(44, 104, t); gg = mix(86, 148, t); bb = mix(156, 214, t);
+            const escuro = Math.exp(-(((u - .62) / .055) ** 2 + ((lat - .63) / .035) ** 2));
+            r = mix(r, 22, escuro * .8); gg = mix(gg, 46, escuro * .8); bb = mix(bb, 104, escuro * .8);
+            const nuvem = clamp01((fbm(u * 18 + 5, lat * 40, 3, 18) - .66) * 5) * Math.exp(-(((lat - .6) / .06) ** 2));
+            r = mix(r, 228, nuvem * .7); gg = mix(gg, 238, nuvem * .7); bb = mix(bb, 250, nuvem * .7);
+            const limbo = Math.pow(Math.abs(lat - .5) * 2, 3);
+            r = mix(r, 40, limbo * .5); gg = mix(gg, 70, limbo * .5); bb = mix(bb, 130, limbo * .5);
+          }
+          d[i] = r; d[i + 1] = gg; d[i + 2] = bb; d[i + 3] = 255;
+        }
+      }
+      g.putImageData(img, 0, 0);
+      const t = new THREE.CanvasTexture(c);
+      t.wrapS = THREE.RepeatWrapping;
+      t.encoding = THREE.sRGBEncoding;
+      return t;
+    };
+    const PROCEDURAIS = new Set(['mars', 'neptune']);
+
     const planetas = finalPlanetRuntime.planetas;
     const eixo = finalPlanetRuntime.eixo || (finalPlanetRuntime.eixo = new THREE.Vector3());
     const agendar = () => {
@@ -5051,7 +5034,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     canvases.forEach(canvas => {
       const tipo = canvas.dataset.planet;
       const host = canvas.parentElement;
-      const requiredTextures = tipo === 'saturn' ? ['texSaturno','texAneis'] : tipo === 'jupiter' ? ['texJupiter'] : ['texTerra'];
+      const requiredTextures = tipo === 'saturn' ? ['texSaturno','texAneis'] : tipo === 'jupiter' ? ['texJupiter'] : PROCEDURAIS.has(tipo) ? [] : ['texTerra'];
       if (!requiredTextures.every(imagem)) {
         finalPlanetRuntime.initialized.add(tipo);
         initFinalPlanetsCanvas([tipo]);
@@ -5129,16 +5112,35 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
         esfera.rotation.y = -1.0;
 
       } else {
-        mapa = textura(tipo === 'saturn' ? 'texSaturno' : 'texJupiter', true);
+        mapa = PROCEDURAIS.has(tipo) ? texturaProcedural(tipo) : textura(tipo === 'saturn' ? 'texSaturno' : 'texJupiter', true);
         if (mapa) mapa.anisotropy = anis;
         esfera = new THREE.Mesh(
           new THREE.SphereGeometry(1, planetSegments, planetSegments),
           new THREE.MeshStandardMaterial({ map: mapa, roughness: .95, metalness: 0 })
         );
         // gigante gasoso é achatado pela própria rotação
-        esfera.scale.set(1, tipo === 'saturn' ? .902 : .935, 1);
+        esfera.scale.set(1, tipo === 'saturn' ? .902 : tipo === 'jupiter' ? .935 : tipo === 'neptune' ? .983 : 1, 1);
         esfera.rotation.y = -1.6;
         tilt.add(esfera);
+      }
+
+      if (PROCEDURAIS.has(tipo)) {
+        // Atmosfera fina: poeira avermelhada em Marte, metano azul em Netuno.
+        tilt.add(new THREE.Mesh(
+          new THREE.SphereGeometry(1.045, atmosphereSegments, atmosphereSegments),
+          new THREE.ShaderMaterial({
+            transparent: true, side: THREE.BackSide, depthWrite: false, blending: THREE.AdditiveBlending,
+            uniforms: { cor: { value: new THREE.Color(tipo === 'mars' ? 0xd99a74 : 0x78a8f0) }, forca: { value: tipo === 'mars' ? .42 : .8 } },
+            vertexShader: `varying vec3 vN; varying vec3 vP;
+              void main(){ vN = normalize(normalMatrix * normal);
+                vec4 mv = modelViewMatrix * vec4(position,1.0); vP = mv.xyz;
+                gl_Position = projectionMatrix * mv; }`,
+            fragmentShader: `uniform vec3 cor; uniform float forca; varying vec3 vN; varying vec3 vP;
+              void main(){ float f = pow(1.0 - abs(dot(normalize(vN), normalize(-vP))), 3.0);
+                gl_FragColor = vec4(cor, f * forca); }`
+          })
+        ));
+        pivot.rotation.z = tipo === 'mars' ? .44 : .5;   // inclinações axiais de 25° e 28°
       }
 
       if (tipo === 'saturn') {
@@ -5200,12 +5202,12 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
         visivel: false, ultimo: 0, vy: 0, vx: 0, rx: 0, mx: 0, my: 0, arrastando: false, primeiro: false,
         // Júpiter gira em ~10h, Saturno em ~10,7h e a Terra em 24h: as
         // velocidades relativas seguem essa proporção.
-        giro: tipo === 'jupiter' ? .00150 : tipo === 'saturn' ? .00140 : .00062
+        giro: tipo === 'jupiter' ? .00150 : tipo === 'saturn' ? .00140 : tipo === 'neptune' ? .00093 : .00062
       };
 
       const medir = () => {
         const rect = canvas.getBoundingClientRect();
-        const w = Math.max(2, canvas.clientWidth || rect.width), h = Math.max(2, canvas.clientHeight || rect.height);
+        const w = Math.max(2, rect.width), h = Math.max(2, rect.height);
         renderer.setSize(w, h, false);
         camera.aspect = w / h; camera.updateProjectionMatrix();
         renderer.render(scene, camera);
@@ -5316,7 +5318,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     // Processo is prepared well before it becomes visible; direct navigation can
     // also call ensureProcessMoonReady() synchronously.
     observeNear(processEl, '120% 0px 120% 0px', ensureProcessMoonReady);
-    observeNear(finalStart, '90% 0px 90% 0px', () => ensureFinalPlanetReady('saturn'));
+    observeNear(finalStart, '90% 0px 90% 0px', () => ensureFinalPlanetReady(['saturn','mars','neptune']));
     observeNear(faqEl, '55% 0px 55% 0px', () => ensureFinalPlanetReady('jupiter'));
     observeNear(contactEl, '35% 0px 35% 0px', () => ensureFinalPlanetReady('earth'));
   };
@@ -6150,201 +6152,130 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
 })();
 </script>
 <script>
-/* Carrossel de serviços em Compromissos: texto recortado + satélite em órbita. */
+/* Carrossel de serviços em Compromissos. */
 (() => {
-  const root = document.querySelector('[data-cmt-carousel]');
+  const root = document.querySelector('[data-svc-carousel]');
   if (!root) return;
-  const slides = [...root.querySelectorAll('.cmt-slide')];
+  const slides = [...root.querySelectorAll('.svc-slide')];
+  const dots = [...root.querySelectorAll('.svc-dot')];
   if (slides.length < 2) return;
-  const section = root.closest('section');
-  const track = root.querySelector('.cmt-track');
   const prevBtn = root.querySelector('.carousel-prev');
   const nextBtn = root.querySelector('.carousel-next');
-  const live = root.querySelector('.cmt-live');
-  const progress = root.querySelector('.cmt-progress');
-  const svg = root.querySelector('.cmt-orbit-svg');
-  const orbitPath = root.querySelector('.cmt-orbit-path');
-  const trailGroup = root.querySelector('.cmt-trail');
-  const sat = root.querySelector('.cmt-sat');
+  const toggle = root.querySelector('.svc-toggle');
+  const counter = root.querySelector('.svc-count-current');
+  const live = root.querySelector('.svc-live');
   const reduceQ = matchMedia('(prefers-reduced-motion: reduce)');
-  const LAP_MS = 7000, TEXT_MS = 560, BOOST_MS = 820, EASE_TEXT = 'cubic-bezier(.65,0,.35,1)';
-  const TRAIL_SEGMENTS = 26, TRAIL_SPAN = Math.PI * .62;
-  const NS = 'http://www.w3.org/2000/svg';
+  const AUTOPLAY_MS = 7000, PARK_MS = 1300;
   let index = Math.max(0, slides.findIndex(s => s.classList.contains('is-active')));
-  // A volta segue mesmo com o mouse sobre o card. Ela só para com o foco do
-  // teclado dentro do carrossel (navegação por Tab), fora da tela ou em aba
-  // oculta; com "reduzir movimento" o satélite fica parado e a troca é manual.
-  let autoplay = !reduceQ.matches, keyboardFocus = false, offscreen = true;
-  let running = [];
+  let userPaused = reduceQ.matches, hovering = false, focused = false, offscreen = true;
+  const parkTimers = new WeakMap();
 
+  root.style.setProperty('--svc-autoplay', AUTOPLAY_MS + 'ms');
   root.classList.add('is-ready');
 
-  // ---------- órbita ----------
-  // Parâmetro da volta: 0 = ponto de partida à esquerda; no sentido horário,
-  // passa por cima (atrás), pela direita e volta por baixo (frente).
-  // lap = posição na órbita (em voltas); origin = onde começou a volta do card atual.
-  let lap = 0, origin = 0, heading = 1, lastTime = 0, frame = 0, boost = null;
-  let geo = { cx: 0, cy: 0, rx: 60, ry: 16 };
-  const trail = Array.from({ length: TRAIL_SEGMENTS }, () => trailGroup.appendChild(document.createElementNS(NS, 'path')));
-  function measure() {
-    const w = progress.clientWidth, h = progress.clientHeight;
-    if (!w || !h) return;
-    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-    geo = { cx: w / 2, cy: h / 2, rx: Math.max(30, w / 2 - 24), ry: Math.min(h / 2 - 12, Math.max(12, w * .09)) };
-    orbitPath.setAttribute('cx', geo.cx); orbitPath.setAttribute('cy', geo.cy);
-    orbitPath.setAttribute('rx', geo.rx); orbitPath.setAttribute('ry', geo.ry);
-    draw();
-  }
-  const angleAt = p => Math.PI + p * Math.PI * 2;
-  const point = t => [geo.cx + geo.rx * Math.cos(t), geo.cy + geo.ry * Math.sin(t)];
-  function draw() {
-    const t = angleAt(lap), [x, y] = point(t);
-    // Profundidade: embaixo (frente) maior, em cima (atrás) menor.
-    const depth = (1 + Math.sin(t)) / 2;
-    const scale = .82 + .22 * depth;
-    // Inclinação fixa, como na referência: o satélite não gira em nenhum
-    // ponto da volta — nem nas pontas da elipse, nem na largada.
-    const bank = -10;
-    sat.setAttribute('transform', `translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(${bank.toFixed(2)}) scale(${scale.toFixed(3)})`);
-    // Rastro: segmentos atrás do satélite, cada vez mais finos e apagados.
-    const showTrail = autoplay && !reduceQ.matches;
-    trail.forEach((seg, i) => {
-      if (!showTrail) { seg.setAttribute('d', ''); return; }
-      // O rastro fica sempre atrás do satélite, no sentido em que ele anda.
-      const a1 = t - heading * ((i / TRAIL_SEGMENTS) * TRAIL_SPAN + .16), a0 = a1 - heading * (TRAIL_SPAN / TRAIL_SEGMENTS + .01);
-      const [x0, y0] = point(a0), [x1, y1] = point(a1), k = 1 - i / TRAIL_SEGMENTS;
-      seg.setAttribute('d', `M${x0.toFixed(2)} ${y0.toFixed(2)}L${x1.toFixed(2)} ${y1.toFixed(2)}`);
-      seg.setAttribute('stroke-opacity', (k * k * .6).toFixed(3));
-      seg.setAttribute('stroke-width', (.4 + k * 1.1).toFixed(2));
-    });
-  }
-  const easeInOut = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
-  const paused = () => keyboardFocus || offscreen || document.hidden;
-  function tick(now) {
-    frame = 0;
-    const dt = lastTime ? Math.min(250, now - lastTime) : 0;
-    lastTime = now;
-    if (boost) {
-      // Seta: o satélite gira depressa até o ponto de partida (à esquerda) —
-      // para a frente na seta de avançar, para trás na de voltar — e o novo
-      // card ganha uma volta completa a partir dali.
-      const k = Math.min(1, (now - boost.start) / boost.ms);
-      lap = boost.from + (boost.to - boost.from) * easeInOut(k);
-      heading = boost.to >= boost.from ? 1 : -1;
-      if (k >= 1) { lap = boost.to; origin = lap; heading = 1; boost = null; }
-    } else if (autoplay && !paused()) {
-      lap += dt / LAP_MS;
-      if (lap - origin >= 1) { origin += 1; go(index + 1, 1, false, false); }   // uma volta = um card
-    }
-    draw();
-    schedule();
-  }
-  function schedule() {
-    const needed = boost || (autoplay && !paused());
-    if (needed && !frame) frame = requestAnimationFrame(tick);
-    if (!needed) lastTime = 0;
-  }
-  new ResizeObserver(measure).observe(progress);
-  measure();
-
-  // ---------- espaço ----------
-  let near = 0, far = 0, snapTimer = 0;
-  const wrap = (v, tile) => ((((v + tile / 2) % tile) + tile) % tile) - tile / 2;
-  function moveSpace(dir) {
-    if (!section || reduceQ.matches) return;
-    near -= dir * 70; far -= dir * 34;
-    section.style.setProperty('--space-near', near + 'px');
-    section.style.setProperty('--space-far', far + 'px');
-    clearTimeout(snapTimer);
-    snapTimer = setTimeout(() => {
-      near = wrap(near, 260); far = wrap(far, 320);
-      section.classList.add('space-snap');
-      section.style.setProperty('--space-near', near + 'px');
-      section.style.setProperty('--space-far', far + 'px');
-      void section.offsetWidth;
-      section.classList.remove('space-snap');
-    }, 1100);
+  // Planetas dos cards fora de cena saem do layout depois da transição; o
+  // IntersectionObserver do renderizador então para de desenhá-los.
+  const planetOf = slide => slide.querySelector('.svc-planet');
+  function park(slide, parked) {
+    const planet = planetOf(slide);
+    if (!planet) return;
+    clearTimeout(parkTimers.get(planet));
+    if (!parked) { planet.classList.remove('is-parked'); return; }
+    parkTimers.set(planet, setTimeout(() => {
+      if (!slide.classList.contains('is-active')) planet.classList.add('is-parked');
+    }, reduceQ.matches ? 0 : PARK_MS));
   }
 
-  // ---------- cards ----------
-  function settle() {
-    running.forEach(a => a.cancel());
-    running = [];
-    slides.forEach(s => s.classList.remove('is-leaving'));
+  function titleOf(slide) {
+    const kicker = slide.querySelector('.diagnostic-kicker');
+    return (kicker ? kicker.textContent.replace(/^\s*\d+\s*/, '') : '').trim();
   }
-  function show(prev, dir, announce) {
-    settle();
-    slides.forEach((s, i) => {
+
+  function render(dir, announce) {
+    slides.forEach((slide, i) => {
       const active = i === index;
-      s.classList.toggle('is-active', active);
-      s.toggleAttribute('inert', !active);
-      s.setAttribute('aria-hidden', active ? 'false' : 'true');
+      if (active && !slide.classList.contains('is-active')) {
+        // Posiciona o card que entra do lado de onde ele vem, sem animar.
+        slide.style.setProperty('--shift', (dir * 36) + 'px');
+        slide.style.setProperty('--dir', dir);
+        park(slide, false);
+        slide.querySelectorAll(':scope > *').forEach(el => { el.style.transition = 'none'; });
+        void slide.offsetWidth;
+        slide.querySelectorAll(':scope > *').forEach(el => { el.style.transition = ''; });
+      } else if (!active && slide.classList.contains('is-active')) {
+        slide.style.setProperty('--shift', (-dir * 36) + 'px');
+        slide.style.setProperty('--dir', -dir);
+        park(slide, true);
+      } else if (!active) {
+        park(slide, true);
+      }
+      slide.classList.toggle('is-active', active);
+      slide.toggleAttribute('inert', !active);
+      slide.setAttribute('aria-hidden', active ? 'false' : 'true');
     });
-    if (prev !== index && !reduceQ.matches) {
-      const outSlide = slides[prev], inSlide = slides[index];
-      outSlide.classList.add('is-leaving');
-      // Faixa recortada: os dois cards andam juntos, sem esmaecer.
-      running.push(
-        outSlide.animate([{ transform: 'translateX(0)' }, { transform: `translateX(${-dir * 106}%)` }], { duration: TEXT_MS, easing: EASE_TEXT }),
-        inSlide.animate([{ transform: `translateX(${dir * 106}%)` }, { transform: 'translateX(0)' }], { duration: TEXT_MS, easing: EASE_TEXT })
-      );
-      const done = running.slice();
-      Promise.all(done.map(a => a.finished)).then(() => { if (done.every(a => running.includes(a))) settle(); }, () => {});
-    }
-    if (announce && live) {
-      const s = slides[index];
-      live.textContent = `${s.querySelector('.diagnostic-kicker')?.textContent.trim() || ''}: ${s.querySelector('h2')?.textContent.trim() || ''}`;
-    }
+    dots.forEach((dot, i) => {
+      const active = i === index;
+      dot.classList.toggle('is-active', active);
+      dot.setAttribute('aria-current', active ? 'true' : 'false');
+    });
+    if (counter) counter.textContent = String(index + 1).padStart(2, '0');
+    if (announce && live) live.textContent = `Card ${index + 1} de ${slides.length}: ${titleOf(slides[index])}`;
   }
-  function go(target, dir, announce, fromUser = true) {
+
+  function go(target, source) {
     const count = slides.length;
     const nextIndex = ((target % count) + count) % count;
     if (nextIndex === index) return;
-    const prev = index;
+    // Direção pelo caminho mais curto, respeitando o sentido pedido nas setas.
+    let dir = source === 'prev' ? -1 : source === 'next' || source === 'auto' ? 1 : Math.sign(nextIndex - index) || 1;
     index = nextIndex;
-    show(prev, dir, announce);
-    moveSpace(dir);
-    if (fromUser && autoplay && !reduceQ.matches) {
-      // Ponto de partida seguinte (ou anterior). Se ele estiver quase lá, o
-      // giro vai até o ponto de partida da volta seguinte, para ser sempre visível.
-      let to = dir < 0 ? Math.floor(lap) : Math.ceil(lap);
-      if (Math.abs(to - lap) < .15) to += dir < 0 ? -1 : 1;
-      const dist = Math.abs(to - lap);
-      boost = { from: lap, to, ms: Math.round(360 + BOOST_MS * dist), start: performance.now() };
-      schedule();
-    }
+    render(dir, source !== 'auto');
   }
 
   function updatePaused() {
+    const autoplay = !userPaused;
     root.classList.toggle('is-autoplay', autoplay);
-    root.classList.toggle('is-paused', paused());
-    if (live) live.setAttribute('aria-live', autoplay && !keyboardFocus ? 'off' : 'polite');
-    schedule();
+    root.classList.toggle('is-paused', hovering || focused || offscreen || document.hidden);
+    if (toggle) {
+      toggle.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
+      toggle.setAttribute('aria-label', userPaused ? 'Retomar troca automática dos cards' : 'Pausar troca automática dos cards');
+    }
+    if (live) live.setAttribute('aria-live', autoplay && !focused ? 'off' : 'polite');
   }
 
-  prevBtn?.addEventListener('click', () => go(index - 1, -1, true));
-  nextBtn?.addEventListener('click', () => go(index + 1, 1, true));
+  // A barra de progresso do ponto ativo é o relógio: pausar a animação
+  // pausa o tempo, e o fim dela avança o card.
+  root.addEventListener('animationend', e => {
+    if (e.animationName !== 'svcProgress' || userPaused) return;
+    go(index + 1, 'auto');
+  });
+
+  prevBtn?.addEventListener('click', () => go(index - 1, 'prev'));
+  nextBtn?.addEventListener('click', () => go(index + 1, 'next'));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => go(i, 'dot')));
+  toggle?.addEventListener('click', () => { userPaused = !userPaused; updatePaused(); });
 
   root.addEventListener('keydown', e => {
     if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return;
     if (e.target.closest('input,textarea,select')) return;
-    if (e.key === 'ArrowLeft') { e.preventDefault(); go(index - 1, -1, true); }
-    else if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1, 1, true); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(index - 1, 'prev'); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1, 'next'); }
   });
 
-  // Clique com o mouse não pausa; só o foco visível do teclado (Tab).
-  const checkFocus = () => { keyboardFocus = !!root.querySelector(':focus-visible'); updatePaused(); };
-  root.addEventListener('focusin', checkFocus);
-  root.addEventListener('focusout', () => setTimeout(checkFocus, 0));
+  root.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { hovering = true; updatePaused(); } });
+  root.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') { hovering = false; updatePaused(); } });
+  root.addEventListener('focusin', () => { focused = true; updatePaused(); });
+  root.addEventListener('focusout', e => { if (!root.contains(e.relatedTarget)) { focused = false; updatePaused(); } });
   document.addEventListener('visibilitychange', updatePaused);
   new IntersectionObserver(entries => {
     offscreen = !entries[0]?.isIntersecting;
     updatePaused();
   }, { threshold: .35 }).observe(root);
-  reduceQ.addEventListener?.('change', e => { autoplay = !e.matches; if (!autoplay) { lap = 0; origin = 0; heading = 1; boost = null; } updatePaused(); draw(); });
+  reduceQ.addEventListener?.('change', e => { if (e.matches) { userPaused = true; updatePaused(); } });
 
   // Deslizar no celular troca o card; a rolagem vertical continua nativa.
   let touchX = 0, touchY = 0, touching = false;
+  const track = root.querySelector('.svc-track');
   track?.addEventListener('touchstart', e => {
     const t = e.touches[0]; if (!t) return; touching = true; touchX = t.clientX; touchY = t.clientY;
   }, { passive: true });
@@ -6352,21 +6283,18 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     if (!touching) return; touching = false;
     const t = e.changedTouches[0]; if (!t) return;
     const dx = t.clientX - touchX, dy = t.clientY - touchY;
-    if (Math.abs(dx) > 46 && Math.abs(dx) > Math.abs(dy) * 1.3) go(index + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1, true);
+    if (Math.abs(dx) > 46 && Math.abs(dx) > Math.abs(dy) * 1.3) go(index + (dx < 0 ? 1 : -1), dx < 0 ? 'next' : 'prev');
   }, { passive: true });
 
   // O botão de cada card já escolhe o serviço no formulário de contato.
-  root.querySelectorAll('.cmt-cta[data-servico]').forEach(link => link.addEventListener('click', () => {
+  root.querySelectorAll('.svc-cta[data-servico]').forEach(link => link.addEventListener('click', () => {
     const select = document.getElementById('f-servico');
     if (!select) return;
     const option = [...select.options].find(o => o.textContent.trim() === link.dataset.servico);
     if (option) { select.value = option.value; select.dispatchEvent(new Event('change', { bubbles: true })); }
   }));
 
-  // Estado para os testes e para depuração: volta atual e card ativo.
-  root.cmtState = () => ({ index, pos: lap, lap: lap - origin, autoplay, paused: paused(), boosting: !!boost });
-
-  slides.forEach((s, i) => { const a = i === index; s.classList.toggle('is-active', a); s.toggleAttribute('inert', !a); s.setAttribute('aria-hidden', a ? 'false' : 'true'); });
+  render(1, false);
   updatePaused();
 })();
 </script>
