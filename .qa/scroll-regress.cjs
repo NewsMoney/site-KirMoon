@@ -18,7 +18,7 @@ async function open(browser, w, h, opts = {}) {
 const st = page => page.evaluate(() => {
   const p = document.getElementById('processo').getBoundingClientRect(), s = document.getElementById('servicos').getBoundingClientRect();
   const steps = [...document.querySelectorAll('[data-process-step]')];
-  return { hash: location.hash, y: Math.round(scrollY), anim: document.body.classList.contains('scene-transitioning'), procTop: Math.round(p.top),
+  return { hash:(document.documentElement.dataset.kmHash||location.hash), y: Math.round(scrollY), anim: document.body.classList.contains('scene-transitioning'), procTop: Math.round(p.top),
     svcTop: Math.round(s.top), svcEdge: Math.round(s.bottom - innerHeight), ih: innerHeight,
     step: steps.findIndex(x => x.classList.contains('is-active')) };
 });

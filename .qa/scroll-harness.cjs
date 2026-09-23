@@ -25,7 +25,7 @@ const state = page => page.evaluate(() => {
   const cur = document.querySelector('.chapter-nav a[aria-current]');
   const p = document.getElementById('processo').getBoundingClientRect();
   const s = document.getElementById('servicos').getBoundingClientRect();
-  return { hash: location.hash, y: Math.round(scrollY), cur: cur && cur.hash, anim: document.body.classList.contains('scene-transitioning'),
+  return { hash:(document.documentElement.dataset.kmHash||location.hash), y: Math.round(scrollY), cur: cur && cur.hash, anim: document.body.classList.contains('scene-transitioning'),
     procTop: Math.round(p.top), procH: Math.round(p.height), svcBottom: Math.round(s.bottom), ih: innerHeight, iw: innerWidth };
 });
 async function waitIdle(page, max = 3000) {

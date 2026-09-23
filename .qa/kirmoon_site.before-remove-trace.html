@@ -10,7 +10,7 @@
 <meta property="og:description" content="Desenvolvimento de aplicativos, refatoração de sites e assessoria técnica em TI.">
 <meta property="og:locale" content="pt_BR">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%22-10%20-10%2020%2020%22%3E%3Ccircle%20r%3D%229.2%22%20fill%3D%22%2305070b%22%20stroke%3D%22%23eceef1%22%20stroke-opacity%3D%22.4%22%20stroke-width%3D%22.8%22/%3E%3Cpath%20d%3D%22M0%20-9.2%20A9.2%209.2%200%200%201%200%209.2%20A4.6%209.2%200%200%200%200%20-9.2Z%22%20fill%3D%22%23fff%22/%3E%3C/svg%3E">
-<title>KirMoon</title>
+<title>Kirmoon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap">
@@ -386,8 +386,6 @@ footer a{text-decoration:none;color:#aeb6c0}footer a:hover{color:var(--lunar)}
 .burger[aria-expanded="true"] i:nth-child(3){top:23px;transform:rotate(-45deg)}
 body.menu-open .top{background:transparent!important;border-color:transparent!important;backdrop-filter:none;-webkit-backdrop-filter:none}
 body.menu-open .fab{opacity:0;pointer-events:none}
-/* kirmoon-menu-logo: o logo não cobre o menu aberto */
-body.menu-open .floating-brand{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 .top .btn-sm{display:none}
 .contact,.faq-grid,.commitment-diagnostic{grid-template-columns:1fr}
 .contact,.commitment-diagnostic{padding:22px;border-radius:18px}
@@ -2590,64 +2588,6 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   #servicos .mission-map[data-active="2"] .mission-ship{top:279px!important}
 }
 </style>
-<script id="kirmoon-clean-url">
-/* Endereço limpo: nenhuma seção aparece na URL (#servicos, #processo...).
-   - pushState/replaceState da página passam a gravar só o caminho, sem o #;
-     se o endereço não mudar, nada é gravado (sem entradas repetidas no
-     histórico e sem o limite de chamadas do Safari).
-   - Links internos que a página não trata (#apps, #faq no celular...) rolam
-     até a seção sem mexer na URL.
-   - Quem chega por um link antigo (kirmoon.com/#contato) ainda cai na seção
-     certa; depois do carregamento o # some do endereço.
-   A seção atual fica em <html data-km-hash> (usado pelos testes). */
-(() => {
-  const root = document.documentElement;
-  const push = history.pushState.bind(history);
-  const replace = history.replaceState.bind(history);
-  const here = () => location.pathname + location.search;
-  const write = (method, state, title, url) => {
-    if (url == null || url === '') return method(state, title, url);
-    const u = new URL(String(url), location.href);
-    if (u.origin !== location.origin) return method(state, title, url);
-    if (u.hash) root.dataset.kmHash = u.hash;
-    const next = u.pathname + u.search;
-    if (next === here() && !location.hash) return;
-    return method(state, title, next);
-  };
-  history.pushState = (state, title, url) => write(push, state, title, url);
-  history.replaceState = (state, title, url) => write(replace, state, title, url);
-
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-  document.addEventListener('click', e => {
-    if (e.defaultPrevented || e.button || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
-    const a = e.target instanceof Element ? e.target.closest('a[href^="#"]') : null;
-    if (!a) return;
-    const href = a.getAttribute('href');
-    if (href === '#') { e.preventDefault(); return; }   // links ainda sem destino
-    let target = null;
-    try { target = document.getElementById(decodeURIComponent(href.slice(1))); } catch {}
-    if (!target) return;
-    e.preventDefault();
-    root.dataset.kmHash = href;
-    target.scrollIntoView({behavior: reduce.matches ? 'instant' : 'smooth', block: 'start'});
-  });
-
-  const arrivedWith = location.hash;   // a própria página pode limpar o # antes do load
-  if (arrivedWith) root.dataset.kmHash = arrivedWith;
-  addEventListener('load', () => setTimeout(() => {
-    if (location.hash) replace(history.state, '', here());
-    if (!arrivedWith) return;
-    let id = '';
-    try { id = decodeURIComponent(arrivedWith.slice(1)); } catch {}
-    // Início, Serviços e Processo já são posicionados pelo controle de capítulos.
-    if (['inicio', 'servicos', 'processo'].includes(id)) return;
-    const el = id && document.getElementById(id);
-    if (!el) return;
-    const header = document.getElementById('top');
-    scrollTo({top: Math.max(0, scrollY + el.getBoundingClientRect().top - (header ? header.offsetHeight : 0)), behavior: 'instant'});
-  }, 0), {once: true});
-})();
-</script>
 </head>
 <body>
 
@@ -4030,7 +3970,116 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     minDuration: 1080, maxDuration: 1460, baseDuration: 860, distanceFactor: .42
   });
 
-  const scrollTrace = { log() {} };
+  // [SCROLL-TRACE] Opt-in trace stays in this test version until visual validation.
+  const scrollTrace = (() => {
+    const maxRows = 1800;
+    const rows = [];
+    let recording = false, sequence = 0, lastScrollAt = -Infinity;
+    const wheelIds = new WeakMap();
+    const panel = document.createElement('aside');
+    panel.setAttribute('aria-label', 'Diagnóstico do scroll');
+    panel.style.cssText = 'position:fixed;z-index:2147483647;right:12px;top:12px;max-width:300px;padding:12px;border:1px solid #777;border-radius:9px;background:#101820f2;color:white;font:12px/1.4 system-ui,sans-serif;box-shadow:0 4px 20px #0009';
+    panel.innerHTML = '<strong>Diagnóstico do scroll</strong><div data-trace-status style="margin:5px 0">Parado · 0 eventos</div><div data-trace-buttons style="display:flex;flex-wrap:wrap;gap:5px"></div><small>Grava só eventos e posições; nenhum texto digitado.</small>';
+    const buttons = panel.querySelector('[data-trace-buttons]');
+    const status = panel.querySelector('[data-trace-status]');
+    const addButton = (label, action) => {
+      const button = document.createElement('button');
+      button.type = 'button'; button.textContent = label;
+      button.style.cssText = 'padding:5px 7px;border:1px solid #aaa;border-radius:5px;background:#293d4b;color:white;cursor:pointer;font:inherit';
+      button.addEventListener('click', action); buttons.append(button);
+    };
+    const rounded = n => Number.isFinite(n) ? Math.round(n * 10) / 10 : null;
+    const rect = el => {
+      if (!el) return null;
+      const r = el.getBoundingClientRect();
+      return {top:rounded(r.top),bottom:rounded(r.bottom),height:rounded(r.height)};
+    };
+    const targetKind = el => {
+      if (!(el instanceof Element)) return 'other';
+      if (el.closest('input,textarea,select,[contenteditable]')) return 'field';
+      if (el.closest('[role="tablist"]')) return 'tablist';
+      if (el.closest('canvas,svg,img,video')) return 'visual';
+      if (el.closest('button,a,[role="button"]')) return 'control';
+      if (el.closest('#processo')) return 'process';
+      if (el.closest('#servicos')) return 'services';
+      if (el.closest('#compromissos,#faq,#contato')) return 'final';
+      return 'other';
+    };
+    const describeElement = el => el instanceof Element ? {
+      tag:el.tagName.toLowerCase(),id:el.id||null,classes:typeof el.className==='string'?el.className.trim().split(/\s+/).filter(Boolean):[],role:el.getAttribute('role')
+    } : null;
+    const layout = el => {
+      if (!el) return null;
+      const r=el.getBoundingClientRect();
+      return {rect:{top:rounded(r.top),right:rounded(r.right),bottom:rounded(r.bottom),left:rounded(r.left),width:rounded(r.width),height:rounded(r.height)},offsetTop:el.offsetTop,offsetLeft:el.offsetLeft,offsetWidth:el.offsetWidth,offsetHeight:el.offsetHeight,scrollHeight:el.scrollHeight,clientHeight:el.clientHeight};
+    };
+    const snapshot = () => {
+      const sr = rect(serviceStart), pr = rect(processEl);
+      return {
+        y:rounded(scrollY),viewport:innerHeight,chapter:active,phase:processActiveStep,
+        hash:location.hash,flow:flow.snapshot(),sceneAnimating,processEntryPending,
+        processPhaseTransitioning,processFlowState,serviceBoundaryIntent,
+        serviceBoundaryMode,serviceBoundaryTarget:rounded(serviceBoundaryTarget),serviceBoundaryEntryReady,
+        serviceReturnBoundaryMode,serviceReturnBoundaryTarget:rounded(serviceReturnBoundaryTarget),serviceReturnBoundaryEntryReady,
+        finalBoundaryMode,finalBoundaryTarget:rounded(finalBoundaryTarget),finalBoundaryEntryReady,
+        serviceBoundaryRemaining:sr ? rounded(Math.max(0,scrollY+sr.bottom-innerHeight-scrollY)) : null,
+        processTarget:processEl ? rounded(sceneTargetTop(processEl)) : null,
+        service:sr,process:pr
+      };
+    };
+    const log = (kind, details={}) => {
+      if (!recording) return;
+      rows.push({n:++sequence,t:rounded(performance.now()),kind,...details,...snapshot()});
+      if (rows.length > maxRows) rows.shift();
+      status.textContent = `Gravando · ${rows.length} eventos${sequence > maxRows ? ' (limite atingido)' : ''}`;
+    };
+    const exportText = () => JSON.stringify({format:'kirmoon-scroll-trace-v1',buildId:'kirmoon_site_v13',recordedAt:new Date().toISOString(),rows},null,2);
+    addButton('Iniciar', () => { rows.length=0; sequence=0; recording=true; log('start',{buildId:'kirmoon_site_v13',desktop:desktop.matches,reducedMotion:reduce,width:innerWidth}); });
+    addButton('Parar', () => { log('stop'); recording=false; status.textContent=`Parado · ${rows.length} eventos`; });
+    addButton('Copiar', async () => {
+      try { await navigator.clipboard.writeText(exportText()); status.textContent=`Copiado · ${rows.length} eventos`; }
+      catch { status.textContent='Cópia indisponível; use Baixar'; }
+    });
+    addButton('Baixar', () => {
+      const url=URL.createObjectURL(new Blob([exportText()],{type:'application/json'}));
+      const link=document.createElement('a');link.href=url;link.download='kirmoon-scroll-trace.json';link.click();
+      setTimeout(()=>URL.revokeObjectURL(url),1000);
+    });
+    document.body.append(panel);
+    const sitesCard=document.getElementById('sites');
+    const logSitesHover=(kind,e,afterFrame=false)=>{
+      if(!recording)return;
+      const target=document.elementFromPoint(e.clientX,e.clientY);
+      const cmp=sitesCard?.querySelector('.cmp');
+      const visual=sitesCard?.querySelector('.service-visual');
+      log(kind,{pointer:{type:e.pointerType,x:rounded(e.clientX),y:rounded(e.clientY)},target:describeElement(target),relatedTarget:describeElement(e.relatedTarget),layout:{card:layout(sitesCard),visual:layout(visual),comparison:layout(cmp)}});
+      if(!afterFrame)requestAnimationFrame(()=>logSitesHover('service-card-2-hover-frame',e,true));
+    };
+    sitesCard?.addEventListener('pointerenter',e=>logSitesHover('service-card-2-hover-enter',e),{passive:true});
+    sitesCard?.addEventListener('pointerleave',e=>logSitesHover('service-card-2-hover-leave',e),{passive:true});
+    sitesCard?.addEventListener('transitionrun',e=>{
+      if(recording)log('service-card-2-hover-transition',{property:e.propertyName,target:describeElement(e.target),layout:{card:layout(sitesCard),target:layout(e.target)}});
+    },true);
+    sitesCard?.addEventListener('transitionend',e=>{
+      if(recording)log('service-card-2-hover-transition-end',{property:e.propertyName,target:describeElement(e.target),layout:{card:layout(sitesCard),target:layout(e.target)}});
+    },true);
+    addEventListener('wheel', e => {
+      if (!recording) return;
+      const id=++sequence;wheelIds.set(e,id);
+      log('wheel-in',{eventId:id,deltaY:rounded(e.deltaY),deltaMode:e.deltaMode,ctrl:e.ctrlKey,target:targetKind(e.target),cancelable:e.cancelable});
+    },{capture:true,passive:true});
+    addEventListener('scroll', () => {
+      const now=performance.now();
+      if (now-lastScrollAt >= 60) { lastScrollAt=now; log('scroll'); }
+    },{passive:true});
+    addEventListener('hashchange', () => log('hashchange'));
+    addEventListener('keydown', e => {
+      if (['ArrowDown','ArrowUp','PageDown','PageUp'].includes(e.key)) log('key',{key:e.key,repeat:e.repeat,target:targetKind(e.target)});
+    },{capture:true});
+    return {log,afterWheel:e => {
+      if (recording) log('wheel-out',{eventId:wheelIds.get(e),defaultPrevented:e.defaultPrevented,target:targetKind(e.target)});
+    }};
+  })();
 
   function setIntent(value) {
     wheelIntent = value;
@@ -4494,6 +4543,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
       goToChapter(active + dir);
     }
   }, {passive:false});
+  addEventListener('wheel', e => scrollTrace.afterWheel(e), {passive:true});
 
   // Não existe mais um reencaixe de repouso separado. A entrada no Processo é
   // concluída exclusivamente por goToChapter()/animateSceneTo(), e o wheel do

@@ -16,7 +16,7 @@ const st=p=>p.evaluate(()=>{const r=document.querySelector('[data-cmt-carousel]'
  return {active:sl.findIndex(s=>s.classList.contains('is-active')),n:sl.length,lap:+c.lap.toFixed(3),pos:+c.pos.toFixed(3),paused:c.paused,auto:c.autoplay,boosting:c.boosting,xy,
  planets:[...r.querySelectorAll('.planet-canvas')].map(c=>c.dataset.planet).join(','),saturn3d:!!r.querySelector('.cmt-planet--saturn.is-3d'),
  pauseBtn:!!r.querySelector('.cmt-toggle'),trail:[...r.querySelectorAll('.cmt-trail path')].filter(p=>p.getAttribute('d')).length,
- sel:document.getElementById('f-servico').value,hash:location.hash,countShown:!!r.querySelector('.cmt-count,.cmt-dot')||/\b0?\d\s*\/\s*0?\d\b/.test(r.innerText)}});
+ sel:document.getElementById('f-servico').value,hash:(document.documentElement.dataset.kmHash||location.hash),countShown:!!r.querySelector('.cmt-count,.cmt-dot')||/\b0?\d\s*\/\s*0?\d\b/.test(r.innerText)}});
 let {ctx,p,errs}=await open();
 let s0=await st(p); t('6 cards, autoplay on, no count, no pause button, only Saturn',s0.n===6&&s0.active===0&&s0.auto&&!s0.countShown&&!s0.pauseBtn&&s0.planets==='saturn'&&s0.saturn3d,s0);
 await sleep(1500); let a=await st(p); await sleep(1600); let c=await st(p);
