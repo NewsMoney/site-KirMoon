@@ -1,0 +1,90 @@
+{
+  "html": "index.html",
+  "device": "desktop",
+  "perf": {
+    "paints": [
+      {
+        "start": 484,
+        "duration": 0,
+        "value": 0,
+        "element": null,
+        "hadRecentInput": false
+      },
+      {
+        "start": 484,
+        "duration": 0,
+        "value": 0,
+        "element": null,
+        "hadRecentInput": false
+      }
+    ],
+    "lcp": [
+      {
+        "start": 484,
+        "duration": 0,
+        "value": 0,
+        "element": null,
+        "hadRecentInput": false
+      },
+      {
+        "start": 572,
+        "duration": 0,
+        "value": 0,
+        "element": "skel-label",
+        "hadRecentInput": false
+      },
+      {
+        "start": 948,
+        "duration": 0,
+        "value": 0,
+        "element": "moon-fallback",
+        "hadRecentInput": false
+      }
+    ],
+    "shifts": [
+      {
+        "start": 1430,
+        "duration": 0,
+        "value": 0.000005653571428216553,
+        "element": null,
+        "hadRecentInput": false
+      }
+    ],
+    "longTasks": [],
+    "skelDone": 1004
+  },
+  "nav": [
+    {
+      "responseEnd": 957,
+      "domContentLoaded": 1004,
+      "load": 0,
+      "transferSize": 93458
+    }
+  ],
+  "resources": [
+    {
+      "name": "moon-hero-static-20260924.webp",
+      "start": 192,
+      "end": 914,
+      "transfer": 48704
+    },
+    {
+      "name": "moon.avif",
+      "start": 477,
+      "end": 1421,
+      "transfer": 117911
+    }
+  ],
+  "moonRect": {
+    "x": 786,
+    "y": 131,
+    "w": 476,
+    "h": 476
+  },
+  "heroRect": {
+    "w": 1365,
+    "h": 768
+  },
+  "viewportWidth": 1365,
+  "scrollWidth": 1365
+}
