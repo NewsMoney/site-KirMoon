@@ -589,7 +589,7 @@ main > #faq.section > .wrap{margin-block:auto!important;padding-top:0!important}
 .channel-index{position:relative;z-index:1;font:9px var(--mono)!important;letter-spacing:.12em!important;color:#596470!important;text-transform:none!important}
 .channel-body{position:relative;z-index:1;display:grid;gap:2px;min-width:0}
 .channel-body small{font:9px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#697480}
-.channel-body strong{font:400 13.5px var(--body);letter-spacing:0;color:#cbd1d8;overflow-wrap:anywhere}
+.channel-body strong{font:400 13.5px var(--body);letter-spacing:0;text-transform:none;color:#cbd1d8;overflow-wrap:anywhere}
 .channel-arrow{position:relative;z-index:1;justify-self:end;font:12px var(--mono)!important;color:#77828e!important;transition:transform .28s ease,color .28s ease}
 .channels a:hover .channel-arrow{transform:translate(2px,-2px);color:#eef2f6!important}
 .channels a:hover .channel-body strong{text-decoration:none;color:#eef2f6}
@@ -1954,7 +1954,9 @@ top:var(--sat-y,11%); left:0; width:clamp(36px,3.4vw,56px); opacity:0; }
 .cmp-old{ background:linear-gradient(160deg,#171820,#0d0e14); filter:saturate(.5); }
 .cmp-old::after{ content:"";position:absolute;inset:0;pointer-events:none; background:linear-gradient(180deg,rgba(224,177,131,.05),transparent 60%); }
 
-.cmp-new{ background:linear-gradient(160deg,#16212a,#0a1118); clip-path:inset(0 0 0 calc(var(--pos) * 1%)); }
+#sites .svc-stage{backdrop-filter:none;-webkit-backdrop-filter:none}
+.cmp-reveal{position:absolute;inset:0;overflow:hidden;transform:translate3d(calc(var(--pos) * 1%),0,0);will-change:transform}
+.cmp-new{ background:linear-gradient(160deg,#16212a,#0a1118); transform:translate3d(calc(var(--pos) * -1%),0,0); will-change:transform; }
 
 .cmp-alert,.cmp-ok{ display:flex;align-items:center;gap:7px;width:max-content; padding:6px 10px;border-radius:7px; font:9px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase; }
 .cmp-alert{ justify-self:start; border:1px solid rgba(224,177,131,.32);background:rgba(224,177,131,.11);color:var(--svc-warn); }
@@ -1982,11 +1984,12 @@ top:var(--sat-y,11%); left:0; width:clamp(36px,3.4vw,56px); opacity:0; }
 .cmp-neat i{display:block;height:6px;border-radius:99px;background:rgba(236,238,241,.14)}
 .cmp-neat i:nth-child(1){width:88%}
 .cmp-neat i:nth-child(2){width:66%}
-.cmp-tag{ position:absolute;z-index:3;top:11px; padding:4px 9px;border-radius:99px; font:8.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase; border:1px solid rgba(236,238,241,.14);background:rgba(6,9,14,.72); backdrop-filter:blur(4px);pointer-events:none; }
+.cmp-tag{ position:absolute;z-index:3;top:11px; padding:4px 9px;border-radius:99px; font:8.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase; border:1px solid rgba(236,238,241,.14);background:rgba(6,9,14,.84);pointer-events:none; }
 .cmp-tag-old{left:11px;color:var(--svc-warn);border-color:rgba(224,177,131,.3)}
 .cmp-tag-new{right:11px;color:var(--svc-good);border-color:rgba(147,211,180,.32)}
-.cmp-split{ position:absolute;z-index:4;top:0;bottom:0;left:calc(var(--pos) * 1%); width:2px;margin-left:-1px; background:linear-gradient(180deg,rgba(236,238,241,.25),rgba(236,238,241,.7),rgba(236,238,241,.25)); pointer-events:none; }
-.cmp-split i{ position:absolute;top:50%;left:50%;transform:translate(-50%,-50%); width:38px;height:38px;border-radius:50%; border:1px solid rgba(236,238,241,.4); background:rgba(8,12,18,.82);backdrop-filter:blur(6px); display:grid;place-items:center; box-shadow:0 6px 20px rgba(0,0,0,.5); transition:transform .22s cubic-bezier(.2,.7,.2,1),border-color .22s ease; }
+.cmp-split{ position:absolute;z-index:4;top:0;bottom:0;left:0;width:100%; pointer-events:none; transform:translate3d(calc(var(--pos) * 1%),0,0); will-change:transform; }
+.cmp-split::before{ content:"";position:absolute;top:0;bottom:0;left:-1px;width:2px; background:linear-gradient(180deg,rgba(236,238,241,.25),rgba(236,238,241,.7),rgba(236,238,241,.25)); }
+.cmp-split i{ position:absolute;top:50%;left:0;transform:translate(-50%,-50%); width:38px;height:38px;border-radius:50%; border:1px solid rgba(236,238,241,.4); background:rgba(8,12,18,.92); display:grid;place-items:center; box-shadow:0 6px 20px rgba(0,0,0,.5); transition:transform .22s cubic-bezier(.2,.7,.2,1),border-color .22s ease; }
 .cmp-split i::before,.cmp-split i::after{ content:"";position:absolute;width:0;height:0; border-top:4px solid transparent;border-bottom:4px solid transparent; }
 .cmp-split i::before{left:9px;border-right:5px solid rgba(236,238,241,.8)}
 .cmp-split i::after{right:9px;border-left:5px solid rgba(236,238,241,.8)}
@@ -2997,17 +3000,17 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
                   <div class="cmp-stack"><i></i><i></i><i></i></div>
                 </div>
 
-                <div class="cmp-pane cmp-new" aria-hidden="true">
+                <div class="cmp-reveal" aria-hidden="true"><div class="cmp-pane cmp-new">
                   <div class="cmp-ok"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>sem erros</div>
                   <div class="cmp-hero"></div>
                   <div class="cmp-grid"><i></i><i></i><i></i></div>
                   <div class="cmp-neat"><i></i><i></i></div>
-                </div>
+                </div></div>
 
                 <span class="cmp-tag cmp-tag-old">Antes</span>
                 <span class="cmp-tag cmp-tag-new">Depois</span>
 
-                <input class="cmp-range" type="range" min="0" max="100" step="1" value="52"
+                <input class="cmp-range" type="range" min="0" max="100" step="0.1" value="52" aria-valuetext="52%"
                        aria-label="Comparar o site antes e depois da refatoração. Use as setas do teclado para ajustar.">
                 <span class="cmp-split" aria-hidden="true"><i></i></span>
               </div>
@@ -3457,7 +3460,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
         <div class="channels" aria-label="Canais de contato">
           <a href="#" id="wa-link" target="_blank" rel="noopener"><span class="channel-body"><small>WhatsApp</small><strong>(81) 98938-9297</strong></span><span class="channel-arrow" aria-hidden="true">↗</span></a>
           <a href="mailto:contato@kirmoon.com"><span class="channel-body"><small>E-mail</small><strong>contato@kirmoon.com</strong></span><span class="channel-arrow" aria-hidden="true">↗</span></a>
-          <a href="#" target="_blank" rel="noopener"><span class="channel-body"><small>Instagram</small><strong>@kirmoon.dev</strong></span><span class="channel-arrow" aria-hidden="true">↗</span></a>
+          <a href="https://www.instagram.com/kirmoon.dev/" target="_blank" rel="noopener"><span class="channel-body"><small>Instagram</small><strong>@kirmoon.dev</strong></span><span class="channel-arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
       <form id="lead" class="briefing-form" novalidate>
@@ -5975,9 +5978,9 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
 <script id="kirmoon-section-scripts">
 (() => {
   const sections = [
-    ['apps', 'assets/service-demos-20260924.js'],
-    ['sites', 'assets/service-demos-20260924.js'],
-    ['ti', 'assets/service-demos-20260924.js'],
+    ['apps', 'assets/service-demos-20260925.js'],
+    ['sites', 'assets/service-demos-20260925.js'],
+    ['ti', 'assets/service-demos-20260925.js'],
     ['compromissos', 'assets/commitments-carousel-20260924.js']
   ];
   const loaded = new Set();
