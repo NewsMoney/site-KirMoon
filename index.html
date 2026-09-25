@@ -2724,6 +2724,50 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   #sites .audit-row b,#sites .audit-row strong{font-size:17px}
 }
 </style>
+<style id="kirmoon-services-redesign">
+/* Serviços sem quadriculado: luz ambiente atrás de cada demonstração, na cor de acento do serviço. */
+#servicos .svc-bg-grid,#servicos > .svc-bg .svc-bg-grid{display:none!important}
+#apps.service-panel{background-image:radial-gradient(ellipse 46% 64% at 71% 50%,rgba(184,203,223,.11),rgba(184,203,223,.035) 48%,transparent 74%),radial-gradient(ellipse 30% 42% at 18% 58%,rgba(112,144,186,.028),transparent 70%)}
+#sites.service-panel{background-image:radial-gradient(ellipse 46% 64% at 29% 50%,rgba(166,197,181,.10),rgba(166,197,181,.032) 48%,transparent 74%),radial-gradient(ellipse 30% 42% at 82% 58%,rgba(112,144,186,.028),transparent 70%)}
+#ti.service-panel{background-image:radial-gradient(ellipse 46% 64% at 71% 50%,rgba(216,199,172,.09),rgba(216,199,172,.03) 48%,transparent 74%),radial-gradient(ellipse 30% 42% at 18% 58%,rgba(112,144,186,.028),transparent 70%)}
+@media (max-width:960px){
+  #apps.service-panel{background-image:radial-gradient(ellipse 80% 36% at 50% 74%,rgba(184,203,223,.10),transparent 74%)}
+  #sites.service-panel{background-image:radial-gradient(ellipse 80% 36% at 50% 74%,rgba(166,197,181,.095),transparent 74%)}
+  #ti.service-panel{background-image:radial-gradient(ellipse 80% 36% at 50% 74%,rgba(216,199,172,.085),transparent 74%)}
+}
+
+/* Refatoração: antes/depois arrastável + auditoria com medições reais. */
+#sites .svc-stage-body{place-items:stretch;align-content:center}
+#sites .sites-lab{display:grid;gap:clamp(12px,1.6vw,18px);width:100%;max-width:520px;justify-self:center;align-self:center}
+#sites .cmp{max-width:none;height:auto;max-height:none;border-radius:4px;border:1px solid rgba(236,238,241,.15);background:#0a0f16;box-shadow:none}
+#sites .cmp-chrome{padding:7px 10px;background:rgba(255,255,255,.02)}
+#sites .cmp-chrome i{width:6px;height:6px}
+#sites .cmp-chrome span{border-radius:2px;letter-spacing:.06em;color:#8a96a3}
+#sites .cmp-view{min-height:0;height:clamp(150px,19vh,210px)}
+#sites .cmp-pane{padding:38px 14px 14px}
+#sites .cmp-tag{border-radius:2px;font:500 9px/1 var(--mono);letter-spacing:.12em;padding:4px 7px;background:rgba(6,9,14,.86)}
+#sites .cmp-tag-old{color:#c9ab93;border-color:rgba(180,154,132,.42)}
+#sites .cmp-tag-new{color:#b4d7c4;border-color:rgba(166,197,181,.46)}
+#sites .cmp-alert,#sites .cmp-ok{border-radius:3px}
+#sites .cmp-alert{color:#c9ab93;border-color:rgba(180,154,132,.36);background:rgba(180,154,132,.1)}
+#sites .cmp-ok{color:#b4d7c4;border-color:rgba(166,197,181,.36);background:rgba(166,197,181,.09)}
+#sites .cmp-split i{width:34px;height:34px;border-color:rgba(236,238,241,.5)}
+#sites .audit-sheet{max-width:none}
+#sites .audit-sheet-heading{padding:9px 10px}
+#sites .audit-row{padding:10px 10px}
+#sites .audit-caption{margin-top:10px}
+#sites .audit-sheet-heading span,#sites .audit-row b,#sites .audit-row strong{transition:opacity .35s ease,color .35s ease}
+#sites .audit-sheet[data-side="antes"] .audit-row strong,#sites .audit-sheet[data-side="antes"] .audit-sheet-heading span:nth-child(3),
+#sites .audit-sheet[data-side="depois"] .audit-row b,#sites .audit-sheet[data-side="depois"] .audit-sheet-heading span:nth-child(2){opacity:.32}
+#sites .audit-sheet[data-side="antes"] .audit-sheet-heading span:nth-child(2){color:#c9ab93}
+#sites .audit-sheet[data-side="depois"] .audit-sheet-heading span:nth-child(3){color:#b4d7c4}
+@media (max-width:720px){
+  #sites .svc-stage-hint .hint-long{display:none}
+  #sites .cmp-view{height:180px}
+  #sites .cmp-pane{padding:34px 12px 12px}
+}
+@media (prefers-reduced-motion:reduce){#sites .audit-sheet-heading span,#sites .audit-row b,#sites .audit-row strong{transition:none}}
+</style>
 <style id="kirmoon-scroll-rest">
 /* Deriva lenta de fundo pausa durante a rolagem (ver #kirmoon-scroll-activity). */
 html.km-scrolling #faq.section::before,html.km-scrolling #faq.section::after,
@@ -2751,25 +2795,25 @@ html.km-scrolling .svc-bg-grid,html.km-scrolling .svc-bg-stars{animation-play-st
   html.km-cursor-on textarea,html.km-cursor-on [contenteditable]:not([contenteditable=false]){cursor:text!important}
 }
 .km-cursor-ring,.km-cursor-dot{position:fixed;left:0;top:0;z-index:2147483000;pointer-events:none;opacity:0;will-change:translate,opacity;translate:-100px -100px}
-.km-cursor-ring{width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:50%;
+.km-cursor-ring{width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;
   border:1px solid rgba(236,240,246,.5);
   background:radial-gradient(circle,rgba(0,0,0,.3) 0 28%,rgba(0,0,0,.1) 54%,transparent 68%);
-  box-shadow:0 0 12px rgba(190,208,230,.12),inset 0 0 6px rgba(0,0,0,.35);
+  box-shadow:0 0 9px rgba(190,208,230,.12),inset 0 0 5px rgba(0,0,0,.35);
   transition:scale .35s cubic-bezier(.16,1,.3,1),border-color .35s ease,box-shadow .35s ease,opacity .3s ease}
 .km-cursor-ring::before{content:"";position:absolute;inset:-2px;border-radius:50%;
   background:conic-gradient(from 150deg,transparent 0 14%,rgba(255,244,226,.95) 27%,rgba(214,228,245,.6) 37%,transparent 52% 100%);
-  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2.2px),#000 calc(100% - 1.6px));
-  mask:radial-gradient(farthest-side,transparent calc(100% - 2.2px),#000 calc(100% - 1.6px));
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 1.9px),#000 calc(100% - 1.4px));
+  mask:radial-gradient(farthest-side,transparent calc(100% - 1.9px),#000 calc(100% - 1.4px));
   opacity:.8;transition:rotate .6s cubic-bezier(.16,1,.3,1),opacity .35s ease}
-.km-cursor-ring::after{content:"";position:absolute;inset:-7px;border-radius:50%;
+.km-cursor-ring::after{content:"";position:absolute;inset:-5px;border-radius:50%;
   background:radial-gradient(closest-side,transparent 70%,rgba(200,214,230,.14) 84%,transparent 100%)}
-.km-cursor-dot{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:#fff;
-  box-shadow:0 0 6px rgba(255,255,255,.55);transition:opacity .3s ease,scale .25s ease}
+.km-cursor-dot{width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:50%;background:#fff;
+  box-shadow:0 0 5px rgba(255,255,255,.55);transition:opacity .3s ease,scale .25s ease}
 html.km-cursor-visible .km-cursor-ring,html.km-cursor-visible .km-cursor-dot{opacity:1}
-html.km-cursor-hover .km-cursor-ring{scale:1.56;border-color:rgba(242,246,250,.9);background:radial-gradient(circle,rgba(255,255,255,.06),rgba(255,255,255,.025) 62%,transparent 72%);box-shadow:0 0 18px rgba(200,214,230,.2)}
+html.km-cursor-hover .km-cursor-ring{scale:1.5;border-color:rgba(242,246,250,.9);background:radial-gradient(circle,rgba(255,255,255,.06),rgba(255,255,255,.025) 62%,transparent 72%);box-shadow:0 0 18px rgba(200,214,230,.2)}
 html.km-cursor-hover .km-cursor-ring::before{opacity:1;rotate:120deg}
 html.km-cursor-down .km-cursor-ring{scale:.84}
-html.km-cursor-hover.km-cursor-down .km-cursor-ring{scale:1.3}
+html.km-cursor-hover.km-cursor-down .km-cursor-ring{scale:1.25}
 html.km-cursor-text .km-cursor-ring,html.km-cursor-text .km-cursor-dot{opacity:0}
 @media (prefers-reduced-motion:reduce){.km-cursor-ring,.km-cursor-ring::before,.km-cursor-dot{transition:opacity .2s ease}}
 </style>
@@ -3190,16 +3234,45 @@ main>#faq.section.faq-anchored>.wrap{margin-top:var(--faq-wrap-rest,0px)!importa
       <div class="svc-stage">
         <div class="svc-stage-head">
           <b>02 / Resultado mensurável</b>
-          <span class="svc-stage-hint">Antes → depois</span>
+          <span class="svc-stage-hint">Arraste<span class="hint-long"> para comparar</span></span>
         </div>
 
         <div class="svc-stage-body">
+          <div class="sites-lab">
+          <div class="cmp" style="--pos:52">
+            <div class="cmp-chrome" aria-hidden="true"><i></i><i></i><i></i><span>suaempresa.com.br</span></div>
+            <div class="cmp-view">
+              <div class="cmp-pane cmp-old" aria-hidden="true">
+                <div class="cmp-alert"><svg viewBox="0 0 24 24"><path d="M12 8v5"/><path d="M12 17h.01"/><path d="M10.3 3.9 2.4 17.4A2 2 0 0 0 4.1 20.4h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>17 erros</div>
+                <div class="cmp-messy">
+                  <div class="cmp-broken"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m4 17 5-5 4 4 3-3 4 4"/></svg></div>
+                  <div class="cmp-lines"><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+                <div class="cmp-stack"><i></i><i></i><i></i></div>
+              </div>
+
+              <div class="cmp-reveal" aria-hidden="true"><div class="cmp-pane cmp-new">
+                <div class="cmp-ok"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>sem erros</div>
+                <div class="cmp-hero"></div>
+                <div class="cmp-grid"><i></i><i></i><i></i></div>
+                <div class="cmp-neat"><i></i><i></i></div>
+              </div></div>
+
+              <span class="cmp-tag cmp-tag-old">Antes</span>
+              <span class="cmp-tag cmp-tag-new">Depois</span>
+
+              <input class="cmp-range" type="range" min="0" max="100" step="0.1" value="52" aria-valuetext="52%"
+                     aria-label="Comparar o site antes e depois da refatoração. Use as setas do teclado para ajustar.">
+              <span class="cmp-split" aria-hidden="true"><i></i></span>
+            </div>
+          </div>
           <div class="audit-sheet" aria-label="Comparativo de indicadores antes e depois da refatoração">
             <div class="audit-sheet-heading"><span>Indicador</span><span>Antes</span><span>Depois</span></div>
             <div class="audit-row"><span>Carregamento</span><b>4,8 s</b><strong>0,9 s</strong></div>
             <div class="audit-row"><span>Desempenho</span><b>38</b><strong>98</strong></div>
             <div class="audit-row"><span>Erros no console</span><b>17</b><strong>0</strong></div>
             <p class="audit-caption">Carregamento, desempenho e erros medidos antes e depois da revisão.</p>
+          </div>
           </div>
         </div>
 
@@ -6369,6 +6442,27 @@ main>#faq.section.faq-anchored>.wrap{margin-top:var(--faq-wrap-rest,0px)!importa
   // Ao rolar, o elemento sob o mouse muda sem pointermove: reavalia o hover.
   addEventListener('scroll', () => { lastTarget = null; }, {passive:true});
   fine.addEventListener?.('change', () => { if (!fine.matches) { root.classList.remove('km-cursor-on', 'km-cursor-visible'); ring.remove(); dot.remove(); } });
+})();
+</script>
+<script id="kirmoon-sites-compare">
+/* Refatoração: a divisória destaca a coluna real (antes ou depois) do lado que
+   domina a tela. Perto do meio as duas ficam iguais. Os números nunca mudam. */
+(() => {
+  const sheet = document.querySelector('#sites .audit-sheet');
+  const range = document.querySelector('#sites .cmp-range');
+  if (!sheet || !range) return;
+  let side = null;
+  const update = () => {
+    const pos = +range.value; // % da largura ainda mostrando o "antes"
+    const next = pos > 56 ? 'antes' : pos < 44 ? 'depois' : '';
+    if (next === side) return;
+    side = next;
+    if (side) sheet.dataset.side = side; else delete sheet.dataset.side;
+  };
+  range.addEventListener('input', update);
+  // A animação de entrada move a divisória sem evento "input"; ela atualiza aria-valuetext.
+  new MutationObserver(update).observe(range, {attributes:true, attributeFilter:['aria-valuetext']});
+  update();
 })();
 </script>
 </body>
