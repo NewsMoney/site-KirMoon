@@ -2724,8 +2724,106 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   #sites .audit-row b,#sites .audit-row strong{font-size:17px}
 }
 </style>
+<style id="kirmoon-scroll-rest">
+/* Deriva lenta de fundo pausa durante a rolagem (ver #kirmoon-scroll-activity). */
+html.km-scrolling #faq.section::before,html.km-scrolling #faq.section::after,
+html.km-scrolling #compromissos::before,html.km-scrolling #compromissos::after,
+html.km-scrolling #contato::before,html.km-scrolling #contato::after,
+html.km-scrolling .process-story::before,html.km-scrolling .process-story::after,
+html.km-scrolling .svc-bg-grid,html.km-scrolling .svc-bg-stars{animation-play-state:paused!important}
+</style>
+<style id="kirmoon-commit-planets">
+/* Compromissos: 24h = Terra (um giro por dia), 100% = Lua cheia, 30 dias = ciclo lunar. */
+#compromissos .stat::before,#compromissos .stat:nth-child(n)::before{content:"";display:block;position:absolute;left:-4px;top:-20px;width:30px;height:30px;border:0;border-radius:0;background:center/contain no-repeat;box-shadow:none;transform:none;filter:drop-shadow(0 0 5px rgba(200,214,230,.12));transition:transform .5s cubic-bezier(.22,1,.36,1),filter .35s ease;pointer-events:none}
+#compromissos .stat:nth-child(1)::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E %3Cdefs%3E %3CradialGradient id='e' cx='34%25' cy='30%25' r='78%25'%3E%3Cstop offset='0' stop-color='%23e4eef8'/%3E%3Cstop offset='.38' stop-color='%2386a7c6'/%3E%3Cstop offset='.8' stop-color='%232c4460'/%3E%3Cstop offset='1' stop-color='%23121b27'/%3E%3C/radialGradient%3E %3ClinearGradient id='n' x1='.1' y1='.2' x2='.95' y2='.8'%3E%3Cstop offset='.5' stop-color='%2305080c' stop-opacity='0'/%3E%3Cstop offset='.6' stop-color='%2305080c' stop-opacity='.72'/%3E%3Cstop offset='1' stop-color='%2305080c' stop-opacity='.94'/%3E%3C/linearGradient%3E %3C/defs%3E %3Cpath d='M4.02 20.49 A12.6 6.4 -18 0 1 27.98 12.71' fill='none' stroke='%23c9d6e3' stroke-opacity='.34' stroke-width='.8' stroke-dasharray='1.1 1.7' stroke-linecap='round'/%3E %3Ccircle cx='16' cy='16.6' r='7' fill='url(%23e)'/%3E %3Cpath d='M11.9 13.9c1.5-.9 3-.5 3.7.6.6 1-.3 1.8-1.5 2.1-1.1.3-1.4 1.3-2.3 1.1-.9-.2-1.2-1.5-.9-2.5.2-.6.5-1 1-1.3zM16.9 19.6c.9-.3 1.9.1 2 .8.1.6-.6 1-1.3 1-.8 0-1.3-.3-1.3-.9 0-.4.2-.7.6-.9z' fill='%23e2edf7' fill-opacity='.34'/%3E %3Ccircle cx='16' cy='16.6' r='7' fill='url(%23n)'/%3E %3Ccircle cx='16' cy='16.6' r='7' fill='none' stroke='%23eef3f8' stroke-opacity='.32' stroke-width='.6'/%3E %3Cpath d='M27.98 12.71 A12.6 6.4 -18 0 1 4.02 20.49' fill='none' stroke='%23dfe8f1' stroke-opacity='.62' stroke-width='.85' stroke-dasharray='1.1 1.7' stroke-linecap='round'/%3E %3Ccircle cx='27.04' cy='16.78' r='1.75' fill='%23eef3f8'/%3E %3Ccircle cx='26.59' cy='16.38' r='.6' fill='%23ffffff'/%3E %3C/svg%3E")}
+#compromissos .stat:nth-child(2)::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E %3Cdefs%3E %3CradialGradient id='h' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='.55' stop-color='%23c8d6e6' stop-opacity='.28'/%3E%3Cstop offset='1' stop-color='%23c8d6e6' stop-opacity='0'/%3E%3C/radialGradient%3E %3CradialGradient id='m' cx='40%25' cy='34%25' r='72%25'%3E%3Cstop offset='0' stop-color='%23f6f8fb'/%3E%3Cstop offset='.6' stop-color='%23cdd6e0'/%3E%3Cstop offset='1' stop-color='%238793a1'/%3E%3C/radialGradient%3E %3C/defs%3E %3Ccircle cx='16' cy='16' r='15' fill='url(%23h)'/%3E %3Ccircle cx='16' cy='16' r='8.6' fill='url(%23m)'/%3E %3Ccircle cx='13.1' cy='13.4' r='2.1' fill='%237d8896' fill-opacity='.42'/%3E %3Ccircle cx='19.2' cy='18.6' r='2.7' fill='%237d8896' fill-opacity='.3'/%3E %3Ccircle cx='18.4' cy='12.1' r='1.1' fill='%237d8896' fill-opacity='.38'/%3E %3Ccircle cx='12.7' cy='19.6' r='.9' fill='%237d8896' fill-opacity='.32'/%3E %3Ccircle cx='16' cy='16' r='8.6' fill='none' stroke='%23ffffff' stroke-opacity='.55' stroke-width='.6'/%3E %3C/svg%3E")}
+#compromissos .stat:nth-child(3)::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E %3Cdefs%3E %3CradialGradient id='c' cx='30%25' cy='40%25' r='80%25'%3E%3Cstop offset='0' stop-color='%23f3f6fa'/%3E%3Cstop offset='.7' stop-color='%23b9c5d2'/%3E%3Cstop offset='1' stop-color='%236f7c8b'/%3E%3C/radialGradient%3E %3Cmask id='k'%3E%3Ccircle cx='17' cy='17' r='8' fill='%23fff'/%3E%3Ccircle cx='20.6' cy='14.4' r='7.3' fill='%23000'/%3E%3C/mask%3E %3C/defs%3E %3Cpath d='M4.4 20.2A12.2 12.2 0 0 1 15.2 3.9' fill='none' stroke='%23cfd9e4' stroke-opacity='.22' stroke-width='.8' stroke-dasharray='.1 2.4' stroke-linecap='round'/%3E %3Ccircle cx='4.54' cy='11.83' r='0.8' fill='%23dfe7ef' fill-opacity='0.28'/%3E%3Ccircle cx='8.49' cy='6.39' r='1.0' fill='%23dfe7ef' fill-opacity='0.42'/%3E%3Ccircle cx='14.72' cy='3.87' r='1.2' fill='%23dfe7ef' fill-opacity='0.6'/%3E %3Ccircle cx='17' cy='17' r='8' fill='%230e141c'/%3E %3Ccircle cx='17' cy='17' r='8' fill='none' stroke='%23dfe7ef' stroke-opacity='.22' stroke-width='.7'/%3E %3Ccircle cx='17' cy='17' r='8' fill='url(%23c)' mask='url(%23k)'/%3E %3C/svg%3E")}
+#compromissos .stat:nth-child(2) b::after{content:none;display:none}
+#compromissos .stat:hover::before,#compromissos .stat:nth-child(n):hover::before{transform:translateY(-2px);filter:drop-shadow(0 0 9px rgba(200,214,230,.26))}
+@media (max-width:640px){#compromissos .stat::before,#compromissos .stat:nth-child(n)::before{width:26px;height:26px;top:-17px;left:-3px}}
+@media (prefers-reduced-motion:reduce){#compromissos .stat::before,#compromissos .stat:nth-child(n)::before{transition:none}#compromissos .stat:hover::before,#compromissos .stat:nth-child(n):hover::before{transform:none}}
+</style>
+<style id="kirmoon-cursor">
+/* Cursor buraco negro: só com mouse. A seta do sistema some quando o anel está ativo. */
+@media (hover:hover) and (pointer:fine){
+  html.km-cursor-on,html.km-cursor-on *{cursor:none!important}
+  html.km-cursor-on input:not([type=range]):not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]),
+  html.km-cursor-on textarea,html.km-cursor-on [contenteditable]:not([contenteditable=false]){cursor:text!important}
+}
+.km-cursor-ring,.km-cursor-dot{position:fixed;left:0;top:0;z-index:2147483000;pointer-events:none;opacity:0;will-change:translate,opacity;translate:-100px -100px}
+.km-cursor-ring{width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:50%;
+  border:1px solid rgba(236,240,246,.5);
+  background:radial-gradient(circle,rgba(0,0,0,.3) 0 28%,rgba(0,0,0,.1) 54%,transparent 68%);
+  box-shadow:0 0 12px rgba(190,208,230,.12),inset 0 0 6px rgba(0,0,0,.35);
+  transition:scale .35s cubic-bezier(.16,1,.3,1),border-color .35s ease,box-shadow .35s ease,opacity .3s ease}
+.km-cursor-ring::before{content:"";position:absolute;inset:-2px;border-radius:50%;
+  background:conic-gradient(from 150deg,transparent 0 14%,rgba(255,244,226,.95) 27%,rgba(214,228,245,.6) 37%,transparent 52% 100%);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2.2px),#000 calc(100% - 1.6px));
+  mask:radial-gradient(farthest-side,transparent calc(100% - 2.2px),#000 calc(100% - 1.6px));
+  opacity:.8;transition:rotate .6s cubic-bezier(.16,1,.3,1),opacity .35s ease}
+.km-cursor-ring::after{content:"";position:absolute;inset:-7px;border-radius:50%;
+  background:radial-gradient(closest-side,transparent 70%,rgba(200,214,230,.14) 84%,transparent 100%)}
+.km-cursor-dot{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:#fff;
+  box-shadow:0 0 6px rgba(255,255,255,.55);transition:opacity .3s ease,scale .25s ease}
+html.km-cursor-visible .km-cursor-ring,html.km-cursor-visible .km-cursor-dot{opacity:1}
+html.km-cursor-hover .km-cursor-ring{scale:1.56;border-color:rgba(242,246,250,.9);background:radial-gradient(circle,rgba(255,255,255,.06),rgba(255,255,255,.025) 62%,transparent 72%);box-shadow:0 0 18px rgba(200,214,230,.2)}
+html.km-cursor-hover .km-cursor-ring::before{opacity:1;rotate:120deg}
+html.km-cursor-down .km-cursor-ring{scale:.84}
+html.km-cursor-hover.km-cursor-down .km-cursor-ring{scale:1.3}
+html.km-cursor-text .km-cursor-ring,html.km-cursor-text .km-cursor-dot{opacity:0}
+@media (prefers-reduced-motion:reduce){.km-cursor-ring,.km-cursor-ring::before,.km-cursor-dot{transition:opacity .2s ease}}
+</style>
+<style id="kirmoon-faq-motion">
+/* Dúvidas: resposta sempre no fluxo (sem display:none) para abrir e fechar animando. */
+#faq{--faq-ease:cubic-bezier(.22,1,.36,1);--faq-open:.52s;--faq-close:.52s}
+#faq .faq-answer,#faq .faq-item.is-open .faq-answer{display:block;max-height:none;transform:none;will-change:auto;overflow:hidden}
+#faq .faq-answer{height:0;opacity:0;visibility:hidden;transition:height var(--faq-close) var(--faq-ease),opacity .2s ease,visibility 0s linear var(--faq-close)}
+#faq .faq-item.is-open .faq-answer{opacity:1;visibility:visible;transition:height var(--faq-open) var(--faq-ease),opacity .42s ease .1s,visibility 0s}
+#faq .faq-answer p{transform:translate3d(0,-8px,0);transition:transform var(--faq-close) var(--faq-ease)}
+#faq .faq-item.is-open .faq-answer p{transform:none;transition:transform var(--faq-open) var(--faq-ease) .04s}
+/* Desktop: colunas presas à posição de repouso; abrir uma resposta só cresce para baixo. */
+#faq .faq-grid.faq-anchored>.faq-aside,#faq .faq-grid.faq-anchored>.faq{align-self:start}
+#faq .faq-grid.faq-anchored>.faq-aside{margin-top:var(--faq-aside-rest,0px)}
+#faq .faq-grid.faq-anchored>.faq{margin-top:var(--faq-list-rest,0px)}
+#faq .faq-grid.faq-anchored>.faq-celestial,#faq .faq-grid.faq-anchored>.faq-celestial.is-3d{top:var(--faq-planet-rest,8%)!important}
+main>#faq.section.faq-anchored{align-content:start!important}
+main>#faq.section.faq-anchored>.wrap{margin-top:var(--faq-wrap-rest,0px)!important;margin-bottom:0!important}
+@media (prefers-reduced-motion:reduce){
+  #faq .faq-answer,#faq .faq-item.is-open .faq-answer,#faq .faq-answer p,#faq .faq-item.is-open .faq-answer p{transition:none}
+}
+</style>
 </head>
 <body>
+<script id="kirmoon-scroll-activity">
+/* Enquanto a página rola, efeitos decorativos contínuos (estrelas em deriva,
+   rotação dos planetas) descansam e deixam GPU e thread principal para a rolagem. */
+(() => {
+  const root = document.documentElement;
+  const idle = new Set();
+  let timer = 0, active = false;
+  const end = () => {
+    timer = 0; active = false;
+    root.classList.remove('km-scrolling');
+    idle.forEach(cb => { try { cb(); } catch (e) {} });
+    idle.clear();
+  };
+  let lastInput = 0;
+  const touch = () => { lastInput = performance.now(); };
+  addEventListener('scroll', () => {
+    touch();
+    if (!active) { active = true; root.classList.add('km-scrolling'); }
+    clearTimeout(timer);
+    timer = setTimeout(end, 160);
+  }, {passive:true});
+  // Wheel/teclas também contam: em Processo o gesto troca fases sem rolar a página.
+  ['wheel','keydown','pointerdown'].forEach(type => addEventListener(type, touch, {passive:true, capture:true}));
+  window.kmScroll = {
+    get active() { return active; },
+    get quietFor() { return performance.now() - lastInput; },
+    whenIdle(cb) { if (active) idle.add(cb); else cb(); }
+  };
+})();
+</script>
 
 
 <img id="texJupiter" class="tex-fonte" alt="" aria-hidden="true" data-src="assets/jupiter.webp" decoding="async" fetchpriority="low">
@@ -4080,6 +4178,16 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   let finalBoundaryRaf = 0;
   let finalBoundaryLastFrame = 0;
   let finalBoundaryEntryReady = false;
+  // Volta Final -> Processo: o gesto que chega ao topo de Compromissos para ali.
+  // Só um gesto novo, com a borda já alcançada e força suficiente, sai do capítulo.
+  const FINAL_EXIT_THRESHOLD = 150;
+  const FINAL_EXIT_STEP_CAP = 80;
+  const FINAL_REARM_PAUSE_MS = 450;
+  const FINAL_EXIT_RESET_MS = 700;
+  let finalExitIntent = 0;
+  let finalExitIntentTimer = 0;
+  let finalLastUpWheel = -Infinity;
+  let finalEdgeRearmed = false;
   const WHEEL_THRESHOLD = 240;
   const WHEEL_STEP_CAP = 80;
   const INTENT_RESET_MS = 360;
@@ -4188,8 +4296,20 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     };
     serviceReturnBoundaryRaf=requestAnimationFrame(frame);
   }
+  function resetFinalExitIntent() {
+    finalExitIntent = 0;
+    clearTimeout(finalExitIntentTimer);
+    if (!sceneAnimating) rail.style.setProperty("--intent", "0");
+  }
+  function addFinalExitIntent(amount) {
+    finalExitIntent += Math.min(FINAL_EXIT_STEP_CAP, amount);
+    clearTimeout(finalExitIntentTimer);
+    finalExitIntentTimer = setTimeout(resetFinalExitIntent, FINAL_EXIT_RESET_MS);
+    return finalExitIntent;
+  }
   function stopFinalBoundaryMode() {
     scrollTrace.log('final-bounded-stop',{target:Math.round(finalBoundaryTarget),entryReady:finalBoundaryEntryReady});
+    resetFinalExitIntent();
     cancelAnimationFrame(finalBoundaryRaf);
     finalBoundaryRaf = 0;
     finalBoundaryLastFrame = 0;
@@ -4466,10 +4586,14 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
       }
       if (delta >= 0) {
         setIntent(0);
+        resetFinalExitIntent();
         return;
       }
       e.preventDefault();
       setIntent(0);
+      const wheelNow = performance.now();
+      const wheelGap = wheelNow - finalLastUpWheel;
+      finalLastUpWheel = wheelNow;
       if (!finalBoundaryMode) {
         finalBoundaryMode = true;
         finalBoundaryTarget = Math.max(scrollY, finalEntryTop);
@@ -4478,12 +4602,22 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
         scrollTo({top:scrollY, behavior:'instant'});
         scrollTrace.log('final-bounded-start',{boundaryTop:Math.round(finalEntryTop),from:Math.round(scrollY)});
       }
+      // A borda já estava alcançada e a rodinha ficou parada ali por um instante?
+      const atEdgeBefore = finalBoundaryTarget - finalEntryTop <= 1;
+      if (atEdgeBefore && wheelGap >= FINAL_REARM_PAUSE_MS) finalEdgeRearmed = true;
       const desired = finalBoundaryTarget + delta;
       finalBoundaryTarget = Math.max(finalEntryTop, desired);
       const overflow = Math.max(0, finalEntryTop - desired);
-      // Begin the chapter transition when this wheel step reaches the edge;
-      // the bounded glide first lands exactly there.
-      if (finalBoundaryTarget - finalEntryTop <= Math.abs(delta) + 2) finalBoundaryEntryReady = true;
+      if (atEdgeBefore && finalEdgeRearmed) {
+        // Gesto novo empurrando além de Compromissos: acumula até o limiar.
+        const intent = addFinalExitIntent(Math.abs(delta));
+        rail.style.setProperty('--intent', Math.min(1, intent / FINAL_EXIT_THRESHOLD).toFixed(3));
+        if (intent >= FINAL_EXIT_THRESHOLD) finalBoundaryEntryReady = true;
+      } else if (finalBoundaryTarget - finalEntryTop <= 1) {
+        // Este gesto alcançou a borda: o deslizamento para em Compromissos.
+        finalEdgeRearmed = false;
+        resetFinalExitIntent();
+      }
       scrollTrace.log('final-bounded-wheel',{delta:Math.round(delta),target:Math.round(finalBoundaryTarget),boundaryTop:Math.round(finalEntryTop),overflow:Math.round(overflow),entryReady:finalBoundaryEntryReady});
       animateFinalBoundary();
       return;
@@ -5452,6 +5586,11 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
 
     if (!finalPlanetRuntime.passo) finalPlanetRuntime.passo = tempo => {
       finalPlanetRuntime.quadro = 0;
+      if (window.kmScroll?.active && !planetas.some(p => p.arrastando)) {
+        // Rolando: pula o desenho e retoma quando a página parar.
+        window.kmScroll.whenIdle(agendar);
+        return;
+      }
       finalPlanetRuntime.ultimoDesenho = tempo;
       let ativo = false;
       planetas.forEach(p => {
@@ -5515,6 +5654,27 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     const finalMargin = mobilePerf ? '0px' : '65% 0px 65% 0px';
     const faqMargin = mobilePerf ? '0px' : '35% 0px 35% 0px';
     const contactMargin = mobilePerf ? '0px' : '25% 0px 25% 0px';
+    // Desktop: prepara a Lua do Processo (three.js, textura, fases) num momento
+    // ocioso enquanto o visitante está em Serviços, e não no meio da rolagem ou da
+    // entrada cinematográfica. O gatilho abaixo continua como rede de segurança.
+    if (!mobilePerf) {
+      const CALM_MS = 1200;
+      const whenCalm = task => () => {
+        const attempt = () => {
+          const quiet = window.kmScroll ? window.kmScroll.quietFor : Infinity;
+          if (window.kmScroll?.active || quiet < CALM_MS) { setTimeout(attempt, Math.max(200, CALM_MS - quiet)); return; }
+          task();
+        };
+        if ('requestIdleCallback' in window) requestIdleCallback(attempt, {timeout:2500});
+        else setTimeout(attempt, 300);
+      };
+      observeNear(document.getElementById('servicos'), '0px', whenCalm(() => { drawPhases(); ensureProcessMoonReady(); }));
+      // Mesmo cuidado com os planetas do capítulo final: cada um é preparado
+      // enquanto o visitante lê a seção anterior.
+      observeNear(processEl, '0px', whenCalm(() => ensureFinalPlanetReady('saturn')));
+      observeNear(finalStart, '0px', whenCalm(() => ensureFinalPlanetReady('jupiter')));
+      observeNear(faqEl, '0px', whenCalm(() => ensureFinalPlanetReady('earth')));
+    }
     observeNear(processEl, processMargin, () => { drawPhases(); ensureProcessMoonReady(); });
     observeNear(finalStart, finalMargin, () => ensureFinalPlanetReady('saturn'));
     observeNear(faqEl, faqMargin, () => ensureFinalPlanetReady('jupiter'));
@@ -5564,11 +5724,12 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   const faqItems = [...document.querySelectorAll("#faq [data-faq-item]")];
   const faqReduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // A resposta parte de height:0 no CSS; a altura real e aplicada aqui para animar
-  // (0 -> px -> auto na abertura, auto -> px -> 0 no fechamento). As leituras de
-  // layout acontecem so no clique, antes das escritas, sem custo no carregamento.
-  const faqAnswerTimers = new WeakMap();
-  const faqAnswerContentHeight = answer => {
+  // Abrir e fechar usam a mesma curva (CSS). Aqui só se definem as alturas:
+  // mede tudo, grava os pontos de partida, confirma com um único reflow e só
+  // então solta os destinos. Assim a resposta que fecha e a que abre começam no
+  // mesmo quadro e a lista não dá pulo.
+  const faqSettleTimers = new WeakMap();
+  const faqContentHeight = answer => {
     let h = 0;
     for (const child of answer.children) {
       const cs = getComputedStyle(child);
@@ -5576,44 +5737,50 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     }
     return Math.ceil(Math.max(h, answer.scrollHeight));
   };
-
-  const closeFaqAnswer = (answer, immediate = false) => {
+  const closeFaqAnswer = answer => {
     if (!answer) return;
     answer.setAttribute("aria-hidden", "true");
-    clearTimeout(faqAnswerTimers.get(answer));
-    if (immediate || faqReduce || answer.style.height === "0px") { answer.style.height = "0px"; return; }
-    answer.style.height = `${answer.getBoundingClientRect().height}px`;
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      if (answer.getAttribute("aria-hidden") === "true") answer.style.height = "0px";
-    }));
+    answer.style.height = "0px";
   };
-
-  const openFaqAnswer = (answer, immediate = false) => {
-    if (!answer) return;
-    answer.setAttribute("aria-hidden", "false");
-    clearTimeout(faqAnswerTimers.get(answer));
-    if (immediate || faqReduce) { answer.style.height = "auto"; return; }
-    answer.style.height = `${faqAnswerContentHeight(answer)}px`;
-    // Depois da transicao volta para auto: acompanha rotacao de tela e quebra de linha.
-    faqAnswerTimers.set(answer, setTimeout(() => {
-      if (answer.getAttribute("aria-hidden") === "false") answer.style.height = "auto";
-    }, 620));
+  const settleOpenFaqAnswer = answer => {
+    if (answer.getAttribute("aria-hidden") === "false") answer.style.height = "auto";
   };
 
   const setFaqState = (target = null, immediate = false) => {
     const activeIndex = faqItems.indexOf(target);
-    faqItems.forEach((item, index) => {
-      const active = item === target;
-      const button = item.querySelector(".faq-question");
+    const instant = immediate || faqReduce;
+    const plan = faqItems.map(item => {
       const answer = item.querySelector(".faq-answer");
       const wasOpen = item.classList.contains("is-open");
-      item.classList.toggle("is-open", active);
-      if (active) item.classList.remove("is-hover-leaving");
+      const willOpen = item === target;
+      return {
+        item, answer, wasOpen, willOpen,
+        from: answer ? answer.getBoundingClientRect().height : 0,
+        to: answer && willOpen && !instant ? faqContentHeight(answer) : 0
+      };
+    });
+    if (!instant) {
+      plan.forEach(p => { if (p.answer && (p.wasOpen || p.willOpen)) p.answer.style.height = `${p.from}px`; });
+      void faqList?.offsetHeight; // um reflow: todas as partidas valem no mesmo quadro
+    }
+    plan.forEach(({item, answer, wasOpen, willOpen, to}, index) => {
+      const button = item.querySelector(".faq-question");
+      item.classList.toggle("is-open", willOpen);
+      if (willOpen) item.classList.remove("is-hover-leaving");
       else if (wasOpen) { item.classList.remove("is-hovering"); item.classList.add("is-hover-leaving"); }
-      button?.setAttribute("aria-expanded", String(active));
-      if (active) openFaqAnswer(answer, immediate);
-      else closeFaqAnswer(answer, immediate);
-      if (active && faqStatus) faqStatus.textContent = `${String(index + 1).padStart(2,"0")} / ${String(faqItems.length).padStart(2,"0")}`;
+      button?.setAttribute("aria-expanded", String(willOpen));
+      if (willOpen && faqStatus) faqStatus.textContent = `${String(index + 1).padStart(2,"0")} / ${String(faqItems.length).padStart(2,"0")}`;
+      if (!answer) return;
+      answer.setAttribute("aria-hidden", String(!willOpen));
+      clearTimeout(faqSettleTimers.get(answer));
+      if (instant) { answer.style.height = willOpen ? "auto" : "0px"; return; }
+      if (willOpen) {
+        answer.style.height = `${to}px`;
+        // Depois da abertura volta para auto (rotação de tela, zoom, quebra de linha).
+        faqSettleTimers.set(answer, setTimeout(() => settleOpenFaqAnswer(answer), 900));
+      } else if (wasOpen) {
+        answer.style.height = "0px";
+      }
     });
     faqList?.classList.toggle("has-open", !!target);
     if (faqGrid) faqGrid.dataset.activePhase = String(activeIndex + 1);
@@ -5623,7 +5790,10 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   faqItems.forEach(item => {
     const button = item.querySelector(".faq-question");
     const answer = item.querySelector(".faq-answer");
-    closeFaqAnswer(answer, true);
+    closeFaqAnswer(answer);
+    answer?.addEventListener("transitionend", e => {
+      if (e.target === answer && e.propertyName === "height") settleOpenFaqAnswer(answer);
+    });
     button?.addEventListener("click", () => {
       const open = item.classList.contains("is-open");
       item.classList.remove("is-hover-leaving");
@@ -5650,6 +5820,49 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
       hoverResetTimer = setTimeout(() => item.classList.remove("is-hover-leaving"), 380);
     });
   });
+
+  // Desktop (2 colunas): título e lista ficam centralizados em repouso, mas presos
+  // a essa posição. Ao abrir uma resposta a grade só cresce para baixo, e a
+  // pergunta clicada continua sob o cursor.
+  const faqAsideEl = faqGrid?.querySelector(":scope > .faq-aside");
+  const faqBoxEl = faqGrid?.querySelector(":scope > .faq");
+  const faqPlanetEl = faqGrid?.querySelector(":scope > .faq-celestial");
+  const faqSectionEl = document.getElementById("faq");
+  const faqWrapEl = faqSectionEl?.querySelector(":scope > .wrap");
+  const anchorFaqColumns = () => {
+    if (!faqGrid || !faqAsideEl || !faqBoxEl) return;
+    const twoColumns = getComputedStyle(faqGrid).gridTemplateColumns.trim().split(/\s+/).length > 1;
+    if (!twoColumns) { faqGrid.classList.remove("faq-anchored"); faqSectionEl?.classList.remove("faq-anchored"); return; }
+    if (faqItems.some(item => item.classList.contains("is-open"))) return; // mede só em repouso
+    const top = el => el.getBoundingClientRect().top;
+    // 1) posição centralizada de hoje (sem âncora)
+    faqGrid.classList.remove("faq-anchored"); faqSectionEl?.classList.remove("faq-anchored");
+    const wrapC = faqWrapEl ? top(faqWrapEl) : 0, gridC = top(faqGrid);
+    const asideC = top(faqAsideEl) - gridC, listC = top(faqBoxEl) - gridC;
+    const planetC = faqPlanetEl ? top(faqPlanetEl) - gridC : null;
+    // 2) posição de partida com a âncora e deslocamentos zerados
+    ["--faq-aside-rest","--faq-list-rest"].forEach(v => faqGrid.style.setProperty(v, "0px"));
+    faqSectionEl?.style.setProperty("--faq-wrap-rest", "0px");
+    faqGrid.classList.add("faq-anchored"); faqSectionEl?.classList.add("faq-anchored");
+    const wrapS = faqWrapEl ? top(faqWrapEl) : 0, gridS = top(faqGrid);
+    const asideS = top(faqAsideEl) - gridS, listS = top(faqBoxEl) - gridS;
+    // 3) deslocamentos que reproduzem exatamente o repouso
+    faqSectionEl?.style.setProperty("--faq-wrap-rest", `${Math.max(0, wrapC - wrapS).toFixed(2)}px`);
+    faqGrid.style.setProperty("--faq-aside-rest", `${Math.max(0, asideC - asideS).toFixed(2)}px`);
+    faqGrid.style.setProperty("--faq-list-rest", `${Math.max(0, listC - listS).toFixed(2)}px`);
+    if (planetC !== null) faqGrid.style.setProperty("--faq-planet-rest", `${planetC.toFixed(2)}px`);
+  };
+  if (faqGrid) {
+    let anchorTimer = 0;
+    const queueAnchor = () => { clearTimeout(anchorTimer); anchorTimer = setTimeout(anchorFaqColumns, 120); };
+    addEventListener("resize", queueAnchor, {passive:true});
+    document.fonts?.ready.then(anchorFaqColumns);
+    // Resize com uma resposta aberta: remede quando a lista voltar ao repouso.
+    faqItems.forEach(item => item.querySelector(".faq-answer")?.addEventListener("transitionend", e => {
+      if (e.propertyName === "height" && !faqItems.some(it => it.classList.contains("is-open"))) queueAnchor();
+    }));
+    anchorFaqColumns();
+  }
 
   if (faqGrid && matchMedia("(hover:hover) and (pointer:fine)").matches) {
     let faqRect = null;
@@ -5838,7 +6051,9 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
     inkR = (lr.right - b.left) / s - trailing;
   }
 
+  let heroHeightCache = 0;
   function measureGeometry(){
+    heroHeightCache = 0;
     measureLogo();
     measureInk();
     heroScaleValue = getHeroScale();
@@ -5861,7 +6076,7 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   }
 
   function readTargetProgress(){
-    const heroH = Math.max(1, hero.offsetHeight);
+    const heroH = Math.max(1, heroHeightCache || (heroHeightCache = hero.offsetHeight));
 
     /* A transição ocupa boa parte do primeiro capítulo.
        Isso reduz a velocidade aparente da marca e evita chegada precoce. */
@@ -6102,6 +6317,58 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   };
   sync();
   new ResizeObserver(sync).observe(header);
+})();
+</script>
+<script id="kirmoon-cursor-js">
+/* Cursor buraco negro: ponto exato + anel com leve atraso (só mouse). */
+(() => {
+  const fine = matchMedia('(hover:hover) and (pointer:fine)');
+  if (!fine.matches) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const root = document.documentElement;
+  const ring = document.createElement('div'), dot = document.createElement('div');
+  ring.className = 'km-cursor-ring'; dot.className = 'km-cursor-dot';
+  ring.setAttribute('aria-hidden', 'true'); dot.setAttribute('aria-hidden', 'true');
+  document.body.append(ring, dot);
+  root.classList.add('km-cursor-on');
+
+  const INTERACTIVE = 'a[href],button:not(:disabled),[role="button"],[role="tab"],summary,label[for],select,input[type="submit"],input[type="button"],input[type="checkbox"],input[type="radio"],.is-3d>.planet-canvas,#moon-canvas';
+  const TEXT = 'input:not([type=range]):not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]),textarea,[contenteditable]:not([contenteditable="false"])';
+  let x = -100, y = -100, rx = -100, ry = -100, raf = 0, last = 0, lastTarget = null;
+
+  const frame = now => {
+    raf = 0;
+    const dt = last ? Math.min(64, now - last) : 16;
+    last = now;
+    const k = reduce.matches ? 1 : 1 - Math.exp(-dt / 55);
+    rx += (x - rx) * k; ry += (y - ry) * k;
+    if (Math.abs(x - rx) < .15 && Math.abs(y - ry) < .15) { rx = x; ry = y; }
+    dot.style.translate = `${x}px ${y}px`;
+    ring.style.translate = `${rx.toFixed(2)}px ${ry.toFixed(2)}px`;
+    if (rx !== x || ry !== y) raf = requestAnimationFrame(frame); else last = 0;
+  };
+  const kick = () => { if (!raf) raf = requestAnimationFrame(frame); };
+
+  addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') { root.classList.remove('km-cursor-visible'); return; }
+    x = e.clientX; y = e.clientY;
+    if (!root.classList.contains('km-cursor-visible')) { rx = x; ry = y; root.classList.add('km-cursor-visible'); }
+    const t = e.target;
+    if (t !== lastTarget) {
+      lastTarget = t;
+      const el = t instanceof Element ? t : null;
+      root.classList.toggle('km-cursor-text', !!el?.closest(TEXT));
+      root.classList.toggle('km-cursor-hover', !!el?.closest(INTERACTIVE));
+    }
+    kick();
+  }, {passive:true});
+  addEventListener('pointerdown', e => { if (e.pointerType === 'mouse') root.classList.add('km-cursor-down'); }, {passive:true});
+  addEventListener('pointerup', () => root.classList.remove('km-cursor-down'), {passive:true});
+  addEventListener('pointerout', e => { if (!e.relatedTarget) root.classList.remove('km-cursor-visible'); }, {passive:true});
+  addEventListener('blur', () => root.classList.remove('km-cursor-visible', 'km-cursor-down'));
+  // Ao rolar, o elemento sob o mouse muda sem pointermove: reavalia o hover.
+  addEventListener('scroll', () => { lastTarget = null; }, {passive:true});
+  fine.addEventListener?.('change', () => { if (!fine.matches) { root.classList.remove('km-cursor-on', 'km-cursor-visible'); ring.remove(); dot.remove(); } });
 })();
 </script>
 </body>
