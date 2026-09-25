@@ -1620,7 +1620,7 @@ body.scroll-scenes-ready .service-panel.is-service-active > .surface{ transform:
 }
 
 #faq .faq-answer{height:0;max-height:none;opacity:0;visibility:hidden;overflow:hidden;transform:translateY(-4px);will-change:height,opacity,transform;transition:height .48s cubic-bezier(.22,.8,.2,1),opacity .28s ease,transform .42s cubic-bezier(.22,.8,.2,1),visibility 0s linear .48s}
-#faq .faq-item.is-open .faq-answer{opacity:1;visibility:visible;transform:none;transition:height .56s cubic-bezier(.22,.8,.2,1),opacity .3s ease .06s,transform .46s cubic-bezier(.22,.8,.2,1),visibility 0s}
+#faq .faq-item.is-open .faq-answer{height:auto;opacity:1;visibility:visible;transform:none;transition:height .56s cubic-bezier(.22,.8,.2,1),opacity .3s ease .06s,transform .46s cubic-bezier(.22,.8,.2,1),visibility 0s}
 @media (max-width:960px){ #faq .faq::before{display:none}
 #faq .faq-item.is-open{margin-left:0}
 #faq .faq-item.is-open .faq-title{transform:translateX(6px)}
@@ -5489,19 +5489,41 @@ body.scroll-scenes-ready #apps.service-panel > .panel-copy, body.scroll-scenes-r
   const faqItems = [...document.querySelectorAll("#faq [data-faq-item]")];
   const faqReduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const closeFaqAnswer = answer => {
+  // A resposta parte de height:0 no CSS; a altura real e aplicada aqui para animar
+  // (0 -> px -> auto na abertura, auto -> px -> 0 no fechamento). As leituras de
+  // layout acontecem so no clique, antes das escritas, sem custo no carregamento.
+  const faqAnswerTimers = new WeakMap();
+  const faqAnswerContentHeight = answer => {
+    let h = 0;
+    for (const child of answer.children) {
+      const cs = getComputedStyle(child);
+      h += child.getBoundingClientRect().height + (parseFloat(cs.marginTop) || 0) + (parseFloat(cs.marginBottom) || 0);
+    }
+    return Math.ceil(Math.max(h, answer.scrollHeight));
+  };
+
+  const closeFaqAnswer = (answer, immediate = false) => {
     if (!answer) return;
     answer.setAttribute("aria-hidden", "true");
+    clearTimeout(faqAnswerTimers.get(answer));
+    if (immediate || faqReduce || answer.style.height === "0px") { answer.style.height = "0px"; return; }
+    answer.style.height = `${answer.getBoundingClientRect().height}px`;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (answer.getAttribute("aria-hidden") === "true") answer.style.height = "0px";
+    }));
   };
 
-  const openFaqAnswer = answer => {
+  const openFaqAnswer = (answer, immediate = false) => {
     if (!answer) return;
     answer.setAttribute("aria-hidden", "false");
+    clearTimeout(faqAnswerTimers.get(answer));
+    if (immediate || faqReduce) { answer.style.height = "auto"; return; }
+    answer.style.height = `${faqAnswerContentHeight(answer)}px`;
+    // Depois da transicao volta para auto: acompanha rotacao de tela e quebra de linha.
+    faqAnswerTimers.set(answer, setTimeout(() => {
+      if (answer.getAttribute("aria-hidden") === "false") answer.style.height = "auto";
+    }, 620));
   };
-
-  // Height animation is handled by the existing .faq-answer / .is-open CSS.
-  // Avoid offsetHeight/scrollHeight reads after DOM writes.
-  const syncFaqAnswerHeight = () => {};
 
   const setFaqState = (target = null, immediate = false) => {
     const activeIndex = faqItems.indexOf(target);
