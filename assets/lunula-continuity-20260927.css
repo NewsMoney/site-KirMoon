@@ -1,0 +1,37 @@
+/* Let both edges of Serviços meet the surrounding void without a dark band. */
+#servicos.services-chapter{
+  background:
+    radial-gradient(ellipse 55% 22% at 72% 30%,rgba(112,144,186,.055),transparent 72%),
+    radial-gradient(ellipse 50% 22% at 18% 72%,rgba(84,108,142,.038),transparent 74%),
+    var(--void)!important;
+}
+
+/* Processo shares the same void and restrained star texture as Serviços. */
+#processo.process-story{
+  border-top:0!important;
+  background:radial-gradient(ellipse 54% 64% at 50% 46%,rgba(112,144,186,.035),transparent 72%)!important;
+}
+#processo.process-story::before{
+  inset:0;opacity:.30;animation:none!important;transform:none!important;will-change:auto;
+  background-image:
+    radial-gradient(circle at 24px 30px,rgba(255,255,255,.62) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 142px 88px,rgba(206,222,241,.44) 0 .85px,transparent 1.3px),
+    radial-gradient(circle at 258px 36px,rgba(255,255,255,.36) 0 .8px,transparent 1.2px),
+    radial-gradient(circle at 330px 150px,rgba(220,232,248,.46) 0 1px,transparent 1.45px),
+    radial-gradient(circle at 74px 168px,rgba(255,255,255,.3) 0 .75px,transparent 1.15px);
+  background-size:400px 200px;
+}
+#processo.process-story::after{display:none!important;content:none!important}
+
+/* Quiet placeholders appear only while the final WebGL/canvas scene loads. */
+#compromissos .cmt-planet--saturn:not(.is-3d){
+  background:radial-gradient(circle at 32% 27%,#414c57,#1c2631 55%,#0a1018 100%);
+  box-shadow:inset -22px -12px 28px rgba(0,2,6,.56),0 0 28px rgba(200,214,230,.08);
+}
+#faq .faq-celestial:not(.is-3d) i,
+#contato .contact-moon:not(.is-3d) i{
+  background:#202a35!important;
+  box-shadow:inset -34px -16px 42px rgba(1,4,9,.64),inset 0 0 0 1px rgba(226,236,247,.13)!important;
+  filter:none!important;transform:none!important;
+}
+#faq .faq-celestial i,#contato .contact-moon i{transition:opacity .55s ease}
