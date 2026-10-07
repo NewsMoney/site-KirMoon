@@ -1,0 +1,34 @@
+/* The approved artwork replaces the old launcher; link hit area stays intact. */
+.hero .scroll-rocket{bottom:14px;height:72px;width:48px;opacity:1}
+.hero .scroll-rocket .lunula-launch-art{display:block;width:36px;height:48px;object-fit:contain}
+.hero .scroll-rocket .lunula-launch-chevron{position:absolute;bottom:2px;left:50%;translate:-50% 0;width:24px;height:12px;opacity:.9}
+.hero .scroll-rocket .lunula-launch-chevron path{stroke-width:1.8}
+@keyframes lunula-scroll-cue{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+.hero .scroll-rocket .lunula-launch-chevron{animation:lunula-scroll-cue 2.6s ease-in-out infinite}
+html.lunula-active .hero .scroll-rocket .lunula-launch-art{visibility:hidden}
+#lunula-journey{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;display:none}
+#servicos>.services-intro,#servicos>.service-panel{position:relative;z-index:2}
+#lunula-journey .lunula-trail{fill:#b3d6d7;opacity:0;transition:opacity .55s ease-out}
+#lunula-journey .lunula-trail.is-active{opacity:.48;transition-duration:.1s}
+.lunula-world{position:absolute;z-index:0;display:block;aspect-ratio:1;border-radius:50%;overflow:hidden;pointer-events:none;
+  background:radial-gradient(circle at 30% 26%,#8796a5 0%,#384652 44%,#0b1119 100%);
+  box-shadow:0 15px 34px rgba(0,0,0,.42),0 0 38px rgba(173,197,222,.08)}
+.lunula-world img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(var(--planet-crop,1));}
+.lunula-world::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;
+  background:radial-gradient(ellipse 72% 70% at 27% 22%,rgba(255,250,238,.18),transparent 68%),
+    radial-gradient(ellipse 112% 112% at 19% 13%,transparent 32%,rgba(3,6,11,.13) 53%,rgba(1,3,7,.62) 86%,rgba(0,1,3,.84) 100%);
+  box-shadow:inset 1px 1px 1px rgba(242,247,252,.28),inset -12px -8px 22px rgba(0,1,4,.45),inset 0 0 0 1px rgba(220,231,243,.18)}
+.lunula-world--mars{box-shadow:0 15px 36px rgba(0,0,0,.45),0 0 42px rgba(203,126,91,.09)}
+.lunula-world--venus{box-shadow:0 17px 40px rgba(0,0,0,.45),0 0 48px rgba(222,204,177,.09)}
+@media(max-width:960px){
+  .hero .scroll-rocket .lunula-launch-art{width:27px;height:36px}
+  #servicos>.services-intro,#servicos>.service-panel{padding-left:48px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero .scroll-rocket .lunula-launch-chevron{animation:none}
+  #lunula-journey{display:none!important}
+  html.lunula-active .hero .scroll-rocket .lunula-launch-art{visibility:visible}
+}
+@media(max-width:960px) and (prefers-reduced-motion:reduce){
+  #servicos>.services-intro,#servicos>.service-panel{padding-left:var(--gutter)!important}
+}

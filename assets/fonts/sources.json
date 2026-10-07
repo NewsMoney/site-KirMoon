@@ -1,0 +1,114 @@
+[
+  {
+    "family": "Barlow",
+    "weight": "300",
+    "subset": "latin-ext",
+    "url": "https://fonts.gstatic.com/s/barlow/v13/7cHqv4kjgoGqM7E3p-ks6VospT4.woff2",
+    "file": "barlow-300-latin-ext-5d396229b78f.woff2",
+    "bytes": 14224
+  },
+  {
+    "family": "Barlow",
+    "weight": "300",
+    "subset": "latin",
+    "url": "https://fonts.gstatic.com/s/barlow/v13/7cHqv4kjgoGqM7E3p-ks51os.woff2",
+    "file": "barlow-300-latin-889347d7bc19.woff2",
+    "bytes": 22076
+  },
+  {
+    "family": "Barlow",
+    "weight": "400",
+    "subset": "latin-ext",
+    "url": "https://fonts.gstatic.com/s/barlow/v13/7cHpv4kjgoGqM7E_Ass52Hs.woff2",
+    "file": "barlow-400-latin-ext-122b24bc2a90.woff2",
+    "bytes": 14268
+  },
+  {
+    "family": "Barlow",
+    "weight": "400",
+    "subset": "latin",
+    "url": "https://fonts.gstatic.com/s/barlow/v13/7cHpv4kjgoGqM7E_DMs5.woff2",
+    "file": "barlow-400-latin-b0a8ad37ac45.woff2",
+    "bytes": 22196
+  },
+  {
+    "family": "Barlow",
+    "weight": "500",
+    "subset": "latin-ext",
+    "url": "https://fonts.gstatic.com/s/barlow/v13/7cHqv4kjgoGqM7E3_-gs6VospT4.woff2",
+    "file": "barlow-500-latin-ext-3facdf66b607.woff2",
+    "bytes": 14416
+  },
+  {
+    "family": "Barlow",
+    "weight": "500",
+    "subset": "latin",
+    "url": "https://fonts.gstatic.com/s/barlow/v13/7cHqv4kjgoGqM7E3_-gs51os.woff2",
+    "file": "barlow-500-latin-cd759df8ef9e.woff2",
+    "bytes": 22008
+  },
+  {
+    "family": "Barlow Condensed",
+    "weight": "500",
+    "subset": "latin-ext",
+    "url": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4-Lwz3jWuZEC.woff2",
+    "file": "barlow-condensed-500-latin-ext-a6ff9214bfa7.woff2",
+    "bytes": 14180
+  },
+  {
+    "family": "Barlow Condensed",
+    "weight": "500",
+    "subset": "latin",
+    "url": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4-Lwz3bWuQ.woff2",
+    "file": "barlow-condensed-500-latin-460f141ec8f6.woff2",
+    "bytes": 21424
+  },
+  {
+    "family": "Barlow Condensed",
+    "weight": "600",
+    "subset": "latin-ext",
+    "url": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4873z3jWuZEC.woff2",
+    "file": "barlow-condensed-600-latin-ext-aef7edf54f79.woff2",
+    "bytes": 14516
+  },
+  {
+    "family": "Barlow Condensed",
+    "weight": "600",
+    "subset": "latin",
+    "url": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4873z3bWuQ.woff2",
+    "file": "barlow-condensed-600-latin-215a93c696f4.woff2",
+    "bytes": 22308
+  },
+  {
+    "family": "Barlow Condensed",
+    "weight": "700",
+    "subset": "latin-ext",
+    "url": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3jWuZEC.woff2",
+    "file": "barlow-condensed-700-latin-ext-9d351bd9222b.woff2",
+    "bytes": 14640
+  },
+  {
+    "family": "Barlow Condensed",
+    "weight": "700",
+    "subset": "latin",
+    "url": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3bWuQ.woff2",
+    "file": "barlow-condensed-700-latin-3787a5a41917.woff2",
+    "bytes": 22444
+  },
+  {
+    "family": "JetBrains Mono",
+    "weight": "400",
+    "subset": "latin-ext",
+    "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxTNFOVgaY.woff2",
+    "file": "jetbrains-mono-400-latin-ext-505dfba8ecbe.woff2",
+    "bytes": 7336
+  },
+  {
+    "family": "JetBrains Mono",
+    "weight": "400",
+    "subset": "latin",
+    "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxTOlOV.woff2",
+    "file": "jetbrains-mono-400-latin-14425ba9c695.woff2",
+    "bytes": 21168
+  }
+]

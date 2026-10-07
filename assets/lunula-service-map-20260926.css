@@ -1,0 +1,101 @@
+/* A small, static mission chart. Its photographs are requested with the service journey. */
+#servicos .mission-map{
+  position:relative;display:grid;align-content:center;gap:14px!important;
+  min-height:500px!important;padding:44px 28px!important;
+  border:1px solid rgba(205,221,238,.16)!important;border-radius:26px!important;
+  overflow:hidden;background:
+    radial-gradient(circle at 42% 41%,rgba(123,156,193,.12),transparent 43%),
+    radial-gradient(circle at 82% 78%,rgba(169,135,111,.07),transparent 38%),
+    linear-gradient(150deg,#0b121b,#070b11 70%)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.045),0 24px 70px rgba(0,0,0,.2)!important;
+}
+#servicos .mission-map::before{
+  content:"";display:block;position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(218,232,248,.45) .7px,transparent 1.2px);
+  background-size:67px 83px;opacity:.36;
+}
+#servicos .mission-map::after{
+  content:"";display:block;position:absolute;left:74px;top:75px;bottom:75px;width:1px;
+  background:repeating-linear-gradient(180deg,rgba(168,195,224,.5) 0 3px,transparent 3px 11px);
+  pointer-events:none;opacity:.55;
+}
+#servicos .mission-waypoint{
+  position:relative!important;z-index:1;display:grid!important;
+  grid-template-columns:48px minmax(0,1fr) 24px!important;gap:15px!important;
+  align-items:center;width:calc(100% - 42px)!important;min-height:116px!important;
+  margin:0!important;padding:16px 18px!important;
+  border:1px solid rgba(205,221,238,.14)!important;border-radius:14px!important;
+  background:rgba(9,15,23,.84)!important;
+  box-shadow:0 14px 32px rgba(0,0,0,.22)!important;
+  color:#e9eef4!important;transform:none!important;
+}
+#servicos .mission-waypoint[data-mission-index="1"]{margin-left:42px!important}
+#servicos .mission-waypoint::before{
+  content:"";display:block;grid-column:1;grid-row:1;width:47px;height:47px;
+  border:1px solid rgba(231,239,247,.25);border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#aab2bc,#555f6b 44%,#171e27 78%);
+  box-shadow:0 0 0 7px rgba(197,217,237,.025),0 0 24px rgba(194,213,235,.12);
+}
+#servicos .mission-waypoint[data-mission-index="1"]::before{background:radial-gradient(circle at 35% 30%,#dca989,#a2624b 50%,#492d2c 80%)}
+#servicos .mission-waypoint[data-mission-index="2"]::before{background:radial-gradient(circle at 35% 30%,#f0e9d9,#c8a98b 52%,#6c5952 82%)}
+#servicos .mission-waypoint[data-mission-index="0"]::before{background:#171e27 url('mercury-3d-preview-hd-20260927.webp') center/110% auto no-repeat}
+#servicos .mission-waypoint[data-mission-index="1"]::before{background:#251713 url('mars-3d-preview-hd-20260927.webp') center/110% auto no-repeat}
+#servicos .mission-waypoint[data-mission-index="2"]::before{background:#24211e url('venus-3d-preview-hd-20260927.webp') center/110% auto no-repeat}
+#servicos .mission-waypoint::after{display:none!important}
+#servicos .mission-waypoint span:first-child{grid-column:2;grid-row:1;gap:5px}
+#servicos .mission-waypoint small{font:500 10px/1.2 var(--mono);letter-spacing:.08em;color:#9eb5ca}
+#servicos .mission-waypoint b{font-size:clamp(21px,2.1vw,29px);line-height:1.05}
+#servicos .mission-waypoint em{color:#a8b7c7;font-size:12.5px;line-height:1.38}
+#servicos .mission-waypoint .mission-arrow{grid-column:3;grid-row:1;font-size:24px}
+#servicos .mission-waypoint:hover,#servicos .mission-waypoint:focus-visible{
+  border-color:rgba(220,235,249,.58)!important;background:rgba(19,30,43,.94)!important;
+}
+#servicos .mission-waypoint:focus-visible{outline:2px solid var(--glow);outline-offset:2px}
+
+/* Remove small duplicate labels and stray bars; leave functional dividers. */
+.service-panel .service-copy h2::after{display:none!important}
+#apps .service-description p,#sites .service-description p,#ti .service-description p,
+#apps .service-description p:first-child,#sites .service-description p:first-child,#ti .service-description p:first-child{color:#b7c2ce}
+
+/* The phone is a stable object; only its screen tabs react to input. */
+#apps .ph{transform:none!important;transition:none!important}
+#apps .svc-stage-head{align-items:flex-start;flex-wrap:wrap;row-gap:5px}
+#apps .svc-stage-hint{display:block;margin:0;color:#afc4d8;font-size:11px;white-space:normal}
+
+@media (min-width:961px){#apps .service-copy>*{translate:0 32px}}
+
+@media (max-width:960px){
+  #servicos .mission-map{min-height:0!important;gap:12px!important;padding:26px 16px 30px!important}
+  #servicos .mission-map::after{left:40px;top:54px;bottom:54px}
+  #servicos .mission-waypoint{width:calc(100% - 22px)!important;min-height:116px!important;
+    grid-template-columns:42px minmax(0,1fr) 17px!important;gap:10px!important;
+    padding:12px 11px!important}
+  #servicos .mission-waypoint[data-mission-index="1"]{margin-left:22px!important}
+  #servicos .mission-waypoint::before{width:40px;height:40px}
+  #servicos .mission-waypoint b{font-size:clamp(20px,5.5vw,25px)}
+  #servicos .mission-waypoint em{font-size:11px}
+  #servicos .mission-waypoint small{font-size:9px}
+  #sites .service-copy h2{margin-left:78px;max-width:calc(100% - 78px)}
+  #sites .service-copy h2{font-size:clamp(31px,8.2vw,38px)}
+  #apps .service-copy h2{margin-left:60px;max-width:calc(100% - 60px);font-size:clamp(31px,8.2vw,38px)}
+  #sites .service-copy h2{margin-left:86px;max-width:calc(100% - 86px)}
+  #sites .service-copy{padding-top:36px}
+  #ti .service-copy{padding-top:60px}
+  #apps .svc-stage-head{min-height:58px}
+}
+@media (max-width:420px){
+  #servicos .mission-waypoint em{font-size:10.5px}
+  #sites .service-copy h2{margin-left:86px;max-width:calc(100% - 86px)}
+}
+@media (max-width:360px){
+  #apps .service-copy h2{margin-left:48px;max-width:calc(100% - 48px);font-size:28px}
+  #sites .service-copy h2{margin-left:70px;max-width:calc(100% - 70px);font-size:29px}
+  #ti .service-copy h2{max-width:140px;font-size:30px}
+  #servicos .mission-map{padding:22px 10px 26px!important}
+  #servicos .mission-map::after{left:32px}
+  #servicos .mission-waypoint{width:calc(100% - 8px)!important;
+    grid-template-columns:36px minmax(0,1fr) 16px!important;gap:8px!important;
+    padding:11px 10px!important}
+  #servicos .mission-waypoint[data-mission-index="1"]{margin-left:8px!important}
+  #servicos .mission-waypoint::before{width:35px;height:35px}
+}

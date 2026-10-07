@@ -1,0 +1,33 @@
+/* The section-anchored NASA photos remain visible until each globe is ready. */
+.lunula-world{pointer-events:auto;touch-action:pan-y;cursor:grab;outline-offset:5px;transition:box-shadow .2s ease}
+.lunula-world:focus-visible{outline:2px solid #d8e7f0}
+.lunula-world:hover,.lunula-world:focus-visible{box-shadow:0 0 44px rgba(190,213,234,.16)}
+.lunula-world.is-dragging{cursor:grabbing}
+.lunula-world.is-3d-unavailable{cursor:default}
+.lunula-world img,.lunula-world::after{transition:opacity .35s ease}
+.lunula-world{background:transparent;box-shadow:0 0 34px rgba(160,184,207,.06)}
+.lunula-world img{pointer-events:none;user-select:none;-webkit-user-drag:none;transform:none;object-fit:contain}
+.lunula-world::after{display:none}
+.lunula-world .lunula-world-canvas{position:absolute;z-index:1;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .35s ease;pointer-events:none}
+.lunula-world.is-3d{background:transparent;box-shadow:0 0 34px rgba(160,184,207,.06)}
+.lunula-world.is-3d img,.lunula-world.is-3d::after{opacity:0}
+.lunula-world.is-3d .lunula-world-canvas{opacity:1}
+@media(prefers-reduced-motion:reduce){.lunula-world img,.lunula-world::after,.lunula-world .lunula-world-canvas{transition:none}}
+
+/* Planets may extend into the empty band preceding their section. */
+#apps.service-panel,#sites.service-panel,#ti.service-panel{overflow:visible}
+.lunula-world{height:auto}
+.lunula-world--mercury{left:16px;top:0;width:120px}
+.lunula-world--mars{right:4px;top:0;width:172px}
+.lunula-world--venus{left:calc(50% - 70px);top:120px;width:140px}
+@media(min-width:961px){#ti.service-panel{column-gap:168px!important}}
+@media(max-width:960px){
+.lunula-world--mercury{left:1px;top:6px;width:96px}
+.lunula-world--mars{left:1px;right:auto;top:39px;width:118px}
+#ti .service-copy{grid-row:1;padding-top:0}
+#ti .service-visual{grid-row:3}
+#ti .lunula-world--venus{position:relative;grid-row:2;justify-self:center;left:auto!important;top:auto!important;width:156px!important}
+}
+@media(max-width:360px){.lunula-world--mercury{width:84px}.lunula-world--mars{width:104px}}
+
+.lunula-world{z-index:4}
