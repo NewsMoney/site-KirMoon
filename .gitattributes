@@ -1,0 +1,8 @@
+# Preserve published HTML, scripts and configuration byte for byte.
+* -text
+*.md text eol=lf
+docs/*.json text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+# Keep upstream font license text unchanged, including its whitespace.
+assets/fonts/*-OFL.txt -whitespace

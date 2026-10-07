@@ -1,0 +1,1203 @@
+{
+  "version": "1.0.0",
+  "verifiedAtUtc": "2026-10-07T17:32:15.0511357Z",
+  "sourcePackage": "kirmoon-site-20261006.zip",
+  "scope": "Site institucional; aplicativos Device Lab e Web Prisma separados",
+  "configurationSource": ".htaccess do pacote local validado; arquivo remoto não acessível via HTTPS",
+  "files": [
+    {
+      "file": ".htaccess",
+      "bytes": 8814,
+      "sha256": "986bcfb574e3de6f86ae6772c9f1a36f3b98c7d56c9db8fcfd89be407fb9c917",
+      "source": "kirmoon-site-20261006.zip"
+    },
+    {
+      "file": "404.html",
+      "bytes": 15253,
+      "sha256": "f2570d37948d75649a3930a74747ba917aa72b0c68477e0ddf38e3a49a2a78a8",
+      "source": "https://kirmoon.com/404.html"
+    },
+    {
+      "file": "apple-touch-icon.png",
+      "bytes": 15781,
+      "sha256": "e56590d86b1df48e03e5ea4d3a35081501d0559b9e97b4cf249cd33c8c73a702",
+      "source": "https://kirmoon.com/apple-touch-icon.png"
+    },
+    {
+      "file": "assets/commitments-carousel-20260924.28cc313ef886.js",
+      "bytes": 5082,
+      "sha256": "28cc313ef8864b2c3bb091b9e6dc179100241beb4a9c4a66aa620e45f20bc5ee",
+      "source": "https://kirmoon.com/assets/commitments-carousel-20260924.28cc313ef886.js"
+    },
+    {
+      "file": "assets/commitments-carousel-20260926.28cc313ef886.js",
+      "bytes": 5082,
+      "sha256": "28cc313ef8864b2c3bb091b9e6dc179100241beb4a9c4a66aa620e45f20bc5ee",
+      "source": "https://kirmoon.com/assets/commitments-carousel-20260926.28cc313ef886.js"
+    },
+    {
+      "file": "assets/device-android-home-hd-20261006.b4974c43eca1.webp",
+      "bytes": 37674,
+      "sha256": "b4974c43eca1406b761a467267f837fc728ade467df747b6a7dc58ff5ff3faab",
+      "source": "https://kirmoon.com/assets/device-android-home-hd-20261006.b4974c43eca1.webp"
+    },
+    {
+      "file": "assets/device-android-home-hd-20261006.webp",
+      "bytes": 37674,
+      "sha256": "b4974c43eca1406b761a467267f837fc728ade467df747b6a7dc58ff5ff3faab",
+      "source": "https://kirmoon.com/assets/device-android-home-hd-20261006.webp"
+    },
+    {
+      "file": "assets/device-android-services-en-hd-20261006.01b253f708b8.webp",
+      "bytes": 61604,
+      "sha256": "01b253f708b8859eb515b1192ceb31aef773e257d5177226f89165816ef5cd38",
+      "source": "https://kirmoon.com/assets/device-android-services-en-hd-20261006.01b253f708b8.webp"
+    },
+    {
+      "file": "assets/device-android-services-en-hd-20261006.webp",
+      "bytes": 61604,
+      "sha256": "01b253f708b8859eb515b1192ceb31aef773e257d5177226f89165816ef5cd38",
+      "source": "https://kirmoon.com/assets/device-android-services-en-hd-20261006.webp"
+    },
+    {
+      "file": "assets/device-android-services-es-hd-20261006.7a98272fac1c.webp",
+      "bytes": 69942,
+      "sha256": "7a98272fac1c57c2e58581159e732ab89cccdd3d3b0c5c75ef4be3f255d6e148",
+      "source": "https://kirmoon.com/assets/device-android-services-es-hd-20261006.7a98272fac1c.webp"
+    },
+    {
+      "file": "assets/device-android-services-es-hd-20261006.webp",
+      "bytes": 69942,
+      "sha256": "7a98272fac1c57c2e58581159e732ab89cccdd3d3b0c5c75ef4be3f255d6e148",
+      "source": "https://kirmoon.com/assets/device-android-services-es-hd-20261006.webp"
+    },
+    {
+      "file": "assets/device-android-services-hd-20261006.72a22b21eb72.webp",
+      "bytes": 62082,
+      "sha256": "72a22b21eb72175408b7ad6f457de451556c27a8c272bcbcc37a618929ff904e",
+      "source": "https://kirmoon.com/assets/device-android-services-hd-20261006.72a22b21eb72.webp"
+    },
+    {
+      "file": "assets/device-android-services-hd-20261006.webp",
+      "bytes": 62082,
+      "sha256": "72a22b21eb72175408b7ad6f457de451556c27a8c272bcbcc37a618929ff904e",
+      "source": "https://kirmoon.com/assets/device-android-services-hd-20261006.webp"
+    },
+    {
+      "file": "assets/device-iphone-home-hd-20261006.a291e1880095.webp",
+      "bytes": 40602,
+      "sha256": "a291e188009575309385b5da5e9cc0f4e484033306077bba78877191e4176772",
+      "source": "https://kirmoon.com/assets/device-iphone-home-hd-20261006.a291e1880095.webp"
+    },
+    {
+      "file": "assets/device-iphone-home-hd-20261006.webp",
+      "bytes": 40602,
+      "sha256": "a291e188009575309385b5da5e9cc0f4e484033306077bba78877191e4176772",
+      "source": "https://kirmoon.com/assets/device-iphone-home-hd-20261006.webp"
+    },
+    {
+      "file": "assets/device-iphone-services-en-hd-20261006.f2d68b52c237.webp",
+      "bytes": 55926,
+      "sha256": "f2d68b52c23766c097da1d500e1780af4a7d2dc3e58d386dcf6d15aba28e0172",
+      "source": "https://kirmoon.com/assets/device-iphone-services-en-hd-20261006.f2d68b52c237.webp"
+    },
+    {
+      "file": "assets/device-iphone-services-en-hd-20261006.webp",
+      "bytes": 55926,
+      "sha256": "f2d68b52c23766c097da1d500e1780af4a7d2dc3e58d386dcf6d15aba28e0172",
+      "source": "https://kirmoon.com/assets/device-iphone-services-en-hd-20261006.webp"
+    },
+    {
+      "file": "assets/device-iphone-services-es-hd-20261006.d01a3b28bcf4.webp",
+      "bytes": 63048,
+      "sha256": "d01a3b28bcf486cc172fcd288d299139b03d2c4e0c7d97942b1d02d0631768bd",
+      "source": "https://kirmoon.com/assets/device-iphone-services-es-hd-20261006.d01a3b28bcf4.webp"
+    },
+    {
+      "file": "assets/device-iphone-services-es-hd-20261006.webp",
+      "bytes": 63048,
+      "sha256": "d01a3b28bcf486cc172fcd288d299139b03d2c4e0c7d97942b1d02d0631768bd",
+      "source": "https://kirmoon.com/assets/device-iphone-services-es-hd-20261006.webp"
+    },
+    {
+      "file": "assets/device-iphone-services-hd-20261006.2688ce940ea1.webp",
+      "bytes": 59120,
+      "sha256": "2688ce940ea18d87b9b9592b3d5c52e86376108495d7a48969834f713f8737fc",
+      "source": "https://kirmoon.com/assets/device-iphone-services-hd-20261006.2688ce940ea1.webp"
+    },
+    {
+      "file": "assets/device-iphone-services-hd-20261006.webp",
+      "bytes": 59120,
+      "sha256": "2688ce940ea18d87b9b9592b3d5c52e86376108495d7a48969834f713f8737fc",
+      "source": "https://kirmoon.com/assets/device-iphone-services-hd-20261006.webp"
+    },
+    {
+      "file": "assets/device-lab-portfolio-20261001.708ed7ffa5d7.webp",
+      "bytes": 19902,
+      "sha256": "708ed7ffa5d75d3abeb03b47d3404da13190d7bd4d1a12282c8ddad3ee032ad5",
+      "source": "https://kirmoon.com/assets/device-lab-portfolio-20261001.708ed7ffa5d7.webp"
+    },
+    {
+      "file": "assets/device-lab-portfolio-20261001.webp",
+      "bytes": 19902,
+      "sha256": "708ed7ffa5d75d3abeb03b47d3404da13190d7bd4d1a12282c8ddad3ee032ad5",
+      "source": "https://kirmoon.com/assets/device-lab-portfolio-20261001.webp"
+    },
+    {
+      "file": "assets/device-tablet-home-hd-20261006.08910ea23857.webp",
+      "bytes": 81158,
+      "sha256": "08910ea23857fda89fc2bb03ba0137a55c7f6ab94bdf27921d09be006f50ac9d",
+      "source": "https://kirmoon.com/assets/device-tablet-home-hd-20261006.08910ea23857.webp"
+    },
+    {
+      "file": "assets/device-tablet-home-hd-20261006.webp",
+      "bytes": 81158,
+      "sha256": "08910ea23857fda89fc2bb03ba0137a55c7f6ab94bdf27921d09be006f50ac9d",
+      "source": "https://kirmoon.com/assets/device-tablet-home-hd-20261006.webp"
+    },
+    {
+      "file": "assets/device-tablet-services-en-hd-20261006.1556bc62ef61.webp",
+      "bytes": 106342,
+      "sha256": "1556bc62ef612e3f565bde629decfb35f45cb9cd2b13543a5bedba5fd2a530cc",
+      "source": "https://kirmoon.com/assets/device-tablet-services-en-hd-20261006.1556bc62ef61.webp"
+    },
+    {
+      "file": "assets/device-tablet-services-en-hd-20261006.webp",
+      "bytes": 106342,
+      "sha256": "1556bc62ef612e3f565bde629decfb35f45cb9cd2b13543a5bedba5fd2a530cc",
+      "source": "https://kirmoon.com/assets/device-tablet-services-en-hd-20261006.webp"
+    },
+    {
+      "file": "assets/device-tablet-services-es-hd-20261006.35cf29c565b9.webp",
+      "bytes": 120688,
+      "sha256": "35cf29c565b93c1ef511a6f0fea2735e52fcd6f8a58ff9624814998185e0c117",
+      "source": "https://kirmoon.com/assets/device-tablet-services-es-hd-20261006.35cf29c565b9.webp"
+    },
+    {
+      "file": "assets/device-tablet-services-es-hd-20261006.webp",
+      "bytes": 120688,
+      "sha256": "35cf29c565b93c1ef511a6f0fea2735e52fcd6f8a58ff9624814998185e0c117",
+      "source": "https://kirmoon.com/assets/device-tablet-services-es-hd-20261006.webp"
+    },
+    {
+      "file": "assets/device-tablet-services-hd-20261006.9a8ff1e56d3c.webp",
+      "bytes": 111318,
+      "sha256": "9a8ff1e56d3cd0cf55fafe3b9c51ef9cf760ae9c37a01d28bd2dff331a4bb87f",
+      "source": "https://kirmoon.com/assets/device-tablet-services-hd-20261006.9a8ff1e56d3c.webp"
+    },
+    {
+      "file": "assets/device-tablet-services-hd-20261006.webp",
+      "bytes": 111318,
+      "sha256": "9a8ff1e56d3cd0cf55fafe3b9c51ef9cf760ae9c37a01d28bd2dff331a4bb87f",
+      "source": "https://kirmoon.com/assets/device-tablet-services-hd-20261006.webp"
+    },
+    {
+      "file": "assets/earth-clouds.7da03886ddd4.webp",
+      "bytes": 13674,
+      "sha256": "7da03886ddd4ca17dbb412123527f29d05fe212068a407c4043afe0caa940d8f",
+      "source": "https://kirmoon.com/assets/earth-clouds.7da03886ddd4.webp"
+    },
+    {
+      "file": "assets/earth-clouds.webp",
+      "bytes": 13674,
+      "sha256": "7da03886ddd4ca17dbb412123527f29d05fe212068a407c4043afe0caa940d8f",
+      "source": "https://kirmoon.com/assets/earth-clouds.webp"
+    },
+    {
+      "file": "assets/earth-scene-preview-20260927.cc387a3c67f8.webp",
+      "bytes": 25222,
+      "sha256": "cc387a3c67f83a449b57e605d7f66084968b32cb5f739c1b8157bb24781f0e85",
+      "source": "https://kirmoon.com/assets/earth-scene-preview-20260927.cc387a3c67f8.webp"
+    },
+    {
+      "file": "assets/earth-scene-preview-20260927.webp",
+      "bytes": 25222,
+      "sha256": "cc387a3c67f83a449b57e605d7f66084968b32cb5f739c1b8157bb24781f0e85",
+      "source": "https://kirmoon.com/assets/earth-scene-preview-20260927.webp"
+    },
+    {
+      "file": "assets/earth-surface.420d8dbab7b2.webp",
+      "bytes": 22530,
+      "sha256": "420d8dbab7b236e1a15d6966cb3b4186e05b93097bbe775385218008d524f60e",
+      "source": "https://kirmoon.com/assets/earth-surface.420d8dbab7b2.webp"
+    },
+    {
+      "file": "assets/earth-surface.webp",
+      "bytes": 22530,
+      "sha256": "420d8dbab7b236e1a15d6966cb3b4186e05b93097bbe775385218008d524f60e",
+      "source": "https://kirmoon.com/assets/earth-surface.webp"
+    },
+    {
+      "file": "assets/earth.e27120d43af2.webp",
+      "bytes": 97682,
+      "sha256": "e27120d43af2965f64c34bdd6009f7cfc44e9a7d99942b6059549abe6987020f",
+      "source": "https://kirmoon.com/assets/earth.e27120d43af2.webp"
+    },
+    {
+      "file": "assets/earth.webp",
+      "bytes": 97682,
+      "sha256": "e27120d43af2965f64c34bdd6009f7cfc44e9a7d99942b6059549abe6987020f",
+      "source": "https://kirmoon.com/assets/earth.webp"
+    },
+    {
+      "file": "assets/fonts/barlow-300-latin-889347d7bc19.woff2",
+      "bytes": 22076,
+      "sha256": "889347d7bc19d53d984a12f413457fbc8b3723757464cf514121534f626dc4db",
+      "source": "https://kirmoon.com/assets/fonts/barlow-300-latin-889347d7bc19.woff2"
+    },
+    {
+      "file": "assets/fonts/barlow-300-latin-ext-5d396229b78f.woff2",
+      "bytes": 14224,
+      "sha256": "5d396229b78ff1a9abba40931592ce7dd5b67c63ec6137d3a7a165b2356e903e",
+      "source": "https://kirmoon.com/assets/fonts/barlow-300-latin-ext-5d396229b78f.woff2"
+    },
+    {
+      "file": "assets/fonts/barlow-400-latin-b0a8ad37ac45.woff2",
+      "bytes": 22196,
+      "sha256": "b0a8ad37ac45f5fb22ced461576db72e44e295107aad7a9c8a7a4bad728fd03b",
+      "source": "https://kirmoon.com/assets/fonts/barlow-400-latin-b0a8ad37ac45.woff2"
+    },
+    {
+      "file": "assets/fonts/barlow-400-latin-ext-122b24bc2a90.woff2",
+      "bytes": 14268,
+      "sha256": "122b24bc2a90b0abe189f5229768bf2e9ba641324fe2459b48850079625934f1",
+      "source": "https://kirmoon.com/assets/fonts/barlow-400-latin-ext-122b24bc2a90.woff2"
+    },
+    {
+      "file": "assets/fonts/barlow-500-latin-cd759df8ef9e.woff2",
+      "bytes": 22008,
+      "sha256": "cd759df8ef9efc98fee14307b4eb5ba27f08b1f8f2f3ad2872432e25c89907a8",
+      "source": "https://kirmoon.com/assets/fonts/barlow-500-latin-cd759df8ef9e.woff2"
+    },
+    {
+      "file": "assets/fonts/barlow-500-latin-ext-3facdf66b607.woff2",
+      "bytes": 14416,
+      "sha256": "3facdf66b60778c7e64693013be7799e6686b2488dad65525b4036e211ab03e0",
+      "source": "https://kirmoon.com/assets/fonts/barlow-500-latin-ext-3facdf66b607.woff2"
+    },
+    {
+      "file": "assets/fonts/barlow-condensed-500-latin-460f141ec8f6.woff2",
+      "bytes": 21424,
+      "sha256": "460f141ec8f6c9a1516bfd2bd9fe71656246d7a9d04a0955faf53158d8970c4c",
+      "source": "https://kirmoon.com/assets/fonts/barlow-condensed-500-latin-460f141ec8f6.woff2"
+    },
+    {
+      "file": "assets/fonts/barlow-condensed-500-latin-ext-a6ff9214bfa7.woff2",
+      "bytes": 14180,
+      "sha256": "a6ff9214bfa7832cb91d246454fd48b10ef921e8af052d479fdf1f0ecb903504",
+      "source": "https://kirmoon.com/assets/fonts/barlow-condensed-500-latin-ext-a6ff9214bfa7.woff2"
+    },
+    {
+      "file": "assets/fonts/barlow-condensed-600-latin-215a93c696f4.woff2",
+      "bytes": 22308,
+      "sha256": "215a93c696f442034a46fbb382958f753fda60e30490683aeea6b235fcbb2b66",
+      "source": "https://kirmoon.com/assets/fonts/barlow-condensed-600-latin-215a93c696f4.woff2"
+    },
+    {
+      "file": "assets/fonts/barlow-condensed-600-latin-ext-aef7edf54f79.woff2",
+      "bytes": 14516,
+      "sha256": "aef7edf54f79a5329fbca9c065b56dcec3852c680d58cf89a9ef2db6940ca4b3",
+      "source": "https://kirmoon.com/assets/fonts/barlow-condensed-600-latin-ext-aef7edf54f79.woff2"
+    },
+    {
+      "file": "assets/fonts/barlow-condensed-700-latin-3787a5a41917.woff2",
+      "bytes": 22444,
+      "sha256": "3787a5a419171630e6890cfa47c4da067474d005cd0ff8dc11ec090fdc3ee2b8",
+      "source": "https://kirmoon.com/assets/fonts/barlow-condensed-700-latin-3787a5a41917.woff2"
+    },
+    {
+      "file": "assets/fonts/barlow-condensed-700-latin-ext-9d351bd9222b.woff2",
+      "bytes": 14640,
+      "sha256": "9d351bd9222bfab90f943850f8039aa73cdb40e0a6cfe4127308a48bef59d5f5",
+      "source": "https://kirmoon.com/assets/fonts/barlow-condensed-700-latin-ext-9d351bd9222b.woff2"
+    },
+    {
+      "file": "assets/fonts/barlow-OFL.txt",
+      "bytes": 4377,
+      "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f",
+      "source": "https://kirmoon.com/assets/fonts/barlow-OFL.txt"
+    },
+    {
+      "file": "assets/fonts/barlowcondensed-OFL.txt",
+      "bytes": 4377,
+      "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f",
+      "source": "https://kirmoon.com/assets/fonts/barlowcondensed-OFL.txt"
+    },
+    {
+      "file": "assets/fonts/jetbrains-mono-400-latin-14425ba9c695.woff2",
+      "bytes": 21168,
+      "sha256": "14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb",
+      "source": "https://kirmoon.com/assets/fonts/jetbrains-mono-400-latin-14425ba9c695.woff2"
+    },
+    {
+      "file": "assets/fonts/jetbrains-mono-400-latin-ext-505dfba8ecbe.woff2",
+      "bytes": 7336,
+      "sha256": "505dfba8ecbe77e82765f36d317ed7ef4ac42719dc5f4ae68d1c483fd22d0d14",
+      "source": "https://kirmoon.com/assets/fonts/jetbrains-mono-400-latin-ext-505dfba8ecbe.woff2"
+    },
+    {
+      "file": "assets/fonts/jetbrainsmono-OFL.txt",
+      "bytes": 4399,
+      "sha256": "b2fe5e8987594e9ffd1d2ca52a2f5d73eb8335243893c5d6254b5ad69269591d",
+      "source": "https://kirmoon.com/assets/fonts/jetbrainsmono-OFL.txt"
+    },
+    {
+      "file": "assets/jupiter-scene-preview-20260927.28f5e6b2e17b.webp",
+      "bytes": 31954,
+      "sha256": "28f5e6b2e17b4426a57c9b9cee8cc97424b2a5fd474e4c7cf4484d5aab4f9d70",
+      "source": "https://kirmoon.com/assets/jupiter-scene-preview-20260927.28f5e6b2e17b.webp"
+    },
+    {
+      "file": "assets/jupiter-scene-preview-20260927.webp",
+      "bytes": 31954,
+      "sha256": "28f5e6b2e17b4426a57c9b9cee8cc97424b2a5fd474e4c7cf4484d5aab4f9d70",
+      "source": "https://kirmoon.com/assets/jupiter-scene-preview-20260927.webp"
+    },
+    {
+      "file": "assets/jupiter.786a1fc4e8ee.webp",
+      "bytes": 171396,
+      "sha256": "786a1fc4e8ee7d6ae3ab43ebfd7e1dfb2c2ea9fa8841702e2c0b7951e8aa8fdc",
+      "source": "https://kirmoon.com/assets/jupiter.786a1fc4e8ee.webp"
+    },
+    {
+      "file": "assets/jupiter.webp",
+      "bytes": 171396,
+      "sha256": "786a1fc4e8ee7d6ae3ab43ebfd7e1dfb2c2ea9fa8841702e2c0b7951e8aa8fdc",
+      "source": "https://kirmoon.com/assets/jupiter.webp"
+    },
+    {
+      "file": "assets/kirmoon-app.8407dbc7afc1.js",
+      "bytes": 69903,
+      "sha256": "8407dbc7afc17b1538b17374d0a7f9a56e5d2ab7b968481826e09910a41b76c1",
+      "source": "https://kirmoon.com/assets/kirmoon-app.8407dbc7afc1.js"
+    },
+    {
+      "file": "assets/kirmoon-share-eclipse-20260929.9528ba3f926c.jpg",
+      "bytes": 50096,
+      "sha256": "9528ba3f926c82d013154b2118844606d3ee0e8a967d101cc191fc68740ec522",
+      "source": "https://kirmoon.com/assets/kirmoon-share-eclipse-20260929.9528ba3f926c.jpg"
+    },
+    {
+      "file": "assets/kirmoon-share-eclipse-20260929.jpg",
+      "bytes": 50096,
+      "sha256": "9528ba3f926c82d013154b2118844606d3ee0e8a967d101cc191fc68740ec522",
+      "source": "https://kirmoon.com/assets/kirmoon-share-eclipse-20260929.jpg"
+    },
+    {
+      "file": "assets/lunula-journey-20260926.ac29a0756f39.js",
+      "bytes": 7056,
+      "sha256": "ac29a0756f390f17696646032e6b736115e2c74749dc714fa969e6cf3b71e90c",
+      "source": "https://kirmoon.com/assets/lunula-journey-20260926.ac29a0756f39.js"
+    },
+    {
+      "file": "assets/lunula-journey-20260927i.ac29a0756f39.js",
+      "bytes": 7056,
+      "sha256": "ac29a0756f390f17696646032e6b736115e2c74749dc714fa969e6cf3b71e90c",
+      "source": "https://kirmoon.com/assets/lunula-journey-20260927i.ac29a0756f39.js"
+    },
+    {
+      "file": "assets/lunula-service-planets-20260927.97af3490e1b5.js",
+      "bytes": 5122,
+      "sha256": "97af3490e1b56612c255f6a6f723d7a5b2fd2ecb44991ebf1845b402ea35269d",
+      "source": "https://kirmoon.com/assets/lunula-service-planets-20260927.97af3490e1b5.js"
+    },
+    {
+      "file": "assets/lunula-service-planets-20260927i.97af3490e1b5.js",
+      "bytes": 5122,
+      "sha256": "97af3490e1b56612c255f6a6f723d7a5b2fd2ecb44991ebf1845b402ea35269d",
+      "source": "https://kirmoon.com/assets/lunula-service-planets-20260927i.97af3490e1b5.js"
+    },
+    {
+      "file": "assets/mars-3d-preview-20260927.c4c287815cda.webp",
+      "bytes": 13124,
+      "sha256": "c4c287815cda4a7df019b4a576059f39ebb46ec0828ebc665ec620956cff0250",
+      "source": "https://kirmoon.com/assets/mars-3d-preview-20260927.c4c287815cda.webp"
+    },
+    {
+      "file": "assets/mars-3d-preview-20260927.webp",
+      "bytes": 13124,
+      "sha256": "c4c287815cda4a7df019b4a576059f39ebb46ec0828ebc665ec620956cff0250",
+      "source": "https://kirmoon.com/assets/mars-3d-preview-20260927.webp"
+    },
+    {
+      "file": "assets/mars-3d-preview-hd-20260927.61e43bbfb2cf.webp",
+      "bytes": 34246,
+      "sha256": "61e43bbfb2cf7e027ebc642f548846a4875cf6924717cf400d2390dfd76ec3f2",
+      "source": "https://kirmoon.com/assets/mars-3d-preview-hd-20260927.61e43bbfb2cf.webp"
+    },
+    {
+      "file": "assets/mars-3d-preview-hd-20260927.webp",
+      "bytes": 34246,
+      "sha256": "61e43bbfb2cf7e027ebc642f548846a4875cf6924717cf400d2390dfd76ec3f2",
+      "source": "https://kirmoon.com/assets/mars-3d-preview-hd-20260927.webp"
+    },
+    {
+      "file": "assets/mars-3d-preview-mobile-20260927.eb90d8072c64.webp",
+      "bytes": 5062,
+      "sha256": "eb90d8072c649017ca63be6077b76f895c32cbf07993b1cf9a04efe6f94f4733",
+      "source": "https://kirmoon.com/assets/mars-3d-preview-mobile-20260927.eb90d8072c64.webp"
+    },
+    {
+      "file": "assets/mars-3d-preview-mobile-20260927.webp",
+      "bytes": 5062,
+      "sha256": "eb90d8072c649017ca63be6077b76f895c32cbf07993b1cf9a04efe6f94f4733",
+      "source": "https://kirmoon.com/assets/mars-3d-preview-mobile-20260927.webp"
+    },
+    {
+      "file": "assets/mars-3d-preview-narrow-20260927.eb90d8072c64.webp",
+      "bytes": 5062,
+      "sha256": "eb90d8072c649017ca63be6077b76f895c32cbf07993b1cf9a04efe6f94f4733",
+      "source": "https://kirmoon.com/assets/mars-3d-preview-narrow-20260927.eb90d8072c64.webp"
+    },
+    {
+      "file": "assets/mars-3d-preview-narrow-20260927.webp",
+      "bytes": 5062,
+      "sha256": "eb90d8072c649017ca63be6077b76f895c32cbf07993b1cf9a04efe6f94f4733",
+      "source": "https://kirmoon.com/assets/mars-3d-preview-narrow-20260927.webp"
+    },
+    {
+      "file": "assets/mars-3d-preview-small-20260927.176e8f16d162.webp",
+      "bytes": 4256,
+      "sha256": "176e8f16d1626fa788e3c2e67328d8cb277222e39256c55463aceebb60d741ad",
+      "source": "https://kirmoon.com/assets/mars-3d-preview-small-20260927.176e8f16d162.webp"
+    },
+    {
+      "file": "assets/mars-3d-preview-small-20260927.webp",
+      "bytes": 4256,
+      "sha256": "176e8f16d1626fa788e3c2e67328d8cb277222e39256c55463aceebb60d741ad",
+      "source": "https://kirmoon.com/assets/mars-3d-preview-small-20260927.webp"
+    },
+    {
+      "file": "assets/mars-map-viking-20260927.5e4888bb44d1.webp",
+      "bytes": 62140,
+      "sha256": "5e4888bb44d1a569d0782929f4e7961b8266bb924848368f50254f7f52e32bb7",
+      "source": "https://kirmoon.com/assets/mars-map-viking-20260927.5e4888bb44d1.webp"
+    },
+    {
+      "file": "assets/mars-map-viking-20260927.webp",
+      "bytes": 62140,
+      "sha256": "5e4888bb44d1a569d0782929f4e7961b8266bb924848368f50254f7f52e32bb7",
+      "source": "https://kirmoon.com/assets/mars-map-viking-20260927.webp"
+    },
+    {
+      "file": "assets/mars-nasa-20260926.136249e9f90f.webp",
+      "bytes": 16878,
+      "sha256": "136249e9f90fb0871120adf0658bf7797cdfe96fe7eff4a4b1e5f36fa697a5b7",
+      "source": "https://kirmoon.com/assets/mars-nasa-20260926.136249e9f90f.webp"
+    },
+    {
+      "file": "assets/mars-nasa-20260926.29bb714f34e7.jpg",
+      "bytes": 28405,
+      "sha256": "29bb714f34e7788d8e4f170459c95191bf5d5c7f5942ce6bab205e7117d2f213",
+      "source": "https://kirmoon.com/assets/mars-nasa-20260926.29bb714f34e7.jpg"
+    },
+    {
+      "file": "assets/mars-nasa-20260926.jpg",
+      "bytes": 28405,
+      "sha256": "29bb714f34e7788d8e4f170459c95191bf5d5c7f5942ce6bab205e7117d2f213",
+      "source": "https://kirmoon.com/assets/mars-nasa-20260926.jpg"
+    },
+    {
+      "file": "assets/mars-nasa-20260926.webp",
+      "bytes": 16878,
+      "sha256": "136249e9f90fb0871120adf0658bf7797cdfe96fe7eff4a4b1e5f36fa697a5b7",
+      "source": "https://kirmoon.com/assets/mars-nasa-20260926.webp"
+    },
+    {
+      "file": "assets/mars-preview-128-20261001.a604fe4e5ad3.webp",
+      "bytes": 5332,
+      "sha256": "a604fe4e5ad3f164e8433413ecae63d4327617bdfcab5df495acb1eb15aba1b0",
+      "source": "https://kirmoon.com/assets/mars-preview-128-20261001.a604fe4e5ad3.webp"
+    },
+    {
+      "file": "assets/mars-preview-128-20261001.webp",
+      "bytes": 5332,
+      "sha256": "a604fe4e5ad3f164e8433413ecae63d4327617bdfcab5df495acb1eb15aba1b0",
+      "source": "https://kirmoon.com/assets/mars-preview-128-20261001.webp"
+    },
+    {
+      "file": "assets/mars-preview-256-20261001.50757e94640f.webp",
+      "bytes": 12640,
+      "sha256": "50757e94640f0cd426367c222ac2f1b8866d5ca81fbdc56a87dff77603507018",
+      "source": "https://kirmoon.com/assets/mars-preview-256-20261001.50757e94640f.webp"
+    },
+    {
+      "file": "assets/mars-preview-256-20261001.webp",
+      "bytes": 12640,
+      "sha256": "50757e94640f0cd426367c222ac2f1b8866d5ca81fbdc56a87dff77603507018",
+      "source": "https://kirmoon.com/assets/mars-preview-256-20261001.webp"
+    },
+    {
+      "file": "assets/mercury-3d-preview-20260927.e0dd7da75156.webp",
+      "bytes": 8792,
+      "sha256": "e0dd7da75156ebe117b0ddd1c9a4878ae49755a531c86964d432b388a58adac4",
+      "source": "https://kirmoon.com/assets/mercury-3d-preview-20260927.e0dd7da75156.webp"
+    },
+    {
+      "file": "assets/mercury-3d-preview-20260927.webp",
+      "bytes": 8792,
+      "sha256": "e0dd7da75156ebe117b0ddd1c9a4878ae49755a531c86964d432b388a58adac4",
+      "source": "https://kirmoon.com/assets/mercury-3d-preview-20260927.webp"
+    },
+    {
+      "file": "assets/mercury-3d-preview-hd-20260927.c3eece87fbb1.webp",
+      "bytes": 44082,
+      "sha256": "c3eece87fbb1805880a238b0e6aa4ab2238020b79c389c62101c8bc342a37ecd",
+      "source": "https://kirmoon.com/assets/mercury-3d-preview-hd-20260927.c3eece87fbb1.webp"
+    },
+    {
+      "file": "assets/mercury-3d-preview-hd-20260927.webp",
+      "bytes": 44082,
+      "sha256": "c3eece87fbb1805880a238b0e6aa4ab2238020b79c389c62101c8bc342a37ecd",
+      "source": "https://kirmoon.com/assets/mercury-3d-preview-hd-20260927.webp"
+    },
+    {
+      "file": "assets/mercury-3d-preview-mobile-20260927.23b2f6c307c8.webp",
+      "bytes": 3994,
+      "sha256": "23b2f6c307c814b37fdf2ce486663e3a59425d3c5566c18d858b82eacbef6db3",
+      "source": "https://kirmoon.com/assets/mercury-3d-preview-mobile-20260927.23b2f6c307c8.webp"
+    },
+    {
+      "file": "assets/mercury-3d-preview-mobile-20260927.webp",
+      "bytes": 3994,
+      "sha256": "23b2f6c307c814b37fdf2ce486663e3a59425d3c5566c18d858b82eacbef6db3",
+      "source": "https://kirmoon.com/assets/mercury-3d-preview-mobile-20260927.webp"
+    },
+    {
+      "file": "assets/mercury-3d-preview-narrow-20260927.23b2f6c307c8.webp",
+      "bytes": 3994,
+      "sha256": "23b2f6c307c814b37fdf2ce486663e3a59425d3c5566c18d858b82eacbef6db3",
+      "source": "https://kirmoon.com/assets/mercury-3d-preview-narrow-20260927.23b2f6c307c8.webp"
+    },
+    {
+      "file": "assets/mercury-3d-preview-narrow-20260927.webp",
+      "bytes": 3994,
+      "sha256": "23b2f6c307c814b37fdf2ce486663e3a59425d3c5566c18d858b82eacbef6db3",
+      "source": "https://kirmoon.com/assets/mercury-3d-preview-narrow-20260927.webp"
+    },
+    {
+      "file": "assets/mercury-3d-preview-small-20260927.ff1e885f12a9.webp",
+      "bytes": 3406,
+      "sha256": "ff1e885f12a95ac97b14003fe95d07e08f1fed86ce89eddc01c3aeb10d9aa426",
+      "source": "https://kirmoon.com/assets/mercury-3d-preview-small-20260927.ff1e885f12a9.webp"
+    },
+    {
+      "file": "assets/mercury-3d-preview-small-20260927.webp",
+      "bytes": 3406,
+      "sha256": "ff1e885f12a95ac97b14003fe95d07e08f1fed86ce89eddc01c3aeb10d9aa426",
+      "source": "https://kirmoon.com/assets/mercury-3d-preview-small-20260927.webp"
+    },
+    {
+      "file": "assets/mercury-map-messenger-20260927.ebb53449c8dd.webp",
+      "bytes": 109996,
+      "sha256": "ebb53449c8dd70d0a0552083287d5dd3b59b6bd725c3073a7afb5782c249da32",
+      "source": "https://kirmoon.com/assets/mercury-map-messenger-20260927.ebb53449c8dd.webp"
+    },
+    {
+      "file": "assets/mercury-map-messenger-20260927.webp",
+      "bytes": 109996,
+      "sha256": "ebb53449c8dd70d0a0552083287d5dd3b59b6bd725c3073a7afb5782c249da32",
+      "source": "https://kirmoon.com/assets/mercury-map-messenger-20260927.webp"
+    },
+    {
+      "file": "assets/mercury-nasa-20260926.00399094f88d.webp",
+      "bytes": 38898,
+      "sha256": "00399094f88d72d0ae5aa9b4239ae6478cae0876c4d44ae5c174aac0261ce591",
+      "source": "https://kirmoon.com/assets/mercury-nasa-20260926.00399094f88d.webp"
+    },
+    {
+      "file": "assets/mercury-nasa-20260926.435f0872987b.jpg",
+      "bytes": 47049,
+      "sha256": "435f0872987b67574e4c8820ebd741db8fa84418ab22cfcc704a83c69f7ec00c",
+      "source": "https://kirmoon.com/assets/mercury-nasa-20260926.435f0872987b.jpg"
+    },
+    {
+      "file": "assets/mercury-nasa-20260926.jpg",
+      "bytes": 47049,
+      "sha256": "435f0872987b67574e4c8820ebd741db8fa84418ab22cfcc704a83c69f7ec00c",
+      "source": "https://kirmoon.com/assets/mercury-nasa-20260926.jpg"
+    },
+    {
+      "file": "assets/mercury-nasa-20260926.webp",
+      "bytes": 38898,
+      "sha256": "00399094f88d72d0ae5aa9b4239ae6478cae0876c4d44ae5c174aac0261ce591",
+      "source": "https://kirmoon.com/assets/mercury-nasa-20260926.webp"
+    },
+    {
+      "file": "assets/mercury-preview-128-20261001.9faf65f1263e.webp",
+      "bytes": 6114,
+      "sha256": "9faf65f1263e770855220973c50203126d9a6cacda9f3f994b06847553b6133e",
+      "source": "https://kirmoon.com/assets/mercury-preview-128-20261001.9faf65f1263e.webp"
+    },
+    {
+      "file": "assets/mercury-preview-128-20261001.webp",
+      "bytes": 6114,
+      "sha256": "9faf65f1263e770855220973c50203126d9a6cacda9f3f994b06847553b6133e",
+      "source": "https://kirmoon.com/assets/mercury-preview-128-20261001.webp"
+    },
+    {
+      "file": "assets/mercury-preview-256-20261001.462358a1fcc9.webp",
+      "bytes": 15148,
+      "sha256": "462358a1fcc93bfbf29a13c71264c1af6d139320948d7d9f709e62e0a1615c72",
+      "source": "https://kirmoon.com/assets/mercury-preview-256-20261001.462358a1fcc9.webp"
+    },
+    {
+      "file": "assets/mercury-preview-256-20261001.webp",
+      "bytes": 15148,
+      "sha256": "462358a1fcc93bfbf29a13c71264c1af6d139320948d7d9f709e62e0a1615c72",
+      "source": "https://kirmoon.com/assets/mercury-preview-256-20261001.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-20260927.688fc7dcd1b0.webp",
+      "bytes": 105888,
+      "sha256": "688fc7dcd1b0b1cd0fa2641cbe9495efa464311a534f2c4e8d8a434c5be2c53d",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-20260927.688fc7dcd1b0.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-20260927.webp",
+      "bytes": 105888,
+      "sha256": "688fc7dcd1b0b1cd0fa2641cbe9495efa464311a534f2c4e8d8a434c5be2c53d",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-20260927.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-compact-20260927.d8537ae042ce.webp",
+      "bytes": 79026,
+      "sha256": "d8537ae042cef54dbd7d85dc1692a98b5a92fca9a1d54101f8d514ffcaedd277",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-compact-20260927.d8537ae042ce.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-compact-20260927.webp",
+      "bytes": 79026,
+      "sha256": "d8537ae042cef54dbd7d85dc1692a98b5a92fca9a1d54101f8d514ffcaedd277",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-compact-20260927.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-medium-20260927.0c07e5970e92.webp",
+      "bytes": 90812,
+      "sha256": "0c07e5970e927284803f2cb45f473fa2ca369e12cf2862200dae373183fb7731",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-medium-20260927.0c07e5970e92.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-medium-20260927.webp",
+      "bytes": 90812,
+      "sha256": "0c07e5970e927284803f2cb45f473fa2ca369e12cf2862200dae373183fb7731",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-medium-20260927.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-mobile-20260927.0d364d07fa41.webp",
+      "bytes": 19450,
+      "sha256": "0d364d07fa419c31a762e0668beb3d2e415352b7559984148468b6ae4f466b93",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-mobile-20260927.0d364d07fa41.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-mobile-20260927.webp",
+      "bytes": 19450,
+      "sha256": "0d364d07fa419c31a762e0668beb3d2e415352b7559984148468b6ae4f466b93",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-mobile-20260927.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-narrow-20260927.ab4cda68e6fa.webp",
+      "bytes": 18988,
+      "sha256": "ab4cda68e6fa573bff1def96d9d529a499fd4a5f1261fff944de9435ac003bbd",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-narrow-20260927.ab4cda68e6fa.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-narrow-20260927.webp",
+      "bytes": 18988,
+      "sha256": "ab4cda68e6fa573bff1def96d9d529a499fd4a5f1261fff944de9435ac003bbd",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-narrow-20260927.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-narrow-desktop-20260927.b344926d74c2.webp",
+      "bytes": 58126,
+      "sha256": "b344926d74c2f1868d42130780c5eda9852b35e80b26f8fa7eeeead06ff6c9e4",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-narrow-desktop-20260927.b344926d74c2.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-narrow-desktop-20260927.webp",
+      "bytes": 58126,
+      "sha256": "b344926d74c2f1868d42130780c5eda9852b35e80b26f8fa7eeeead06ff6c9e4",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-narrow-desktop-20260927.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-small-20260927.966271ecb58b.webp",
+      "bytes": 17578,
+      "sha256": "966271ecb58b89bc30869cf1d9850354d413a0dcf5eb998d10f66e48195c7888",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-small-20260927.966271ecb58b.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-small-20260927.webp",
+      "bytes": 17578,
+      "sha256": "966271ecb58b89bc30869cf1d9850354d413a0dcf5eb998d10f66e48195c7888",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-small-20260927.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-small-desktop-20260927.1497ca009f07.webp",
+      "bytes": 55866,
+      "sha256": "1497ca009f07487d9191e0c3ec6068db9037b88531e3feb2696d5f4a68e49171",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-small-desktop-20260927.1497ca009f07.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-small-desktop-20260927.webp",
+      "bytes": 55866,
+      "sha256": "1497ca009f07487d9191e0c3ec6068db9037b88531e3feb2696d5f4a68e49171",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-small-desktop-20260927.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-wide-20260927.8c856472a59f.webp",
+      "bytes": 113020,
+      "sha256": "8c856472a59f3d2476cb1f4193794baaed04572088092f58f9eb6585798b5ba1",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-wide-20260927.8c856472a59f.webp"
+    },
+    {
+      "file": "assets/moon-hero-3d-preview-wide-20260927.webp",
+      "bytes": 113020,
+      "sha256": "8c856472a59f3d2476cb1f4193794baaed04572088092f58f9eb6585798b5ba1",
+      "source": "https://kirmoon.com/assets/moon-hero-3d-preview-wide-20260927.webp"
+    },
+    {
+      "file": "assets/moon-hero-static-20260924.a5f540a41a22.webp",
+      "bytes": 48404,
+      "sha256": "a5f540a41a22902fd1f967614eb4f04b8f763c88a9c05a1c2b41e4a72580ded1",
+      "source": "https://kirmoon.com/assets/moon-hero-static-20260924.a5f540a41a22.webp"
+    },
+    {
+      "file": "assets/moon-hero-static-20260924.webp",
+      "bytes": 48404,
+      "sha256": "a5f540a41a22902fd1f967614eb4f04b8f763c88a9c05a1c2b41e4a72580ded1",
+      "source": "https://kirmoon.com/assets/moon-hero-static-20260924.webp"
+    },
+    {
+      "file": "assets/moon.4696f1d7409c.webp",
+      "bytes": 179540,
+      "sha256": "4696f1d7409c5d8736040446e0e8c72831aa4d943a24817987e65905add97450",
+      "source": "https://kirmoon.com/assets/moon.4696f1d7409c.webp"
+    },
+    {
+      "file": "assets/moon.avif",
+      "bytes": 117611,
+      "sha256": "b91d7db0cd5a570d79c81380ef3520b814a1e08b645156afa79adf80023b4001",
+      "source": "https://kirmoon.com/assets/moon.avif"
+    },
+    {
+      "file": "assets/moon.b91d7db0cd5a.avif",
+      "bytes": 117611,
+      "sha256": "b91d7db0cd5a570d79c81380ef3520b814a1e08b645156afa79adf80023b4001",
+      "source": "https://kirmoon.com/assets/moon.b91d7db0cd5a.avif"
+    },
+    {
+      "file": "assets/moon.f7130a182268.jpg",
+      "bytes": 457942,
+      "sha256": "f7130a1822681fa7512d7dcfd40db8c10b9ba4f06777910348698260ed7a2170",
+      "source": "https://kirmoon.com/assets/moon.f7130a182268.jpg"
+    },
+    {
+      "file": "assets/moon.jpg",
+      "bytes": 457942,
+      "sha256": "f7130a1822681fa7512d7dcfd40db8c10b9ba4f06777910348698260ed7a2170",
+      "source": "https://kirmoon.com/assets/moon.jpg"
+    },
+    {
+      "file": "assets/moon.webp",
+      "bytes": 179540,
+      "sha256": "4696f1d7409c5d8736040446e0e8c72831aa4d943a24817987e65905add97450",
+      "source": "https://kirmoon.com/assets/moon.webp"
+    },
+    {
+      "file": "assets/nave-lunula-20260926.7c5861c7b44d.svg",
+      "bytes": 1729,
+      "sha256": "7c5861c7b44dbd63b7c1aa875808a0c4c557f91d07215e7050acd30d758f8de9",
+      "source": "https://kirmoon.com/assets/nave-lunula-20260926.7c5861c7b44d.svg"
+    },
+    {
+      "file": "assets/nave-lunula-20260926.svg",
+      "bytes": 1729,
+      "sha256": "7c5861c7b44dbd63b7c1aa875808a0c4c557f91d07215e7050acd30d758f8de9",
+      "source": "https://kirmoon.com/assets/nave-lunula-20260926.svg"
+    },
+    {
+      "file": "assets/process-phase-0-20260927.615480bb4c3c.webp",
+      "bytes": 14906,
+      "sha256": "615480bb4c3c8b196a3299d03506286f9f4eef563fee8e6cfd55e45b0b796442",
+      "source": "https://kirmoon.com/assets/process-phase-0-20260927.615480bb4c3c.webp"
+    },
+    {
+      "file": "assets/process-phase-0-20260927.webp",
+      "bytes": 14906,
+      "sha256": "615480bb4c3c8b196a3299d03506286f9f4eef563fee8e6cfd55e45b0b796442",
+      "source": "https://kirmoon.com/assets/process-phase-0-20260927.webp"
+    },
+    {
+      "file": "assets/process-phase-0-3d-20260927.110afc26971f.webp",
+      "bytes": 16366,
+      "sha256": "110afc26971fcccaf67f669e1c56b1280a3699ac25381b2bfd4682b5bb042c92",
+      "source": "https://kirmoon.com/assets/process-phase-0-3d-20260927.110afc26971f.webp"
+    },
+    {
+      "file": "assets/process-phase-0-3d-20260927.webp",
+      "bytes": 16366,
+      "sha256": "110afc26971fcccaf67f669e1c56b1280a3699ac25381b2bfd4682b5bb042c92",
+      "source": "https://kirmoon.com/assets/process-phase-0-3d-20260927.webp"
+    },
+    {
+      "file": "assets/process-phase-1-20260927.9c4b77d769d7.webp",
+      "bytes": 31148,
+      "sha256": "9c4b77d769d7220628034dd9ce969ae82fb9a1e4bac0490a96b492f97e410d2f",
+      "source": "https://kirmoon.com/assets/process-phase-1-20260927.9c4b77d769d7.webp"
+    },
+    {
+      "file": "assets/process-phase-1-20260927.webp",
+      "bytes": 31148,
+      "sha256": "9c4b77d769d7220628034dd9ce969ae82fb9a1e4bac0490a96b492f97e410d2f",
+      "source": "https://kirmoon.com/assets/process-phase-1-20260927.webp"
+    },
+    {
+      "file": "assets/process-phase-1-3d-20260927.37433d25f557.webp",
+      "bytes": 22382,
+      "sha256": "37433d25f557acd1342045082a5c377938de172b5258c6e24186cb43a6f1eb61",
+      "source": "https://kirmoon.com/assets/process-phase-1-3d-20260927.37433d25f557.webp"
+    },
+    {
+      "file": "assets/process-phase-1-3d-20260927.webp",
+      "bytes": 22382,
+      "sha256": "37433d25f557acd1342045082a5c377938de172b5258c6e24186cb43a6f1eb61",
+      "source": "https://kirmoon.com/assets/process-phase-1-3d-20260927.webp"
+    },
+    {
+      "file": "assets/process-phase-2-20260927.96eea5d6a476.webp",
+      "bytes": 74322,
+      "sha256": "96eea5d6a4766b096b5fdb84cdbb114d72f5f96bf3b7d64170ca1f703c070027",
+      "source": "https://kirmoon.com/assets/process-phase-2-20260927.96eea5d6a476.webp"
+    },
+    {
+      "file": "assets/process-phase-2-20260927.webp",
+      "bytes": 74322,
+      "sha256": "96eea5d6a4766b096b5fdb84cdbb114d72f5f96bf3b7d64170ca1f703c070027",
+      "source": "https://kirmoon.com/assets/process-phase-2-20260927.webp"
+    },
+    {
+      "file": "assets/process-phase-2-3d-20260927.0c5123bd4bb9.webp",
+      "bytes": 61408,
+      "sha256": "0c5123bd4bb9224730dd175d28256e81c86f5dbcb3c725c96e8c5152aa719c01",
+      "source": "https://kirmoon.com/assets/process-phase-2-3d-20260927.0c5123bd4bb9.webp"
+    },
+    {
+      "file": "assets/process-phase-2-3d-20260927.webp",
+      "bytes": 61408,
+      "sha256": "0c5123bd4bb9224730dd175d28256e81c86f5dbcb3c725c96e8c5152aa719c01",
+      "source": "https://kirmoon.com/assets/process-phase-2-3d-20260927.webp"
+    },
+    {
+      "file": "assets/process-phase-3-20260927.723aefa1aaec.webp",
+      "bytes": 28482,
+      "sha256": "723aefa1aaecfdf3bb67c9bc1690eca52e53a32d8fb97224447c5302720856ea",
+      "source": "https://kirmoon.com/assets/process-phase-3-20260927.723aefa1aaec.webp"
+    },
+    {
+      "file": "assets/process-phase-3-20260927.webp",
+      "bytes": 28482,
+      "sha256": "723aefa1aaecfdf3bb67c9bc1690eca52e53a32d8fb97224447c5302720856ea",
+      "source": "https://kirmoon.com/assets/process-phase-3-20260927.webp"
+    },
+    {
+      "file": "assets/process-phase-3-3d-20260927.3f36645aa949.webp",
+      "bytes": 22334,
+      "sha256": "3f36645aa94949f550c8d6d6b8645ba93d4f266da6d99ab7e5643ddc887ae29e",
+      "source": "https://kirmoon.com/assets/process-phase-3-3d-20260927.3f36645aa949.webp"
+    },
+    {
+      "file": "assets/process-phase-3-3d-20260927.webp",
+      "bytes": 22334,
+      "sha256": "3f36645aa94949f550c8d6d6b8645ba93d4f266da6d99ab7e5643ddc887ae29e",
+      "source": "https://kirmoon.com/assets/process-phase-3-3d-20260927.webp"
+    },
+    {
+      "file": "assets/products-cards-20261006.cdbc998a89e5.js",
+      "bytes": 11785,
+      "sha256": "cdbc998a89e560457543abbae904b9140615b4a57e61d2736f109816d197785f",
+      "source": "https://kirmoon.com/assets/products-cards-20261006.cdbc998a89e5.js"
+    },
+    {
+      "file": "assets/products-devices-20261006.e4a2e55aa472.svg",
+      "bytes": 324,
+      "sha256": "e4a2e55aa472a234518b8e4faaf9fcfa6c8fc0b614da4208cedba88a09dc92dc",
+      "source": "https://kirmoon.com/assets/products-devices-20261006.e4a2e55aa472.svg"
+    },
+    {
+      "file": "assets/products-devices-20261006.svg",
+      "bytes": 324,
+      "sha256": "e4a2e55aa472a234518b8e4faaf9fcfa6c8fc0b614da4208cedba88a09dc92dc",
+      "source": "https://kirmoon.com/assets/products-devices-20261006.svg"
+    },
+    {
+      "file": "assets/products-open-20261006.0a3588be1e8f.svg",
+      "bytes": 286,
+      "sha256": "0a3588be1e8f6c0cecce8e27a81bfcffed92d22991e77242a60f20ca82ea72e3",
+      "source": "https://kirmoon.com/assets/products-open-20261006.0a3588be1e8f.svg"
+    },
+    {
+      "file": "assets/products-open-20261006.svg",
+      "bytes": 286,
+      "sha256": "0a3588be1e8f6c0cecce8e27a81bfcffed92d22991e77242a60f20ca82ea72e3",
+      "source": "https://kirmoon.com/assets/products-open-20261006.svg"
+    },
+    {
+      "file": "assets/saturn-rings.352d514eaf9c.png",
+      "bytes": 1942,
+      "sha256": "352d514eaf9cf3624581d7baa2c6776701ff857dbbc49ba111795b3dd5337eb8",
+      "source": "https://kirmoon.com/assets/saturn-rings.352d514eaf9c.png"
+    },
+    {
+      "file": "assets/saturn-rings.png",
+      "bytes": 1942,
+      "sha256": "352d514eaf9cf3624581d7baa2c6776701ff857dbbc49ba111795b3dd5337eb8",
+      "source": "https://kirmoon.com/assets/saturn-rings.png"
+    },
+    {
+      "file": "assets/saturn-scene-preview-20260927.dbdb50923420.webp",
+      "bytes": 25570,
+      "sha256": "dbdb5092342016a37a30c89fbcf8e67767457b3d5fc7176feec335e592b13361",
+      "source": "https://kirmoon.com/assets/saturn-scene-preview-20260927.dbdb50923420.webp"
+    },
+    {
+      "file": "assets/saturn-scene-preview-20260927.webp",
+      "bytes": 25570,
+      "sha256": "dbdb5092342016a37a30c89fbcf8e67767457b3d5fc7176feec335e592b13361",
+      "source": "https://kirmoon.com/assets/saturn-scene-preview-20260927.webp"
+    },
+    {
+      "file": "assets/saturn.a6746a3545d2.webp",
+      "bytes": 64388,
+      "sha256": "a6746a3545d2716bccebdfc9e97830f15e3b8f806779d449d458e8129b469ec6",
+      "source": "https://kirmoon.com/assets/saturn.a6746a3545d2.webp"
+    },
+    {
+      "file": "assets/saturn.webp",
+      "bytes": 64388,
+      "sha256": "a6746a3545d2716bccebdfc9e97830f15e3b8f806779d449d458e8129b469ec6",
+      "source": "https://kirmoon.com/assets/saturn.webp"
+    },
+    {
+      "file": "assets/service-demos-20260924.4e0f0ea86a54.js",
+      "bytes": 8088,
+      "sha256": "4e0f0ea86a5453314c94aa83dc5fb2e94305cdec5ad181e800b044f58f1d4099",
+      "source": "https://kirmoon.com/assets/service-demos-20260924.4e0f0ea86a54.js"
+    },
+    {
+      "file": "assets/service-demos-20260926.8b7110cab4d6.js",
+      "bytes": 8460,
+      "sha256": "8b7110cab4d65bf58a156080a4c8c46552725582a0a6096599c3f9a5d1e3bba5",
+      "source": "https://kirmoon.com/assets/service-demos-20260926.8b7110cab4d6.js"
+    },
+    {
+      "file": "assets/services-control-map-v9-20261001.7555a880b18d.js",
+      "bytes": 1405,
+      "sha256": "7555a880b18dd887f2b9be345be5031031e2644e24bc600f5e9284907461bd5d",
+      "source": "https://kirmoon.com/assets/services-control-map-v9-20261001.7555a880b18d.js"
+    },
+    {
+      "file": "assets/services-journey-v10-20261001.c3fe480843e4.js",
+      "bytes": 9480,
+      "sha256": "c3fe480843e464015faaa5232b29b8ab625b6ad892fb9207a4610a3f14244d4e",
+      "source": "https://kirmoon.com/assets/services-journey-v10-20261001.c3fe480843e4.js"
+    },
+    {
+      "file": "assets/services-journey-v9-20261001.346bc47da479.js",
+      "bytes": 9547,
+      "sha256": "346bc47da47923a7c37493cc6c687c464823ad5d50956d588bf964c5ce82bd6e",
+      "source": "https://kirmoon.com/assets/services-journey-v9-20261001.346bc47da479.js"
+    },
+    {
+      "file": "assets/services-orbits-v9-20261001.a33e3e712f9b.js",
+      "bytes": 2612,
+      "sha256": "a33e3e712f9b8dc5ff06fb137b9b777783174d7934cc4d0b9e7c9f70af682f4b",
+      "source": "https://kirmoon.com/assets/services-orbits-v9-20261001.a33e3e712f9b.js"
+    },
+    {
+      "file": "assets/services-planets-performance-20261001.b6b39b242353.js",
+      "bytes": 6562,
+      "sha256": "b6b39b242353eddf4404db40f4911ac28550733e8d51b256ae569c7c519d73da",
+      "source": "https://kirmoon.com/assets/services-planets-performance-20261001.b6b39b242353.js"
+    },
+    {
+      "file": "assets/services-planets-v9-20261001.8a94a60ec6fa.js",
+      "bytes": 6235,
+      "sha256": "8a94a60ec6fa1e4d260a31dc2d2e4d863cc522913b46ba29175b4098f646953e",
+      "source": "https://kirmoon.com/assets/services-planets-v9-20261001.8a94a60ec6fa.js"
+    },
+    {
+      "file": "assets/site-language-20261006.915c912b2c7d.js",
+      "bytes": 5781,
+      "sha256": "915c912b2c7d833dac0c35fe88a6bd98f82f93494abf28b15b5d6e05cda64768",
+      "source": "https://kirmoon.com/assets/site-language-20261006.915c912b2c7d.js"
+    },
+    {
+      "file": "assets/site-locales-20261006.8a71a36f9304.js",
+      "bytes": 249318,
+      "sha256": "8a71a36f9304e21c964e56c65b68bcadd9761561f6118035efae120dd812add6",
+      "source": "https://kirmoon.com/assets/site-locales-20261006.8a71a36f9304.js"
+    },
+    {
+      "file": "assets/vendor/three-r128.min.js",
+      "bytes": 603445,
+      "sha256": "9274bbcec8d96168626c732b5d31c775aa8cfb7eaa0599bec0c175908a2c1ce2",
+      "source": "https://kirmoon.com/assets/vendor/three-r128.min.js"
+    },
+    {
+      "file": "assets/venus-3d-preview-20260927.71de6ce4e497.webp",
+      "bytes": 3316,
+      "sha256": "71de6ce4e49727b28bf3fc81eeb66feaab7cf0fcece3d2606b981dbef1709c87",
+      "source": "https://kirmoon.com/assets/venus-3d-preview-20260927.71de6ce4e497.webp"
+    },
+    {
+      "file": "assets/venus-3d-preview-20260927.webp",
+      "bytes": 3316,
+      "sha256": "71de6ce4e49727b28bf3fc81eeb66feaab7cf0fcece3d2606b981dbef1709c87",
+      "source": "https://kirmoon.com/assets/venus-3d-preview-20260927.webp"
+    },
+    {
+      "file": "assets/venus-3d-preview-hd-20260927.6658a66eeb5f.webp",
+      "bytes": 31644,
+      "sha256": "6658a66eeb5fff0dc9a00a38463df0a739a766c6c1af10af1598a4e5b2b06bea",
+      "source": "https://kirmoon.com/assets/venus-3d-preview-hd-20260927.6658a66eeb5f.webp"
+    },
+    {
+      "file": "assets/venus-3d-preview-hd-20260927.webp",
+      "bytes": 31644,
+      "sha256": "6658a66eeb5fff0dc9a00a38463df0a739a766c6c1af10af1598a4e5b2b06bea",
+      "source": "https://kirmoon.com/assets/venus-3d-preview-hd-20260927.webp"
+    },
+    {
+      "file": "assets/venus-3d-preview-mobile-20260927.268b4bbdadc5.webp",
+      "bytes": 7416,
+      "sha256": "268b4bbdadc5c3df32128c7afcbe3d790eb9eba82dc9e38e5697e451d1da9034",
+      "source": "https://kirmoon.com/assets/venus-3d-preview-mobile-20260927.268b4bbdadc5.webp"
+    },
+    {
+      "file": "assets/venus-3d-preview-mobile-20260927.webp",
+      "bytes": 7416,
+      "sha256": "268b4bbdadc5c3df32128c7afcbe3d790eb9eba82dc9e38e5697e451d1da9034",
+      "source": "https://kirmoon.com/assets/venus-3d-preview-mobile-20260927.webp"
+    },
+    {
+      "file": "assets/venus-3d-preview-narrow-20260927.268b4bbdadc5.webp",
+      "bytes": 7416,
+      "sha256": "268b4bbdadc5c3df32128c7afcbe3d790eb9eba82dc9e38e5697e451d1da9034",
+      "source": "https://kirmoon.com/assets/venus-3d-preview-narrow-20260927.268b4bbdadc5.webp"
+    },
+    {
+      "file": "assets/venus-3d-preview-narrow-20260927.webp",
+      "bytes": 7416,
+      "sha256": "268b4bbdadc5c3df32128c7afcbe3d790eb9eba82dc9e38e5697e451d1da9034",
+      "source": "https://kirmoon.com/assets/venus-3d-preview-narrow-20260927.webp"
+    },
+    {
+      "file": "assets/venus-3d-preview-small-20260927.a0b42b2d3bff.webp",
+      "bytes": 5628,
+      "sha256": "a0b42b2d3bff7dc57d875861839306fd512229eff6935fa25c024237fc247f0f",
+      "source": "https://kirmoon.com/assets/venus-3d-preview-small-20260927.a0b42b2d3bff.webp"
+    },
+    {
+      "file": "assets/venus-3d-preview-small-20260927.webp",
+      "bytes": 5628,
+      "sha256": "a0b42b2d3bff7dc57d875861839306fd512229eff6935fa25c024237fc247f0f",
+      "source": "https://kirmoon.com/assets/venus-3d-preview-small-20260927.webp"
+    },
+    {
+      "file": "assets/venus-map-magellan-20260927.9bb2bd1c5664.webp",
+      "bytes": 39964,
+      "sha256": "9bb2bd1c5664160d50542274ad5f19076a715bbd1f2b9e17498e0cb0e5a0cb1e",
+      "source": "https://kirmoon.com/assets/venus-map-magellan-20260927.9bb2bd1c5664.webp"
+    },
+    {
+      "file": "assets/venus-map-magellan-20260927.webp",
+      "bytes": 39964,
+      "sha256": "9bb2bd1c5664160d50542274ad5f19076a715bbd1f2b9e17498e0cb0e5a0cb1e",
+      "source": "https://kirmoon.com/assets/venus-map-magellan-20260927.webp"
+    },
+    {
+      "file": "assets/venus-nasa-20260926.81f256bb6955.webp",
+      "bytes": 8066,
+      "sha256": "81f256bb6955de09e89576d6b3e8560e6c48bec7761b6984d7a16a7e63f1889f",
+      "source": "https://kirmoon.com/assets/venus-nasa-20260926.81f256bb6955.webp"
+    },
+    {
+      "file": "assets/venus-nasa-20260926.webp",
+      "bytes": 8066,
+      "sha256": "81f256bb6955de09e89576d6b3e8560e6c48bec7761b6984d7a16a7e63f1889f",
+      "source": "https://kirmoon.com/assets/venus-nasa-20260926.webp"
+    },
+    {
+      "file": "assets/venus-preview-128-20261001.2cba06f1c7b7.webp",
+      "bytes": 5612,
+      "sha256": "2cba06f1c7b7ec5ddf2c843a19165564d0a3c561eb8feda9c808539a90fe752b",
+      "source": "https://kirmoon.com/assets/venus-preview-128-20261001.2cba06f1c7b7.webp"
+    },
+    {
+      "file": "assets/venus-preview-128-20261001.webp",
+      "bytes": 5612,
+      "sha256": "2cba06f1c7b7ec5ddf2c843a19165564d0a3c561eb8feda9c808539a90fe752b",
+      "source": "https://kirmoon.com/assets/venus-preview-128-20261001.webp"
+    },
+    {
+      "file": "assets/venus-preview-256-20261001.254f34368353.webp",
+      "bytes": 13112,
+      "sha256": "254f343683530392930f405f9fb8e47c6c8ed6eaf838045f34ad2ce0fc04c7d9",
+      "source": "https://kirmoon.com/assets/venus-preview-256-20261001.254f34368353.webp"
+    },
+    {
+      "file": "assets/venus-preview-256-20261001.webp",
+      "bytes": 13112,
+      "sha256": "254f343683530392930f405f9fb8e47c6c8ed6eaf838045f34ad2ce0fc04c7d9",
+      "source": "https://kirmoon.com/assets/venus-preview-256-20261001.webp"
+    },
+    {
+      "file": "favicon-96x96.png",
+      "bytes": 6742,
+      "sha256": "75eb17ecda1780c6fe4a19e05b30997be2600856b39eb9bfa481ddfa3826c58f",
+      "source": "https://kirmoon.com/favicon-96x96.png"
+    },
+    {
+      "file": "favicon.ico",
+      "bytes": 50804,
+      "sha256": "ad408d0a265acf8a5db91826ca19c259a1fa568878bafdfe776922b486bea60a",
+      "source": "https://kirmoon.com/favicon.ico"
+    },
+    {
+      "file": "favicon.svg",
+      "bytes": 270,
+      "sha256": "048d4b4b7080ade14eb824df06743baab7458111ac1a0cc3cb1f19a935f549fa",
+      "source": "https://kirmoon.com/favicon.svg"
+    },
+    {
+      "file": "index.html",
+      "bytes": 390093,
+      "sha256": "a8743e3df2acda220fb64af7347556ae6d62c3d4892d71aa264ed8af1c634079",
+      "source": "https://kirmoon.com/index.html"
+    },
+    {
+      "file": "preview-assets/device-lab-workbench.708ed7ffa5d7.webp",
+      "bytes": 19902,
+      "sha256": "708ed7ffa5d75d3abeb03b47d3404da13190d7bd4d1a12282c8ddad3ee032ad5",
+      "source": "https://kirmoon.com/preview-assets/device-lab-workbench.708ed7ffa5d7.webp"
+    },
+    {
+      "file": "preview-assets/device-lab-workbench.webp",
+      "bytes": 19902,
+      "sha256": "708ed7ffa5d75d3abeb03b47d3404da13190d7bd4d1a12282c8ddad3ee032ad5",
+      "source": "https://kirmoon.com/preview-assets/device-lab-workbench.webp"
+    },
+    {
+      "file": "robots.txt",
+      "bytes": 65,
+      "sha256": "0d953d738bc8382c69ff8f4bddab86f844fbd68cbf0d9617cbf8fdbaf4721b44",
+      "source": "https://kirmoon.com/robots.txt"
+    },
+    {
+      "file": "sitemap.xml",
+      "bytes": 211,
+      "sha256": "dd4993f4911e0df9abe158758772d191757db119fe434d55e07d221183ab0e77",
+      "source": "https://kirmoon.com/sitemap.xml"
+    }
+  ]
+}

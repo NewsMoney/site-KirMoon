@@ -1,0 +1,92 @@
+# BEGIN KIRMOON SITE PROTECTION
+# Apache 2.4; AllowOverride FileInfo; mod_rewrite and mod_headers required.
+# Native TLS only: do not trust client-supplied X-Forwarded-Proto.
+# Preserve the apex/www host, path and query; never redirect unrelated subdomains.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP_HOST} ^(www\.)?kirmoon\.com(?::80)?$ [NC]
+  RewriteRule ^ https://%1kirmoon.com%{REQUEST_URI} [R=308,L]
+</IfModule>
+<IfModule mod_headers.c>
+# Scope document policies by URI, including DirectoryIndex, not by filename
+# alone: nested index.html files belong to Device Lab/editor applications.
+  Header onsuccess unset Content-Security-Policy "expr=%{REQUEST_URI} =~ m#^/(?:index(?:-lunula)?\.html)?$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set Content-Security-Policy "default-src 'none'; base-uri 'none'; object-src 'none'; script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js 'sha256-trFpT6XZagJlurwmYTjEyYsrb9G7btcxPSticVGvsEg=' 'sha256-aLgpXYTXeDgVko/l7IvxvxQCsh7SjVpqUofzBiQ5Zw8=' 'sha256-8EiFqftCm3exOTLFKfsyrn1LSAMgq5Pnk3yb5TVA9J0=' 'sha256-5TrZoC51UrKdxjQd96A6AKrncLzJ1Ad5wN0YLwFRHIA=' 'sha256-LfPSaGDuPpdm6NFzdYkrJ+UVXa0Gt9YPN3UpI7lqYUY='; script-src-attr 'none'; style-src 'self' 'sha256-ut05oOWY+DMQnXEOIIqDf9KpocvtWlYcORo9jq5L9IU='; style-src-attr 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; worker-src 'none'; manifest-src 'none'; frame-src 'none'; frame-ancestors 'self'; form-action 'none'" "expr=%{REQUEST_URI} =~ m#^/(?:index(?:-lunula)?\.html)?$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header onsuccess unset X-Frame-Options "expr=%{REQUEST_URI} =~ m#^/(?:index(?:-lunula)?\.html)?$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set X-Frame-Options "SAMEORIGIN" "expr=%{REQUEST_URI} =~ m#^/(?:index(?:-lunula)?\.html)?$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header onsuccess unset X-Content-Type-Options "expr=%{REQUEST_URI} =~ m#^/(?:index(?:-lunula)?\.html)?$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set X-Content-Type-Options "nosniff" "expr=%{REQUEST_URI} =~ m#^/(?:index(?:-lunula)?\.html)?$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header onsuccess unset Referrer-Policy "expr=%{REQUEST_URI} =~ m#^/(?:index(?:-lunula)?\.html)?$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin" "expr=%{REQUEST_URI} =~ m#^/(?:index(?:-lunula)?\.html)?$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header onsuccess unset Permissions-Policy "expr=%{REQUEST_URI} =~ m#^/(?:index(?:-lunula)?\.html)?$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()" "expr=%{REQUEST_URI} =~ m#^/(?:index(?:-lunula)?\.html)?$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+# These static resource trees are emitted by the institutional build.
+  Header onsuccess unset X-Content-Type-Options "expr=%{REQUEST_URI} =~ m#^/(?:assets/|preview-assets/|favicon[^/]*$|apple-touch-icon\.png$)# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set X-Content-Type-Options "nosniff" "expr=%{REQUEST_URI} =~ m#^/(?:assets/|preview-assets/|favicon[^/]*$|apple-touch-icon\.png$)# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+# First HSTS stage: five minutes, HTTPS only, apex/www only. No subdomain
+# inheritance or preload. Increase only after hosting acceptance checks.
+  Header onsuccess unset Strict-Transport-Security "expr=%{HTTPS} == 'on' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set Strict-Transport-Security "max-age=300" "expr=%{HTTPS} == 'on' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+</IfModule>
+# END KIRMOON SITE PROTECTION
+
+# KirMoon static production cache. HTML always revalidates the current build.
+<IfModule mod_mime.c>
+  AddType image/avif .avif
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 day"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|jpg|jpeg|png|webp|avif|svg|ico|woff2)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+  <FilesMatch "[.-][0-9a-f]{12}\.(js|css|woff2|jpg|jpeg|png|webp|avif|svg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <Files "three-r128.min.js">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </Files>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+<IfModule !mod_brotli.c>
+  <IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json image/svg+xml
+  </IfModule>
+</IfModule>
+
+
+# BEGIN KIRMOON CUSTOM 404
+<If "%{REQUEST_URI} !~ m#^/(?:device-lab|web-prism|editor)(?:/|$)# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#">
+  ErrorDocument 404 /404.html
+</If>
+<IfModule mod_headers.c>
+  Header onsuccess unset Content-Security-Policy "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always unset Content-Security-Policy "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set Content-Security-Policy "default-src 'none'; base-uri 'none'; object-src 'none'; script-src 'self' 'sha256-766V7t7Morg+QQpzqZAMbYhAFNBNWPpO4dTAW5AdWfc=' 'sha256-NqZx7o9n8qVGZ6SP4f/WIVqTBA+EImDnxp9yJ9gWm4M='; script-src-attr 'none'; style-src 'self' 'sha256-Rgn8fa5kZtBVmDaS2zoL9HWM2FR9lOoyoEPL6hQolIQ='; style-src-attr 'none'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; worker-src 'none'; manifest-src 'none'; frame-src 'none'; frame-ancestors 'self'; form-action 'none'" "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header onsuccess unset X-Frame-Options "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always unset X-Frame-Options "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set X-Frame-Options "SAMEORIGIN" "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header onsuccess unset X-Content-Type-Options "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always unset X-Content-Type-Options "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set X-Content-Type-Options "nosniff" "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header onsuccess unset Referrer-Policy "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always unset Referrer-Policy "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin" "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header onsuccess unset Permissions-Policy "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always unset Permissions-Policy "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()" "expr=%{REQUEST_FILENAME} == %{DOCUMENT_ROOT} . '/404.html' && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+</IfModule>
+# END KIRMOON CUSTOM 404

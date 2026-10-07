@@ -1,0 +1,23 @@
+# Local dependencies, reports and temporary files
+node_modules/
+.qa/
+output/
+test-results/
+*.log
+*.tmp
+*.bak
+*.zip
+.DS_Store
+Thumbs.db
+
+# Local credentials and private configuration
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+*.pfx
+*.p12
+.codex/
+.agents/

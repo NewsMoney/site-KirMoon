@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Página não encontrada | KirMoon</title>
+<meta name="description" content="A página que você procurou não existe ou mudou de endereço. Volte ao início da KirMoon.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#05070b">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 20 20'%3E%3Ccircle r='9.2' fill='%2305070b' stroke='%23eceef1' stroke-opacity='.4' stroke-width='.8'/%3E%3Cpath d='M0 -9.2 A9.2 9.2 0 0 1 0 9.2 A4.6 9.2 0 0 0 0 -9.2Z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+/* 404, KirMoon
+   Identidade do kirmoon.com: fundo espacial, prata lunar, Barlow / Barlow Condensed / JetBrains Mono.
+   Todos os caminhos são absolutos porque a página 404 aparece em qualquer endereço. */
+
+@font-face{font-family:"Barlow";font-weight:300;font-display:swap;src:url(/assets/fonts/barlow-300-latin-889347d7bc19.woff2) format("woff2")}
+@font-face{font-family:"Barlow";font-weight:400;font-display:swap;src:url(/assets/fonts/barlow-400-latin-b0a8ad37ac45.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-weight:600;font-display:swap;src:url(/assets/fonts/barlow-condensed-600-latin-215a93c696f4.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-weight:700;font-display:swap;src:url(/assets/fonts/barlow-condensed-700-latin-3787a5a41917.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:400;font-display:swap;src:url(/assets/fonts/jetbrains-mono-400-latin-14425ba9c695.woff2) format("woff2")}
+
+:root{
+  --void:#05070b; --lunar:#eceef1; --dust:#7d8591; --muted:#aeb7c2;
+  --line:rgba(236,238,241,.12); --line-strong:rgba(236,238,241,.34);
+  --glow:#c8d6e6; --accent:#a5c5e0;
+  --display:"Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --gutter:clamp(16px,4vw,56px);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--void);-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:transparent;color:var(--lunar);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(circle at 24px 30px,rgba(255,255,255,.55) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 142px 88px,rgba(206,222,241,.4) 0 .85px,transparent 1.3px),
+    radial-gradient(circle at 258px 36px,rgba(255,255,255,.32) 0 .8px,transparent 1.2px),
+    radial-gradient(circle at 330px 150px,rgba(220,232,248,.42) 0 1px,transparent 1.45px),
+    radial-gradient(circle at 74px 168px,rgba(255,255,255,.28) 0 .75px,transparent 1.15px);
+  background-size:400px 200px;opacity:.38}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 46% 42% at 50% 34%,rgba(132,158,191,.12),transparent 72%),radial-gradient(ellipse 40% 50% at 10% 90%,rgba(200,214,230,.04),transparent 74%)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+[hidden]{display:none!important}
+
+/* ---------- Cabeçalho ---------- */
+.top{padding:calc(env(safe-area-inset-top,0px) + 16px) var(--gutter) 16px}
+.top-row{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1240px;margin-inline:auto}
+.brand{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.km-wordmark{display:flex;align-items:center;font:300 21px/1 var(--body);letter-spacing:.42em;color:#fff}
+.km-wordmark svg{width:1.08em;height:1.08em;flex:none;margin-right:.42em;overflow:visible;filter:drop-shadow(0 0 3px #ffffff55)}
+.km-wordmark span:last-child{letter-spacing:0}
+.top-tag{font:400 11px/1.5 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--dust)}
+
+/* ---------- Conteúdo ---------- */
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vh,48px) var(--gutter) clamp(40px,8vh,88px)}
+.lost{width:100%;max-width:760px;text-align:center}
+
+.code{display:flex;align-items:center;justify-content:center;gap:.04em;margin:0 0 clamp(18px,3vh,30px);font:700 clamp(132px,30vw,300px)/.8 var(--display);letter-spacing:-.01em;color:var(--lunar);user-select:none}
+.code > span{display:block;text-shadow:0 0 42px rgba(200,214,230,.18)}
+.moon{position:relative;z-index:2;width:.84em;height:.84em;margin-inline:.15em;flex:none}
+.moon-body{position:absolute;inset:0;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 18px rgba(220,235,255,.35));animation:drift 7s ease-in-out infinite}
+.orbit,.sat-track{position:absolute;left:-18%;top:-18%;width:136%;height:136%;overflow:visible;pointer-events:none;transform:rotate(-14deg)}
+.orbit ellipse{fill:none;stroke:var(--line-strong);stroke-width:1;stroke-dasharray:3 6;vector-effect:non-scaling-stroke}
+.sat-path{position:absolute;left:2%;right:2%;top:10%;bottom:10%}
+.sat{position:absolute;left:0;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:#fff;box-shadow:0 0 10px 2px rgba(220,235,255,.7);
+  animation:orbit-x 4.5s ease-in-out infinite alternate,orbit-y 4.5s ease-in-out -2.25s infinite alternate}
+@keyframes orbit-x{from{left:0}to{left:100%}}
+@keyframes orbit-y{from{top:0}to{top:100%}}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-3%)}}
+
+.eyebrow{margin:0 0 18px;font:400 11px/1.5 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0;font:700 clamp(38px,6vw,68px)/.94 var(--display);text-transform:uppercase;letter-spacing:.005em;text-wrap:balance}
+.lede{margin:20px auto 0;max-width:32em;font-size:clamp(16.5px,1.45vw,19px);line-height:1.62;color:var(--muted);text-wrap:pretty}
+
+.path{display:inline-flex;align-items:center;gap:10px;max-width:100%;margin:26px 0 0;padding:10px 16px;border:1px solid var(--line);background:rgba(8,12,18,.6);font:400 13px/1.4 var(--mono);color:var(--muted)}
+.path code{font:inherit;color:var(--lunar);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.path i{font-style:normal;flex:none;color:#f08a7e}
+
+
+
+/* ---------- Rodapé ---------- */
+.foot{padding:20px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 22px);border-top:1px solid var(--line)}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;max-width:1240px;margin-inline:auto;font:400 11px/1.6 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dust)}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--lunar)}
+
+/* ---------- Entrada ---------- */
+.rise{opacity:0;transform:translateY(14px);animation:rise .9s var(--ease) forwards}
+.rise:nth-child(2){animation-delay:.08s}.rise:nth-child(3){animation-delay:.16s}.rise:nth-child(4){animation-delay:.24s}.rise:nth-child(5){animation-delay:.32s}.rise:nth-child(6){animation-delay:.4s}.rise:nth-child(7){animation-delay:.48s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+@media (max-width:560px){
+  .top-tag{display:none}
+  .km-wordmark{font-size:18px}
+  .path{display:flex}
+}
+@media (prefers-reduced-motion:reduce){
+  .rise{opacity:1;transform:none;animation:none}
+  .moon-body,.sat{animation:none}
+  .sat{left:88%;top:12%}
+}
+
+/* KirMoon's current wordmark and footer. */
+.brand{--brand-size:21px;position:relative;display:inline-flex;align-items:center;padding-block:12px;min-height:44px;isolation:isolate}
+.wm{position:relative;display:inline-flex;align-items:center;font-family:var(--body);font-weight:300;font-size:var(--brand-size);line-height:1;letter-spacing:.42em;margin-right:-.42em;color:#fff}
+.wm-text,.wm-n{display:inline-block;line-height:1;padding:0;margin:0}.wm-n{transform:translateY(-.018em)}
+.cres{width:1.08em;height:1.08em;margin-right:.42em;flex:none;overflow:visible;filter:drop-shadow(0 0 3px #ffffff8c)}
+.brand-arc{position:absolute;z-index:-1;left:-14%;right:-10%;top:0;width:124%;height:calc(var(--brand-size) * 2);overflow:visible;pointer-events:none}
+.brand-arc path{fill:none;stroke:#c9ced6;stroke-width:1;vector-effect:non-scaling-stroke;stroke-opacity:.8}
+.foot-row{align-items:center;letter-spacing:.06em}.foot-legal{line-height:1.7}.foot-home{display:inline-flex;align-items:center;min-height:44px}.foot-row>a{min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:560px){.brand{--brand-size:18px}.foot-row{align-items:flex-start;gap:8px 20px}.foot-legal{flex-basis:100%}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="/" aria-label="KirMoon, página inicial">
+    <svg class="brand-arc" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 42 C 100 26 200 12 300 6"/></svg>
+    <span class="wm" aria-hidden="true"><span class="wm-text">KIRMO</span><svg class="cres" viewBox="-10 -10 20 20"><circle r="9.2" fill="none" stroke="currentColor" stroke-opacity=".38" stroke-width=".7"/><path d="M0 -9.2 A9.2 9.2 0 0 1 0 9.2 A4.6 9.2 0 0 0 0 -9.2Z" fill="currentColor"/></svg><span class="wm-n">N</span></span>
+  </a>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="lost" aria-labelledby="titulo">
+    <div class="code rise" aria-hidden="true">
+      <span>4</span>
+      <span class="moon">
+        <svg class="orbit" viewBox="0 0 200 100" preserveAspectRatio="none"><ellipse cx="100" cy="50" rx="96" ry="40"/></svg>
+        <svg class="moon-body" viewBox="-10 -10 20 20"><circle r="9.2" fill="#05070b" stroke="#eceef1" stroke-opacity=".45" stroke-width=".55"/><path d="M0 -9.2 A9.2 9.2 0 0 1 0 9.2 A4.6 9.2 0 0 0 0 -9.2Z" fill="#fff"/></svg>
+        <span class="sat-track"><span class="sat-path"><span class="sat"></span></span></span>
+      </span>
+      <span>4</span>
+    </div>
+
+    <p class="eyebrow rise">Erro 404 · Página não encontrada</p>
+    <h1 id="titulo" class="rise">Esta página saiu de órbita</h1>
+    <p class="lede rise">O endereço que você tentou acessar não existe, mudou de lugar ou nunca chegou a ser lançado.</p>
+
+    <p class="path rise" id="path" hidden><i aria-hidden="true">✕</i><code id="path-text"></code></p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-row">
+    <span class="foot-legal">© <span id="ano">2026</span> Kirmoon Dev Solutions LTDA<br>CNPJ: 69.353.537/0001-31</span><a class="foot-home" href="/">Voltar ao início</a>
+    <a href="mailto:contato@kirmoon.com">contato@kirmoon.com</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Mostra o endereço que não foi encontrado (como texto, nunca como HTML).
+  try {
+    var p = decodeURIComponent(location.pathname + location.search);
+    if (p && p !== '/' && !/\/404(\.html)?$/i.test(location.pathname)) {
+      document.getElementById('path-text').textContent = location.host + p;
+      document.getElementById('path').hidden = false;
+    }
+  } catch (e) {}
+
+  document.getElementById('ano').textContent = new Date().getFullYear();
+})();
+</script>
+<script>
+(function(){var language='pt-BR';try{var preference=localStorage.getItem('kirmoon-language');if(preference==='en'||preference==='es')language=preference;}catch(e){}document.documentElement.lang=language;var column=language==='en'?3:language==='es'?4:2;var records=[["title","text","Página não encontrada | KirMoon","Page not found | KirMoon","Página no encontrada | KirMoon"],["meta[name=\"description\"]","content","A página que você procurou não existe ou mudou de endereço. Volte ao início da KirMoon.","The page you were looking for does not exist or has moved. Return to the KirMoon home page.","La página que buscabas no existe o cambió de dirección. Vuelve al inicio de KirMoon."],[".eyebrow","text","Erro 404 · Página não encontrada","Error 404 · Page not found","Error 404 · Página no encontrada"],["#titulo","text","Esta página saiu de órbita","This page is out of orbit","Esta página salió de órbita"],[".lede","text","O endereço que você tentou acessar não existe, mudou de lugar ou nunca chegou a ser lançado.","The address you tried to visit does not exist, has moved, or was never published.","El enlace que intentaste abrir no existe, cambió de ubicación o nunca llegó a publicarse."],[".brand","aria-label","KirMoon, página inicial","KirMoon, home page","KirMoon, página de inicio"],[".foot-home","text","Voltar ao início","Back to home","Volver al inicio"]];records.forEach(function(row){var element=document.querySelector(row[0]);if(!element)return;if(row[1]==='text')element.textContent=row[column];else element.setAttribute(row[1],row[column]);});})();
+/* A órbita curta cruza o centro do crescente, como a órbita da logo inicial.
+   Medidas locais mantêm o encaixe durante o zoom e após carregar a fonte. */
+(() => {
+  const brands = [...document.querySelectorAll('.brand')];
+  function measureArc(brand) {
+    const arc = brand.querySelector('.brand-arc');
+    const moon = brand.querySelector('.cres');
+    const path = arc?.querySelector('path');
+    const naturalWidth = brand.offsetWidth;
+    if (!path || !moon || !naturalWidth) return null;
+    const br = brand.getBoundingClientRect();
+    const mr = moon.getBoundingClientRect();
+    const ar = arc.getBoundingClientRect();
+    if (!ar.width || !br.width) return null;
+    const scale = br.width / naturalWidth;
+    const x = (mr.left + mr.width / 2 - ar.left) / ar.width * 300;
+    let lo = 0, hi = path.getTotalLength();
+    for (let i = 0; i < 24; i++) {
+      const mid = (lo + hi) / 2;
+      if (path.getPointAtLength(mid).x < x) lo = mid;
+      else hi = mid;
+    }
+    const y = path.getPointAtLength((lo + hi) / 2).y;
+    const top = `${(mr.top + mr.height / 2 - br.top - y / 40 * ar.height) / scale}px`;
+    // Recorta a extensão esquerda no centro visual do R, sem mover a curva.
+    const letters = brand.querySelector('.wm-text');
+    const text = letters?.firstChild;
+    let clipPath = null;
+    if (text?.nodeType === Node.TEXT_NODE && text.textContent.startsWith('KIR')) {
+      const range = document.createRange();
+      range.setStart(text, 2);
+      range.setEnd(text, 3);
+      const rr = range.getBoundingClientRect();
+      const tracking = (parseFloat(getComputedStyle(letters).letterSpacing) || 0) * scale;
+      const centerR = rr.left + (rr.width - tracking) / 2;
+      const cut = (centerR - ar.left) / ar.width * 100;
+      clipPath = `inset(-100% -100% -100% ${cut}%)`;
+    }
+    return {arc, top, clipPath};
+  }
+  const alignAll = () => {
+    // Measure both brands before changing either one's layout.
+    const updates = brands.map(measureArc).filter(Boolean);
+    updates.forEach(({arc, top, clipPath}) => {
+      if (arc.style.top !== top) arc.style.top = top;
+      if (clipPath && arc.style.clipPath !== clipPath) arc.style.clipPath = clipPath;
+    });
+  };
+  const observer = new ResizeObserver(alignAll);
+  brands.forEach(brand => observer.observe(brand));
+  document.fonts.ready.then(alignAll);
+  alignAll();
+})();
+
+</script>
+</body>
+</html>
