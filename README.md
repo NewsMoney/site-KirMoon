@@ -11,7 +11,7 @@ Arquivos de publicação do [site institucional da KirMoon](https://kirmoon.com/
 - Ícones, `robots.txt` e `sitemap.xml` na raiz.
 - `docs/snapshot-20261007.json`: origem e hashes SHA-256 dos 199 arquivos de publicação.
 
-As aplicações completas Device Lab e Web Prisma são projetos separados. Este repositório contém os cards e links desses produtos no site institucional.
+As aplicações completas Device Lab, Web Prisma e Tech Atlas são projetos separados. Este repositório contém os cards e links desses produtos no site institucional. O card do Tech Atlas, no painel de Assessoria técnica, aponta para `https://www.kirmoon.com/tech-atlas` e mostra um exemplo fictício do produto.
 
 ## Origem da primeira versão
 
