@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 160.96875 39" width="160.96875" height="39" role="img" aria-labelledby="km-logo-title km-logo-desc">
+  <title id="km-logo-title">KirMoon</title>
+  <desc id="km-logo-desc">Logo oficial extraída do WebPrisma: letras Barlow Light, lua crescente e arco orbital com brilho animado.</desc>
+  <style>
+    .km-logo-glint{animation:km-logo-enter 1.15s ease-out both}
+    svg:hover .km-logo-glint{animation-name:km-logo-hover}
+    @keyframes km-logo-enter{0%{stroke-dashoffset:1;opacity:0}14%,76%{opacity:.9}100%{stroke-dashoffset:0;opacity:0}}
+    @keyframes km-logo-hover{0%{stroke-dashoffset:1;opacity:0}14%,76%{opacity:.9}100%{stroke-dashoffset:0;opacity:0}}
+    @media(prefers-reduced-motion:reduce){.km-logo-glint,svg:hover .km-logo-glint{animation:none;opacity:0}}
+  </style>
+  <defs>
+    <clipPath id="km-logo-arc-clip"><rect x="30.029078" y="-100" width="300" height="300"/></clipPath>
+    <filter id="km-logo-moon-glow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB"><feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#fff" flood-opacity=".333333"/></filter>
+    <filter id="km-logo-glint-glow" x="-50%" y="-100%" width="200%" height="300%" color-interpolation-filters="sRGB"><feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#dcebff"/></filter>
+  </defs>
+  <g clip-path="url(#km-logo-arc-clip)">
+    <svg x="-20.84375" y="-1.671875" width="148.96875" height="42" viewBox="0 0 300 40" preserveAspectRatio="none" overflow="visible">
+      <path d="M0 42 C 100 26 200 12 300 6" pathLength="1" fill="none" stroke="#c9ced6" stroke-width="1" stroke-opacity=".8" vector-effect="non-scaling-stroke"/>
+      <path class="km-logo-glint" d="M0 42 C 100 26 200 12 300 6" pathLength="1" fill="none" stroke="#f2f6fb" stroke-width="2" stroke-linecap="round" stroke-opacity=".92" stroke-dasharray=".035 .965" stroke-dashoffset="1" opacity="0" vector-effect="non-scaling-stroke" filter="url(#km-logo-glint-glow)"/>
+    </svg>
+  </g>
+  <g fill="#fff">
+    <path transform="translate(0 19.828125) scale(0.021 -0.021)" d="M102 10V690Q102 700 112 700H145Q155 700 155 690V337Q155 335 157.0 334.0Q159 333 160 335L498 695Q503 700 510 700H547Q553 700 555.0 696.5Q557 693 553 688L303 413Q301 411 303 407L576 12L578 7Q578 0 569 0H530Q522 0 518 6L267 369Q266 371 264.0 371.0Q262 371 261 370L157 263Q155 261 155 258V10Q155 0 145 0H112Q102 0 102 10Z"/>
+    <path transform="translate(21.5625 19.828125) scale(0.021 -0.021)" d="M102 10V690Q102 700 112 700H145Q155 700 155 690V10Q155 0 145 0H112Q102 0 102 10Z"/>
+    <path transform="translate(35.796875 19.828125) scale(0.021 -0.021)" d="M505 7 352 325Q351 328 348 328H159Q155 328 155 324V10Q155 0 145 0H112Q102 0 102 10V690Q102 700 112 700H364Q448 700 499.5 648.0Q551 596 551 512Q551 441 512.0 392.5Q473 344 407 332Q402 330 404 327L557 12Q558 10 558 7Q558 0 550 0H517Q508 0 505 7ZM155 649V376Q155 372 159 372H359Q421 372 459.5 411.0Q498 450 498 512Q498 575 459.5 614.0Q421 653 359 653H159Q155 653 155 649Z"/>
+    <path transform="translate(57.46875 19.828125) scale(0.021 -0.021)" d="M569 700H603Q613 700 613 690V10Q613 0 603 0H570Q560 0 560 10V597Q560 600 558.0 600.5Q556 601 555 598L379 326Q374 319 367 319H350Q343 319 338 326L160 597Q159 600 157.0 599.0Q155 598 155 595V10Q155 0 145 0H112Q102 0 102 10V690Q102 700 112 700H147Q154 700 159 693L355 393Q356 392 358.0 392.0Q360 392 361 393L557 693Q562 700 569 700Z"/>
+    <path transform="translate(81.328125 19.828125) scale(0.021 -0.021)" d="M79 219V481Q79 548 107.5 599.5Q136 651 188.5 679.5Q241 708 310 708Q379 708 432.0 679.5Q485 651 514.0 599.5Q543 548 543 481V219Q543 152 514.0 100.5Q485 49 432.0 20.5Q379 -8 310 -8Q241 -8 188.5 20.5Q136 49 107.5 100.5Q79 152 79 219ZM490 217V482Q490 562 440.5 611.5Q391 661 310 661Q230 661 181.0 611.5Q132 562 132 482V217Q132 136 181.0 87.0Q230 38 310 38Q391 38 440.5 87.0Q490 136 490 217Z"/>
+    <path transform="translate(134.703125 19.450127) scale(0.021 -0.021)" d="M534 700H567Q577 700 577 690V10Q577 0 567 0H534Q527 0 522 7L160 594Q159 597 157.0 596.5Q155 596 155 593V10Q155 0 145 0H112Q102 0 102 10V690Q102 700 112 700H146Q153 700 158 693L519 106Q520 103 522.0 103.5Q524 104 524 107V690Q524 700 534 700Z"/>
+  </g>
+  <g transform="translate(114.554688 11.335938) scale(1.133594)" filter="url(#km-logo-moon-glow)">
+    <circle r="9.2" fill="none" stroke="#fff" stroke-opacity=".38" stroke-width=".7"/>
+    <path d="M0 -9.2 A9.2 9.2 0 0 1 0 9.2 A4.6 9.2 0 0 0 0 -9.2Z" fill="#fff"/>
+  </g>
+</svg>
