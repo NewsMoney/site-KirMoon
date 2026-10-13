@@ -21,10 +21,12 @@ O `.htaccess` veio do pacote local validado; não foi obtido diretamente do serv
 
 ## Publicação e manutenção
 
-O site é estático e não exige Node ou npm no servidor. Envie os arquivos de publicação à raiz do domínio em uma hospedagem Apache 2.4 compatível com as regras de `.htaccess`.
+O site não exige Node ou npm no servidor. A indicação opcional de idioma por país usa PHP e o lookup offline preparado no Admin; sem configuração, a página usa o idioma principal do navegador e mantém a troca manual. Envie os arquivos de publicação à raiz do domínio em uma hospedagem Apache 2.4 compatível com as regras de `.htaccess`.
 
 Preserve as pastas das aplicações independentes e as regras próprias da hospedagem. Publique os HTMLs e o `.htaccess` correspondente juntos: alterações em scripts ou estilos inline exigem atualizar os hashes da política CSP. Os links de contato e de produtos apontam para serviços externos; a execução 3D admite a biblioteca Three.js da CDN indicada no HTML e na política CSP.
 
 `README.md`, `docs/` e arquivos de Git são documentação e controle de versão; não precisam ser enviados ao `public_html`.
+
+A atualização de idioma, rodapé e rota `/privacy` de 11/10/2026 foi publicada com autorização e está descrita em [docs/site-update-20261011.md](docs/site-update-20261011.md). A redação aprovada está em `km-stats/privacy.html`; `drafts/` e `src/` são arquivos de trabalho e não devem ser enviados à hospedagem.
 
 O `.gitattributes` preserva os bytes dos arquivos publicados, inclusive as quebras de linha, para evitar alterações automáticas pelo Git no Windows.

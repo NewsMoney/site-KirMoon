@@ -1,0 +1,12 @@
+# BEGIN KIRMOON LOCALE NO CACHE
+<Files "locale.php">
+  <IfModule mod_expires.c>
+    ExpiresActive Off
+  </IfModule>
+  <IfModule mod_headers.c>
+    Header onsuccess unset Cache-Control
+    Header always set Cache-Control "private, no-store, max-age=0"
+    Header always unset Expires
+  </IfModule>
+</Files>
+# END KIRMOON LOCALE NO CACHE

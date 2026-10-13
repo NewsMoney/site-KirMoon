@@ -1,0 +1,34 @@
+{
+  "version": "2026-10-11.site.3",
+  "baseline_url": "https://kirmoon.com/",
+  "baseline_sha256": "a68aba4901285216ea33a460a3cf864b504119cb007e66fe1f24e0c4e1d6add5",
+  "index_sha256": "59222f8caea70aea70fb32bf87ffc396c4f690ad5b996272ac608fb45168c294",
+  "language_asset": "assets/site-language-20261011.50b2edb5108a.js",
+  "files": [
+    "index.html",
+    "assets/site-language-20261011.50b2edb5108a.js",
+    "km-stats/locale.php",
+    "km-stats/privacy.html",
+    "km-stats/notice.css"
+  ],
+  "inline_scripts_styles_unchanged": true,
+  "privacy_url": "/privacy",
+  "privacy_text": "Explicitly approved text copied from Admin privacy.html",
+  "privacy_approved_sha256": "49c343afba635cf5ed2375ee499b5eef16910d3db71be8347f80fdaf7c63ced6",
+  "publication_status": "Published and verified via authorized joint site/statistics deployment",
+  "apache_install": "Merge only the KIRMOON PRIVACY ROUTE block into the current hosting .htaccess; do not replace current hosting configuration",
+  "country_source": "Admin traffic.php + private DB-IP SQLite configuration; not installed by this package",
+  "legacy_policy": "Preserve valid old key; cannot distinguish automatic from manual",
+  "new_policy": "Manual > server locale > primary browser pt/es > en",
+  "installation_files": [
+    "installation/privacy-route.htaccess",
+    "installation/locale-cache.htaccess"
+  ],
+  "file_sha256": {
+    "index.html": "59222f8caea70aea70fb32bf87ffc396c4f690ad5b996272ac608fb45168c294",
+    "assets/site-language-20261011.50b2edb5108a.js": "50b2edb5108ad8a23b29c1a5554a418b36d3a846e3dacd5a35ea85845f47184f",
+    "km-stats/locale.php": "246365d71a2ad2e9bcdc02bd1e453bc2af84701b9b938b43cd07875ed9cf95a9",
+    "km-stats/privacy.html": "49c343afba635cf5ed2375ee499b5eef16910d3db71be8347f80fdaf7c63ced6",
+    "km-stats/notice.css": "a62a1b43c336aa417e4bf1cdb8bde0063afc5200db5fc03ffc636cfbfa835f14"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "kirmoon-site",
+  "private": true,
+  "scripts": {
+    "build:language": "node scripts/build-language.cjs"
+  },
+  "devDependencies": {
+    "terser": "5.51.2"
+  }
+}

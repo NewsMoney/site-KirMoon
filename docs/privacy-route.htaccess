@@ -1,0 +1,18 @@
+# BEGIN KIRMOON PRIVACY ROUTE
+# Redirect only an original request for the legacy URL, never an internal rewrite.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?kirmoon\.com(?::(?:80|443))?$ [NC]
+  RewriteCond %{THE_REQUEST} \s/+km-stats/privacy\.html(?:[?\s]) [NC]
+  RewriteRule ^km-stats/privacy\.html$ /privacy [R=308,L]
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?kirmoon\.com(?::(?:80|443))?$ [NC]
+  RewriteRule ^privacy/$ /privacy [R=308,L]
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?kirmoon\.com(?::(?:80|443))?$ [NC]
+  RewriteRule ^privacy/?$ km-stats/privacy.html [END]
+</IfModule>
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'none'; base-uri 'none'; object-src 'none'; script-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-ancestors 'self'; form-action 'none'" "expr=%{REQUEST_URI} =~ m#^/(?:privacy/?|km-stats/privacy\.html)$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set X-Content-Type-Options "nosniff" "expr=%{REQUEST_URI} =~ m#^/(?:privacy/?|km-stats/privacy\.html)$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()" "expr=%{REQUEST_URI} =~ m#^/(?:privacy/?|km-stats/privacy\.html)$# && req('Host') =~ m#^(?i:(?:www\.)?kirmoon\.com)(?::(?:80|443))?$#"
+</IfModule>
+# END KIRMOON PRIVACY ROUTE
